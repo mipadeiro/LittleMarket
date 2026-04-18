@@ -17,6 +17,8 @@ public class NewPlayerController : MonoBehaviour
     public Transform playerHands; //location to place held items
     public GameObject heldObject = null; // reference to currently held item
 
+    public bool pickedUpThisStep;
+    public bool droppedThisStep;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,7 +26,7 @@ public class NewPlayerController : MonoBehaviour
         
     }
 
-    // Input Action callback for movement (WASD or Ljoystick)
+    // Input Action callback for movement (WASD or left joystick)
     public void Move(InputAction.CallbackContext context)
     {
         // Read the 2D input value (e.g., Vector2(-1, 0) for left) and convert to Vector3
@@ -88,6 +90,7 @@ public class NewPlayerController : MonoBehaviour
                 {
                     collider.enabled = false; // Disable collider to prevent interference
                 }
+                pickedUpThisStep = true;
             }
         }
     }
@@ -109,18 +112,19 @@ public class NewPlayerController : MonoBehaviour
             }
             Debug.Log("Dropped: " + heldObject.name);
             heldObject = null; // Clear reference to held object
+            droppedThisStep = true;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Create a movement vector from input (x from left/right, z from up/down, y=0 for horizontal)
+        //Create a movement vector from input (x from left/right, z from up/down, y=0 for horizontal)
         Vector3 move = new Vector3(moveInput.x, 0, moveInput.y);
-        // Move the character horizontally based on input, speed, and time delta for frame-rate independence
+        //Move the character horizontally based on input, speed, and time delta for frame-rate independence
         controller.Move(move * speed * Time.deltaTime);
 
-        // Rotate player towards movement direction
+        //Rotate player towards movement direction
         if (moveInput.magnitude > 0) // Only rotate if there's input
         {
             // Calculate the direction to face (convert 2D input to 3D world direction)
@@ -136,10 +140,10 @@ public class NewPlayerController : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
-    // LateUpdate is called after all Update calls, ensuring held object syncs after player movement
+    //LateUpdate is called after all Update calls, ensuring held object syncs after player movement
     void LateUpdate()
     {
-        // If holding an object, manually update its position to follow playerHands exactly
+        //If holding an object, manually update its position to follow playerHands exactly
         if (heldObject != null && playerHands != null)
         {
             heldObject.transform.position = playerHands.position;
