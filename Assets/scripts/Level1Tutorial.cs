@@ -6,13 +6,17 @@ public class Level1Tutorial : MonoBehaviour
     public GameObject tutorialBG;
     public TMPro.TextMeshProUGUI tutorialText;
     public NewPlayerController newPlayerController;
+    public GameObject bell;
+    public GameObject scanner;
+    public GameObject bag;
 
-    private enum TutorialStep { Move, Jump, PickUp, Drop, Completed }
+    private enum TutorialStep { Greeting,Move, Jump, PickUp, Drop, Scan, Bag, Bell, Completed }
     private enum DeviceType { Unknown, Keyboard, Gamepad }
 
     private TutorialStep currentStep = TutorialStep.Move;
     private DeviceType currentDevice = DeviceType.Unknown;
     private bool jumpPressed;
+
 
     void Start()
     {
@@ -20,7 +24,7 @@ public class Level1Tutorial : MonoBehaviour
             newPlayerController = FindFirstObjectByType<NewPlayerController>();
 
         tutorialBG.SetActive(true);
-        currentStep = TutorialStep.Move;
+        currentStep = TutorialStep.Greeting;
         jumpPressed = false;
         UpdateTutorialText();
     }
@@ -38,6 +42,26 @@ public class Level1Tutorial : MonoBehaviour
             AdvanceStep();
             return;
         }
+    }
+
+    public void OnSubmit(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+            return;
+
+        UpdateCurrentDevice(context.control.device);
+        if (currentStep == TutorialStep.Greeting)
+            AdvanceStep();
+    }
+
+    public void OnLeftClick(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+            return;
+
+        UpdateCurrentDevice(context.control.device);
+        if (currentStep == TutorialStep.Greeting)
+            AdvanceStep();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -113,28 +137,40 @@ public class Level1Tutorial : MonoBehaviour
         string actionText = "";
         switch (currentStep)
         {
+            case TutorialStep.Greeting:
+                actionText = "Our brave hero's first day as a shopkeeper! How exciting, but also daunting";
+                break;
             case TutorialStep.Move:
                 actionText = currentDevice == DeviceType.Gamepad
-                    ? "Use the left stick to move."
-                    : "Use WASD or arrow keys to move.";
+                    ? "Thankfully, our protagonist is capable of impressive physical feats. Like walking, with the left joystick."
+                    : "Thankfully, our protagonist is capable of impressive physical feats. Like walking, with WASD.";
                 break;
             case TutorialStep.Jump:
                 actionText = currentDevice == DeviceType.Gamepad
-                    ? "Press the A (south) button to jump."
-                    : "Press Space to jump.";
+                    ? "And that's not all! Their athleticism (the south button) allows them to jump great heights."
+                    : "And that's not all! Their athleticism (the spacebar) allows them to jump great heights.";
                 break;
             case TutorialStep.PickUp:
                 actionText = currentDevice == DeviceType.Gamepad
-                    ? "Press the pickup button to grab an item."
-                    : "Press the pickup key to grab an item.";
+                    ? "With their significant strength, and the east button,they can pick up almost anything! Even if it's much bigger than them. "
+                    : "With their significant strength, and the left mouse button,they can pick up almost anything! Even if it's much bigger than them. ";
                 break;
             case TutorialStep.Drop:
                 actionText = currentDevice == DeviceType.Gamepad
-                    ? "Press the drop button to release the item."
-                    : "Press the drop key to release the item.";
+                    ? "And, of course, swiftly put them down. (With the east button again)."
+                    : "And, of course, swiftly put them down. (With the left mouse button again).";
+                break;
+            case TutorialStep.Scan:
+                actionText = "Now, our intrepid shopkeep can use all of these skills together to register items to the book. They need only set the item down on the symbol etched into the table.";
+                break;
+            case TutorialStep.Bag:
+                actionText = "Lastly, they must set the registered item into the client's basket.";
+                break;
+            case TutorialStep.Bell:
+                actionText = "Now that all the customer's items have been safely put away, the hero shall end the transaction by jumping on the bell to ring it.";
                 break;
             case TutorialStep.Completed:
-                actionText = "Great job! You completed the tutorial.";
+                actionText = "What an aweinspiring performance! This shop is truly in safe hands. Now it is up to our hero to use their skills for the rest of the day!";
                 break;
         }
 
