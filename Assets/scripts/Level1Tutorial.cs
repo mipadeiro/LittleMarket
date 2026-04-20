@@ -9,6 +9,7 @@ public class Level1Tutorial : MonoBehaviour
     public GameObject bell;
     public GameObject scanner;
     public GameObject bag;
+    public FirstItem tutorialItem;
 
     private enum TutorialStep { Greeting,Move, Jump, PickUp, Drop, Scan, Bag, Bell, Completed }
     private enum DeviceType { Unknown, Keyboard, Gamepad }
@@ -16,6 +17,7 @@ public class Level1Tutorial : MonoBehaviour
     private TutorialStep currentStep = TutorialStep.Move;
     private DeviceType currentDevice = DeviceType.Unknown;
     private bool jumpPressed;
+    private bool scannedThisStep;
 
 
     void Start()
@@ -42,6 +44,26 @@ public class Level1Tutorial : MonoBehaviour
             AdvanceStep();
             return;
         }
+
+        if (currentStep == TutorialStep.Scan && scannedThisStep)
+        {
+            AdvanceStep();
+            return;
+        }
+
+        if (currentStep == TutorialStep.Bag && tutorialItem != null && tutorialItem.isInCart)
+        {
+            AdvanceStep();
+            return;
+        }
+    }
+
+    public void OnItemScanned()
+    {
+        if (currentStep == TutorialStep.Scan)
+        {
+            scannedThisStep = true;
+        }
     }
 
     public void OnSubmit(InputAction.CallbackContext context)
@@ -54,7 +76,7 @@ public class Level1Tutorial : MonoBehaviour
             AdvanceStep();
     }
 
-    public void OnLeftClick(InputAction.CallbackContext context)
+    public void OnClick(InputAction.CallbackContext context)
     {
         if (!context.performed)
             return;
@@ -187,6 +209,7 @@ public class Level1Tutorial : MonoBehaviour
         }
 
         jumpPressed = false;
+        scannedThisStep = false;
         if (newPlayerController != null)
         {
             newPlayerController.pickedUpThisStep = false;
