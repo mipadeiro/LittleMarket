@@ -12,6 +12,7 @@ public class NewPlayerController : MonoBehaviour
 
     // References to components and variables for movement
     public CharacterController controller; // Unity's CharacterController for collision-aware movement
+    public Animator paulaAnimator; // Reference to the Animator component for controlling animations
     public Vector3 moveInput; // Stores horizontal/vertical input as a 3D vector (x, 0, z)
     public Vector3 velocity; // Tracks vertical velocity for jumping and gravity
     public Transform playerHands; //location to place held items
@@ -23,7 +24,7 @@ public class NewPlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Input Action callback for movement (WASD or left joystick)
@@ -45,6 +46,7 @@ public class NewPlayerController : MonoBehaviour
         {
             // Log confirmation
             Debug.Log("Should be jumping");
+            paulaAnimator.SetTrigger("jump"); // Trigger jump animation
             // Calculate initial upward velocity using kinematic equation: v = sqrt(2 * h * g)
             // (jumpHeight is positive, gravity is negative, so -2f * gravity makes it positive)
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
@@ -76,6 +78,7 @@ public class NewPlayerController : MonoBehaviour
             if (closestPickup != null)
             {
                 heldObject = closestPickup;
+                paulaAnimator.SetBool("holdingObject", true); // Set holding animation state
                 heldObject.transform.SetParent(playerHands); //make child object of hands
                 heldObject.transform.localPosition = Vector3.zero; //center on hands, do i want this?
                 heldObject.transform.localRotation = Quaternion.identity; //reset rotation
@@ -112,6 +115,7 @@ public class NewPlayerController : MonoBehaviour
             }
             Debug.Log("Dropped: " + heldObject.name);
             heldObject = null; // Clear reference to held object
+            paulaAnimator.SetBool("holdingObject", false); // Reset holding animation state
             droppedThisStep = true;
         }
     }
@@ -138,6 +142,15 @@ public class NewPlayerController : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         // Move the character vertically (handles jumping and falling)
         controller.Move(velocity * Time.deltaTime);
+
+        if(moveInput.magnitude > 0)
+        {
+            paulaAnimator.SetBool("isMoving", true);
+        }
+        else
+        {
+            paulaAnimator.SetBool("isMoving", false);
+        }
     }
 
     //LateUpdate is called after all Update calls, ensuring held object syncs after player movement

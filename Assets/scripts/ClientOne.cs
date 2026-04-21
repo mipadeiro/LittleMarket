@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 public class ClientOne : MonoBehaviour
 {
     public BellRinging bellScript;
-    public NewPlayerController newPlayerController;
     public GameObject customerSprite;
     public GameObject customerDialogue;
     public GameObject customerItems;
@@ -18,7 +17,10 @@ public class ClientOne : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (bellScript.hasRung == true)
+        {
+            EndTransaction();
+        }
     }
 
     public void StartTransaction()
@@ -26,11 +28,6 @@ public class ClientOne : MonoBehaviour
         customerItems.SetActive(true);
         customerSprite.SetActive(true);
         customerDialogue.SetActive(true);
-
-        if (bellScript.hasRung)
-        {
-            EndTransaction();
-        }
     }
 
     public void EndTransaction()
