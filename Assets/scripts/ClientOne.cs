@@ -4,9 +4,8 @@ using UnityEngine.InputSystem;
 public class ClientOne : MonoBehaviour
 {
     public BellRinging bellScript;
-    public GameObject customerSprite;
+    public GameObject customerOne;
     public GameObject customerDialogue;
-    public GameObject customerItems;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,17 +24,15 @@ public class ClientOne : MonoBehaviour
 
     public void StartTransaction()
     {
-        customerItems.SetActive(true);
-        customerSprite.SetActive(true);
+        customerOne.SetActive(true);
         customerDialogue.SetActive(true);
     }
 
     public void EndTransaction()
     {
-        customerItems.SetActive(false);
-        customerSprite.SetActive(false);
+        customerOne.SetActive(false);
         customerDialogue.SetActive(false);
-        bellScript.hasRung = false;
         bellScript.clientNumber = 2;
+        bellScript.hasRung = false;
     }
 }

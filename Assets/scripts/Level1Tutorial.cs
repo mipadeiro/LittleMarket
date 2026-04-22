@@ -6,9 +6,10 @@ public class Level1Tutorial : MonoBehaviour
     public GameObject tutorialBG;
     public TMPro.TextMeshProUGUI tutorialText;
     public NewPlayerController newPlayerController;
-    public GameObject bell;
+    public BellRinging bellScript;
     public GameObject scanner;
     public GameObject bag;
+    public GameObject tutorialController;
     public FirstItem tutorialItem;
 
     private enum TutorialStep { Greeting,Move, Jump, PickUp, Drop, Scan, Bag, Bell, Completed }
@@ -56,6 +57,12 @@ public class Level1Tutorial : MonoBehaviour
             AdvanceStep();
             return;
         }
+
+        if (currentStep == TutorialStep.Bell && bellScript.clientNumber == 2)
+        {
+            AdvanceStep();
+            return;
+        }
     }
 
     public void OnItemScanned()
@@ -74,6 +81,10 @@ public class Level1Tutorial : MonoBehaviour
         UpdateCurrentDevice(context.control.device);
         if (currentStep == TutorialStep.Greeting)
             AdvanceStep();
+
+        UpdateCurrentDevice(context.control.device);
+        if (currentStep == TutorialStep.Completed)
+            tutorialController.SetActive(false);
     }
 
     public void OnClick(InputAction.CallbackContext context)
