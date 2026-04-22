@@ -12,6 +12,16 @@ public class Level1Tutorial : MonoBehaviour
     public GameObject tutorialController;
     public FirstItem tutorialItem;
 
+    public GameObject wasdImg;
+    public GameObject spacebarImg;
+    public GameObject mouseImg;
+    public GameObject joystickImg;
+    public GameObject southButtonImg;
+    public GameObject eastButtonImg;
+    public GameObject submitButtonImg;
+    public GameObject westButtonImg;
+    public GameObject uiControlsImg;
+
     private enum TutorialStep { Greeting,Move, Jump, PickUp, Drop, Scan, Bag, Bell, Completed }
     private enum DeviceType { Unknown, Keyboard, Gamepad }
 
@@ -79,12 +89,18 @@ public class Level1Tutorial : MonoBehaviour
             return;
 
         UpdateCurrentDevice(context.control.device);
+
         if (currentStep == TutorialStep.Greeting)
             AdvanceStep();
 
-        UpdateCurrentDevice(context.control.device);
         if (currentStep == TutorialStep.Completed)
-            tutorialController.SetActive(false);
+        {
+            Debug.Log("Tutorial completed");
+            if (tutorialController != null)
+                tutorialController.SetActive(false);
+            else
+                Debug.LogError("tutorialController reference is null!");
+        }
     }
 
     public void OnClick(InputAction.CallbackContext context)
@@ -93,8 +109,23 @@ public class Level1Tutorial : MonoBehaviour
             return;
 
         UpdateCurrentDevice(context.control.device);
+
         if (currentStep == TutorialStep.Greeting)
             AdvanceStep();
+        
+        if (currentStep == TutorialStep.Completed)
+        {
+            Debug.Log("Tutorial completed");
+            if (tutorialController != null)
+            {
+                uiControlsImg.SetActive(false);
+                tutorialController.SetActive(false);
+            }
+            else
+            {
+                Debug.LogError("tutorialController reference is null!");
+            }
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -172,26 +203,36 @@ public class Level1Tutorial : MonoBehaviour
         {
             case TutorialStep.Greeting:
                 actionText = "Our brave hero's first day as a shopkeeper! How exciting, but also daunting";
+                mouseImg.SetActive(true);
+                submitButtonImg.SetActive(true);
                 break;
             case TutorialStep.Move:
                 actionText = currentDevice == DeviceType.Gamepad
                     ? "Thankfully, our protagonist is capable of impressive physical feats. Like walking, with the left joystick."
                     : "Thankfully, our protagonist is capable of impressive physical feats. Like walking, with WASD.";
+                wasdImg.SetActive(currentDevice == DeviceType.Keyboard);
+                joystickImg.SetActive(currentDevice == DeviceType.Gamepad);
                 break;
             case TutorialStep.Jump:
                 actionText = currentDevice == DeviceType.Gamepad
                     ? "And that's not all! Their athleticism (the south button) allows them to jump great heights."
                     : "And that's not all! Their athleticism (the spacebar) allows them to jump great heights.";
+                spacebarImg.SetActive(currentDevice == DeviceType.Keyboard);
+                southButtonImg.SetActive(currentDevice == DeviceType.Gamepad);
                 break;
             case TutorialStep.PickUp:
                 actionText = currentDevice == DeviceType.Gamepad
-                    ? "With their significant strength, and the east button,they can pick up almost anything! Even if it's much bigger than them. "
-                    : "With their significant strength, and the left mouse button,they can pick up almost anything! Even if it's much bigger than them. ";
+                    ? "With their significant strength, and the east button, they can pick up almost anything! Even if it's much bigger than them. "
+                    : "With their significant strength, and the left mouse button, they can pick up almost anything! Even if it's much bigger than them. ";
+                mouseImg.SetActive(currentDevice == DeviceType.Keyboard);
+                eastButtonImg.SetActive(currentDevice == DeviceType.Gamepad);
                 break;
             case TutorialStep.Drop:
                 actionText = currentDevice == DeviceType.Gamepad
-                    ? "And, of course, swiftly put them down. (With the east button again)."
-                    : "And, of course, swiftly put them down. (With the left mouse button again).";
+                    ? "And, of course, swiftly put them down. (With the west button)."
+                    : "And, of course, swiftly put them down. (With the right mouse button).";
+                mouseImg.SetActive(currentDevice == DeviceType.Keyboard);
+                westButtonImg.SetActive(currentDevice == DeviceType.Gamepad);
                 break;
             case TutorialStep.Scan:
                 actionText = "Now, our intrepid shopkeep can use all of these skills together to register items to the book. They need only set the item down on the symbol etched into the table.";
@@ -204,6 +245,8 @@ public class Level1Tutorial : MonoBehaviour
                 break;
             case TutorialStep.Completed:
                 actionText = "What an aweinspiring performance! This shop is truly in safe hands. Now it is up to our hero to use their skills for the rest of the day!";
+                mouseImg.SetActive(currentDevice == DeviceType.Keyboard);
+                eastButtonImg.SetActive(currentDevice == DeviceType.Gamepad);
                 break;
         }
 
@@ -226,6 +269,14 @@ public class Level1Tutorial : MonoBehaviour
             newPlayerController.pickedUpThisStep = false;
             newPlayerController.droppedThisStep = false;
         }
+        wasdImg.SetActive(false);
+        spacebarImg.SetActive(false);
+        mouseImg.SetActive(false);
+        joystickImg.SetActive(false);
+        southButtonImg.SetActive(false);
+        eastButtonImg.SetActive(false);
+        submitButtonImg.SetActive(false);
+        westButtonImg.SetActive(false);
 
         UpdateTutorialText();
     }

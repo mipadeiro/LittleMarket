@@ -17,6 +17,7 @@ public class NewPlayerController : MonoBehaviour
     public Vector3 velocity; // Tracks vertical velocity for jumping and gravity
     public Transform playerHands; //location to place held items
     public GameObject heldObject = null; // reference to currently held item
+    private Transform originalParent = null; // store the original parent for returning
 
     public bool pickedUpThisStep;
     public bool droppedThisStep;
@@ -77,6 +78,7 @@ public class NewPlayerController : MonoBehaviour
 
             if (closestPickup != null)
             {
+                originalParent = closestPickup.transform.parent; // Store the original parent
                 heldObject = closestPickup;
                 paulaAnimator.SetBool("holdingObject", true); // Set holding animation state
                 heldObject.transform.SetParent(playerHands); //make child object of hands
@@ -102,7 +104,9 @@ public class NewPlayerController : MonoBehaviour
     {
         if (context.performed && heldObject != null) //only drops if holding something
         {
-            heldObject.transform.SetParent(null); // detach from hands
+            // Return to original parent (or null if it had no parent)
+            heldObject.transform.SetParent(originalParent);
+            
             Rigidbody rb = heldObject.GetComponent<Rigidbody>();
             if (rb != null)
             {
@@ -115,6 +119,7 @@ public class NewPlayerController : MonoBehaviour
             }
             Debug.Log("Dropped: " + heldObject.name);
             heldObject = null; // Clear reference to held object
+            originalParent = null; // Clear the stored parent
             paulaAnimator.SetBool("holdingObject", false); // Reset holding animation state
             droppedThisStep = true;
         }
