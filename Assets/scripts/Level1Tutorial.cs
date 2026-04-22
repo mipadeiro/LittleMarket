@@ -64,6 +64,7 @@ public class Level1Tutorial : MonoBehaviour
 
         if (currentStep == TutorialStep.Bag && tutorialItem != null && tutorialItem.isInCart)
         {
+            Debug.Log("Item is in cart, advancing tutorial");
             AdvanceStep();
             return;
         }
