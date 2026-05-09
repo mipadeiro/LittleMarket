@@ -7,11 +7,17 @@ public class NewPlayerController : MonoBehaviour
     public float speed = 3f;
     public float jumpHeight = 1.75f;
     public float gravity = -9.81f; // Gravity acceleration (negative for downward pull)
-    public float rotationSpeed = 10f; // How quickly the player rotates towards movement direction
-    public float pickupRange = 0.5f; // how close the player needs to be to
+    public float rotationSpeed = 5f; 
+    public float pickupRange = 0.5f; 
+    public bool isGrounded;
 
     // References to components and variables for movement
+<<<<<<< Updated upstream
     public CharacterController controller; // Unity's CharacterController for collision-aware movement
+=======
+    public CharacterController controller; 
+    public Animator paulaAnimator; 
+>>>>>>> Stashed changes
     public Vector3 moveInput; // Stores horizontal/vertical input as a 3D vector (x, 0, z)
     public Vector3 velocity; // Tracks vertical velocity for jumping and gravity
     public Transform playerHands; //location to place held items
@@ -21,7 +27,16 @@ public class NewPlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+<<<<<<< Updated upstream
         
+=======
+        isGrounded = controller.isGrounded; // Initialize grounded state
+
+        if(isGrounded == true)
+        {
+            velocity.y = 0; // Small downward force to keep grounded
+        }
+>>>>>>> Stashed changes
     }
 
     // Input Action callback for movement (WASD or Ljoystick)
@@ -43,6 +58,11 @@ public class NewPlayerController : MonoBehaviour
         {
             // Log confirmation
             Debug.Log("Should be jumping");
+<<<<<<< Updated upstream
+=======
+            isGrounded = false;
+            paulaAnimator.SetTrigger("jump"); // Trigger jump animation
+>>>>>>> Stashed changes
             // Calculate initial upward velocity using kinematic equation: v = sqrt(2 * h * g)
             // (jumpHeight is positive, gravity is negative, so -2f * gravity makes it positive)
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
