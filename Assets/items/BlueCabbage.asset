@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b2c01ca436aa2042b8543f2b9fd2e87, type: 3}
-  m_Name: Bread
+  m_Name: BlueCabbage
   m_EditorClassIdentifier: Assembly-CSharp::Item
   itemID: 0
-  itemName: Bread
-  value: 2
-  weight: 0.1
-  prefab: {fileID: 919132149155446097, guid: 974b259dee4f5704ea899a517328f515, type: 3}
+  itemName: Blue Cabbage
+  value: 3
+  weight: 0.8
+  prefab: {fileID: 4998895558363415124, guid: f9d5b19e8382b3541a9e2db0a2763dc8, type: 3}
   tags: []

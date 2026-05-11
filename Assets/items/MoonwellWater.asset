@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b2c01ca436aa2042b8543f2b9fd2e87, type: 3}
-  m_Name: Shoe
+  m_Name: MoonwellWater
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  itemID: 7
-  itemName: Winged Shoe
-  value: 30
-  weight: 0.4
-  prefab: {fileID: 0}
+  itemID: 9
+  itemName: Moonwell Water
+  value: 25
+  weight: 0.33
+  prefab: {fileID: 785788111635267542, guid: d3e9c12bc07fbb944a601bbfa7f497b0, type: 3}
   tags: []
