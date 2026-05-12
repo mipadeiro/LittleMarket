@@ -15,9 +15,13 @@ public class NewPlayerController : MonoBehaviour
     public Animator paulaAnimator; // Reference to the Animator component for controlling animations
     public Vector3 moveInput; // Stores horizontal/vertical input as a 3D vector (x, 0, z)
     public Vector3 velocity; // Tracks vertical velocity for jumping and gravity
+
     public Transform playerHands; //location to place held items
     public GameObject heldObject = null; // reference to currently held item
     private Transform originalParent = null; // store the original parent for returning
+
+    public GameObject groundCheck; // Empty GameObject used to check if player is grounded
+    public bool isGrounded; // Track if the player is currently on the ground (updated in Update)
 
     public bool pickedUpThisStep;
     public bool droppedThisStep;
@@ -41,9 +45,9 @@ public class NewPlayerController : MonoBehaviour
     public void Jump(InputAction.CallbackContext context)
     {
         // Debug log showing if the jump action was performed and if the player is grounded
-        Debug.Log($"Jumping {context.performed} - Is Grounded: {controller.isGrounded}");
+        Debug.Log($"Jumping {context.performed} - Is Grounded: {isGrounded}");
         // Only jump if the action was performed (pressed) and the player is on the ground
-        if (context.performed && controller.isGrounded)
+        if (context.performed && isGrounded == true)
         {
             // Log confirmation
             Debug.Log("Should be jumping");
@@ -143,8 +147,15 @@ public class NewPlayerController : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
 
-        // Apply gravity to vertical velocity each frame
-        velocity.y += gravity * Time.deltaTime;
+        // Apply gravity to vertical velocity each frame, but reset only when grounded and falling
+        if (isGrounded && velocity.y < 0f)
+        {
+            velocity.y = 0f; // Reset vertical velocity only when falling into the ground
+        }
+        else
+        {
+            velocity.y += gravity * Time.deltaTime;
+        }
         // Move the character vertically (handles jumping and falling)
         controller.Move(velocity * Time.deltaTime);
 

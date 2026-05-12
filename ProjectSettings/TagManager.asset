@@ -8,6 +8,7 @@ TagManager:
   - Scanner
   - Cart
   - Bell
+  - Ground
   layers:
   - Default
   - TransparentFX
