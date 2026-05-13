@@ -3182,7 +3182,6 @@ MonoBehaviour:
   clientThreeActivated: 0
   textItems: {fileID: 42765034}
   newPlayerController: {fileID: 381679389}
-  bellAnimator: {fileID: 0}
 --- !u!65 &561630967
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3735,37 +3734,6 @@ Transform:
   m_Children:
   - {fileID: 540458051024036440}
   m_Father: {fileID: 365342105}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &657827565
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 657827566}
-  m_Layer: 0
-  m_Name: Client8
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &657827566
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 657827565}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.82194, y: -1.15824, z: 2.522}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &674159178
 GameObject:
@@ -4323,7 +4291,7 @@ GameObject:
   - component: {fileID: 833306842}
   - component: {fileID: 833306841}
   m_Layer: 0
-  m_Name: Client4
+  m_Name: Client1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4343,7 +4311,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ClientOne
   bellScript: {fileID: 561630966}
   customerDialogue: {fileID: 727927816}
-  bellAnimator: {fileID: 0}
 --- !u!4 &833306842
 Transform:
   m_ObjectHideFlags: 0
@@ -4701,37 +4668,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.023750888, y: 0.041141663, z: 0.009999998}
   m_Center: {x: 0, y: 0, z: 0.004999999}
---- !u!1 &878658383
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 878658384}
-  m_Layer: 0
-  m_Name: Client7
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &878658384
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 878658383}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.82194, y: -1.15824, z: 2.522}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &934173675
 GameObject:
   m_ObjectHideFlags: 0
@@ -5617,7 +5553,7 @@ GameObject:
   - component: {fileID: 1193448770}
   - component: {fileID: 1193448771}
   m_Layer: 0
-  m_Name: Client5
+  m_Name: Client2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5654,7 +5590,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ClientTwo
   bellScript: {fileID: 561630966}
   customerDialogue: {fileID: 1106151549}
-  bellAnimator: {fileID: 0}
 --- !u!1 &1286344478
 GameObject:
   m_ObjectHideFlags: 0
@@ -9047,7 +8982,7 @@ GameObject:
   - component: {fileID: 2120637644}
   - component: {fileID: 2120637643}
   m_Layer: 0
-  m_Name: Client6
+  m_Name: Client3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9069,7 +9004,6 @@ MonoBehaviour:
   customerThree: {fileID: 2120637642}
   customerDialogue: {fileID: 991116673}
   logoImg: {fileID: 1818844078}
-  bellAnimator: {fileID: 0}
 --- !u!4 &2120637644
 Transform:
   m_ObjectHideFlags: 0
@@ -9319,8 +9253,6 @@ SceneRoots:
   - {fileID: 833306842}
   - {fileID: 1193448770}
   - {fileID: 2120637644}
-  - {fileID: 878658384}
-  - {fileID: 657827566}
   - {fileID: 959300131}
   - {fileID: 793210955}
   - {fileID: 1816054666}
