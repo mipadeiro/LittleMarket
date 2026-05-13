@@ -26,6 +26,7 @@ public class BellRinging2 : MonoBehaviour
     void Start()
     {
         clientNumber = 4;
+        hasRung = false;
     }
 
     // Update is called once per frame
