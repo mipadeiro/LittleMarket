@@ -36,7 +36,7 @@ public class SprayBottle : MonoBehaviour
         Debug.Log("dirty as hell out here");
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -44,7 +44,7 @@ public class SprayBottle : MonoBehaviour
             //Destroy(dirtPrefab);
         }
     }
-    public void OnCollisionExit(Collision collision)
+    public void OnTriggerExit(Collider collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
