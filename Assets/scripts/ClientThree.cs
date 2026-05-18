@@ -3,10 +3,9 @@ using UnityEngine.InputSystem;
 
 public class ClientThree : MonoBehaviour
 {
-    public BellRinging bellScript;
+    public BellRinging1 bellScript;
     public GameObject customerThree;
     public GameObject customerDialogue;
-    public GameObject logoImg;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,7 +23,10 @@ public class ClientThree : MonoBehaviour
 
         if (bellScript.clientNumber == 3 && bellScript.hasRung == true)
         {
-            EndTransaction();
+            for (int i = 0; i < 1; i++)
+            {
+                EndTransaction();
+            }
         }
     }
 
@@ -38,8 +40,6 @@ public class ClientThree : MonoBehaviour
     {
         customerDialogue.SetActive(false);
         bellScript.clientNumber = 4;
-        logoImg.SetActive(true);
-        bellScript.hasRung = false;
         customerThree.SetActive(false);
     }
 }

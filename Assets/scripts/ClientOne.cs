@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class ClientOne : MonoBehaviour
 {
-    public BellRinging bellScript;
+    public BellRinging1 bellScript;
     public GameObject customerDialogue;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -15,10 +15,19 @@ public class ClientOne : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (bellScript.hasRung == true)
+        if (bellScript.clientNumber == 1 && bellScript.hasRung == false)
         {
-            EndTransaction();
+            StartTransaction();
         }
+
+        if (bellScript.clientNumber == 1 && bellScript.hasRung == true)
+        {
+            for(int i = 0; i<1; i++)
+            {
+                EndTransaction();
+            }
+        }
+        
     }
 
     public void StartTransaction()
@@ -30,6 +39,5 @@ public class ClientOne : MonoBehaviour
     {
         customerDialogue.SetActive(false);
         bellScript.clientNumber = 2;
-        bellScript.hasRung = false;
     }
 }

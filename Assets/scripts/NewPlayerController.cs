@@ -25,6 +25,7 @@ public class NewPlayerController : MonoBehaviour
 
     public bool pickedUpThisStep;
     public bool droppedThisStep;
+    public bool isDirty = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -132,6 +133,7 @@ public class NewPlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        isGrounded = controller.isGrounded;
         //Create a movement vector from input (x from left/right, z from up/down, y=0 for horizontal)
         Vector3 move = new Vector3(moveInput.x, 0, moveInput.y);
         //Move the character horizontally based on input, speed, and time delta for frame-rate independence
@@ -150,7 +152,7 @@ public class NewPlayerController : MonoBehaviour
         // Apply gravity to vertical velocity each frame, but reset only when grounded and falling
         if (isGrounded && velocity.y < 0f)
         {
-            velocity.y = 0f; // Reset vertical velocity only when falling into the ground
+            velocity.y = -2f; // Reset vertical velocity only when falling into the ground
         }
         else
         {
@@ -177,6 +179,25 @@ public class NewPlayerController : MonoBehaviour
         {
             heldObject.transform.position = playerHands.position;
             heldObject.transform.rotation = playerHands.rotation;
+        }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Dirt"))
+        {
+            isDirty = true;
+            speed = 0.75f; // Reduce speed when dirty
+            Debug.Log("damn, bitch. you live like this?");
+        }
+    }
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Dirt"))
+        {
+            isDirty = false;
+            speed = 3f; // Speed back to normal
+            
         }
     }
 }

@@ -9,6 +9,7 @@ TagManager:
   - Cart
   - Bell
   - Ground
+  - Dirt
   layers:
   - Default
   - TransparentFX

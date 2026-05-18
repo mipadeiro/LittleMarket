@@ -89,4 +89,24 @@ public class BellRinging2 : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            hasRung = false;
+            bellAnimator.SetBool("hasRung", false);
+            Debug.Log("Ding!");
+            //add sfx
+            // Note: clientNumber is incremented by the client scripts (ClientTwo.EndTransaction, etc.)
+            //remove items in playerHands
+            if (newPlayerController.heldObject != null)
+            {
+                newPlayerController.heldObject.transform.SetParent(null); // Detach the held object from the player's hands
+                newPlayerController.heldObject = null; // Clear the reference to the held object
+                newPlayerController.paulaAnimator.SetBool("holdingObject", false); // Reset holding animation state
+            }
+
+        }
+    }
+
 }

@@ -6,7 +6,7 @@ public class Level1Tutorial : MonoBehaviour
     public GameObject tutorialBG;
     public TMPro.TextMeshProUGUI tutorialText;
     public NewPlayerController newPlayerController;
-    public BellRinging bellScript;
+    public BellRinging1 bellScript;
     public GameObject scanner;
     public GameObject bag;
     public GameObject tutorialController;

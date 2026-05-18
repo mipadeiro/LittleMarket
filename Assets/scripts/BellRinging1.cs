@@ -22,6 +22,7 @@ public class BellRinging1 : MonoBehaviour
     void Start()
     {
         clientNumber = 1;
+        hasRung = false;
     }
 
     // Update is called once per frame
@@ -62,6 +63,18 @@ public class BellRinging1 : MonoBehaviour
                 newPlayerController.heldObject = null; // Clear the reference to the held object
                 newPlayerController.paulaAnimator.SetBool("holdingObject", false); // Reset holding animation state
             }
+
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            hasRung = false;
+            bellAnimator.SetBool("hasRung", false);
+            Debug.Log("Ding!");
+            //add sfx
 
         }
     }

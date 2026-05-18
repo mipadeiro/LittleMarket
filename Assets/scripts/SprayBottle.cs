@@ -9,7 +9,12 @@ public class SprayBottle : MonoBehaviour
     public GameObject dirtPrefab;
     public BellRinging2 bellRinging2;
     public int dirtLevel = 10;
-    public Vector3 dirtSpace = new Vector3(10, 0, 10);
+    public Vector3 spawnAreaMin = new Vector3(-9f, 0f, -1.6f);
+    public Vector3 spawnAreaMax = new Vector3(-4.5f, 0f, 1.5f);
+    public bool isSpraying = false;
+    private bool dirtSpawned = false;
+    private readonly System.Collections.Generic.List<GameObject> spawnedDirt = new System.Collections.Generic.List<GameObject>();
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,20 +24,25 @@ public class SprayBottle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(bellRinging2.hasRung == true)
+        if (bellRinging2.hasRung && !dirtSpawned)
         {
-            for(int i = 0; i < dirtLevel; i++)
-            {
-                AddDirt();
-            }
+            AddDirt();
+            dirtSpawned = true;
         }
     }
 
     public void AddDirt()
     {
-        //var position = Vector3(Random.Range(-dirtSpace.x, dirtSpace.x), 0, Random.Range(-dirtSpace.z, dirtSpace.z));
-        //Instantiate(dirtPrefab, position, Quaternion.identity);
-        //Instantiate(dirtPrefab, player.transform.position + player.transform.forward * 2, Quaternion.identity);
+        for (int i = 0; i < dirtLevel; i++)
+        {
+            var position = new Vector3(
+                Random.Range(spawnAreaMin.x, spawnAreaMax.x),
+                spawnAreaMin.y,
+                Random.Range(spawnAreaMin.z, spawnAreaMax.z)
+            );
+            var dirt = Instantiate(dirtPrefab, position, Quaternion.identity);
+            spawnedDirt.Add(dirt);
+        }
         Debug.Log("dirty as hell out here");
     }
 
@@ -41,14 +51,29 @@ public class SprayBottle : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             sprayEffect.SetActive(true);
-            //Destroy(dirtPrefab);
+            isSpraying = true;
+            DestroyAllSpawnedDirt();
         }
     }
+
     public void OnTriggerExit(Collider collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             sprayEffect.SetActive(false);
+            isSpraying = false;
         }
+    }
+
+    private void DestroyAllSpawnedDirt()
+    {
+        for (int i = spawnedDirt.Count - 1; i >= 0; i--)
+        {
+            if (spawnedDirt[i] != null)
+            {
+                Destroy(spawnedDirt[i]);
+            }
+        }
+        spawnedDirt.Clear();
     }
 }
