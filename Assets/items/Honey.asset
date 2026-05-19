@@ -17,4 +17,5 @@ MonoBehaviour:
   value: 10
   weight: 500
   prefab: {fileID: 0}
-  tags: []
+  tags:
+  - Basic

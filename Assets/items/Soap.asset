@@ -17,4 +17,5 @@ MonoBehaviour:
   value: 5
   weight: 0.2
   prefab: {fileID: 919132149155446097, guid: a57400bbea674f944bc8e71b0bc7abfb, type: 3}
-  tags: []
+  tags:
+  - Basic

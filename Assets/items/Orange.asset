@@ -18,4 +18,4 @@ MonoBehaviour:
   weight: 0.3
   prefab: {fileID: 4158990065281944771, guid: fba393ea8659d0d468717d21eb30f9f5, type: 3}
   tags:
-  - Pickup
+  - Fruit

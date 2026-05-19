@@ -18,4 +18,4 @@ MonoBehaviour:
   weight: 0.75
   prefab: {fileID: 8115235730569432886, guid: c63eb52a99492514da1de3358157d4e4, type: 3}
   tags:
-  - Pickup
+  - Basic

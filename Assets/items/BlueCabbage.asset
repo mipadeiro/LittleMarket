@@ -17,4 +17,5 @@ MonoBehaviour:
   value: 3
   weight: 0.8
   prefab: {fileID: 4998895558363415124, guid: f9d5b19e8382b3541a9e2db0a2763dc8, type: 3}
-  tags: []
+  tags:
+  - Vegetable
