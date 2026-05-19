@@ -2824,6 +2824,7 @@ MonoBehaviour:
   textItems: {fileID: 42765034}
   newPlayerController: {fileID: 1021302559}
   bellAnimator: {fileID: 1171354404}
+  bellCooldown: 1
 --- !u!1 &567129850
 GameObject:
   m_ObjectHideFlags: 0
@@ -3820,6 +3821,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ClientOne
   bellScript: {fileID: 561630970}
   customerDialogue: {fileID: 727927816}
+  bellAnimator: {fileID: 1171354404}
 --- !u!4 &833306842
 Transform:
   m_ObjectHideFlags: 0
@@ -4840,6 +4842,7 @@ MonoBehaviour:
   isGrounded: 0
   pickedUpThisStep: 0
   droppedThisStep: 0
+  isDirty: 0
 --- !u!143 &1021302560
 CharacterController:
   m_ObjectHideFlags: 0
@@ -5387,6 +5390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ClientTwo
   bellScript: {fileID: 561630970}
   customerDialogue: {fileID: 1106151549}
+  bellAnimator: {fileID: 1171354404}
 --- !u!1 &1196340610
 GameObject:
   m_ObjectHideFlags: 0
@@ -8536,6 +8540,7 @@ MonoBehaviour:
   bellScript: {fileID: 561630970}
   customerThree: {fileID: 2120637642}
   customerDialogue: {fileID: 991116673}
+  bellAnimator: {fileID: 1171354404}
 --- !u!4 &2120637644
 Transform:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ public class ClientFour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (bellScript.hasRung == true)
+        if (bellScript.clientNumber == 4 && bellScript.hasRung == true)
         {
             EndTransaction();
         }

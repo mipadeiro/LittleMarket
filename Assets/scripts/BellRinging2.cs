@@ -21,6 +21,8 @@ public class BellRinging2 : MonoBehaviour
     public TMPro.TextMeshProUGUI textItems;
     public NewPlayerController newPlayerController;
     public Animator bellAnimator;
+    public float bellCooldown = 1f;
+    private bool canRing = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -71,11 +73,13 @@ public class BellRinging2 : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && canRing)
         {
+            canRing = false;
             hasRung = true;
             bellAnimator.SetBool("hasRung", true);
             Debug.Log("Ding!");
+            StartCoroutine(RingCooldown());
             //add sfx
             // Note: clientNumber is incremented by the client scripts (ClientTwo.EndTransaction, etc.)
             //remove items in playerHands
@@ -89,6 +93,12 @@ public class BellRinging2 : MonoBehaviour
         }
     }
 
+    private IEnumerator RingCooldown()
+    {
+        yield return new WaitForSeconds(bellCooldown);
+        canRing = true;
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -97,14 +107,6 @@ public class BellRinging2 : MonoBehaviour
             bellAnimator.SetBool("hasRung", false);
             Debug.Log("Ding!");
             //add sfx
-            // Note: clientNumber is incremented by the client scripts (ClientTwo.EndTransaction, etc.)
-            //remove items in playerHands
-            if (newPlayerController.heldObject != null)
-            {
-                newPlayerController.heldObject.transform.SetParent(null); // Detach the held object from the player's hands
-                newPlayerController.heldObject = null; // Clear the reference to the held object
-                newPlayerController.paulaAnimator.SetBool("holdingObject", false); // Reset holding animation state
-            }
 
         }
     }

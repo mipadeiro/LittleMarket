@@ -188,6 +188,7 @@ public class NewPlayerController : MonoBehaviour
         {
             isDirty = true;
             speed = 0.75f; // Reduce speed when dirty
+            jumpHeight = 0.75f; // Reduce jump height when dirty
             Debug.Log("damn, bitch. you live like this?");
         }
     }
@@ -197,7 +198,7 @@ public class NewPlayerController : MonoBehaviour
         {
             isDirty = false;
             speed = 3f; // Speed back to normal
-            
+            jumpHeight = 1.5f; // Jump height back to normal
         }
     }
 }

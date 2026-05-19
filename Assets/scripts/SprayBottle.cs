@@ -12,7 +12,7 @@ public class SprayBottle : MonoBehaviour
     public Vector3 spawnAreaMin = new Vector3(-9f, 0f, -1.6f);
     public Vector3 spawnAreaMax = new Vector3(-4.5f, 0f, 1.5f);
     public bool isSpraying = false;
-    private bool dirtSpawned = false;
+    private bool previousHasRung = false;
     private readonly System.Collections.Generic.List<GameObject> spawnedDirt = new System.Collections.Generic.List<GameObject>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,11 +24,11 @@ public class SprayBottle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (bellRinging2.hasRung && !dirtSpawned)
+        if (bellRinging2.hasRung && !previousHasRung)
         {
             AddDirt();
-            dirtSpawned = true;
         }
+        previousHasRung = bellRinging2.hasRung;
     }
 
     public void AddDirt()
@@ -52,7 +52,7 @@ public class SprayBottle : MonoBehaviour
         {
             sprayEffect.SetActive(true);
             isSpraying = true;
-            DestroyAllSpawnedDirt();
+            DestroyAllDirt();
         }
     }
 
@@ -65,7 +65,7 @@ public class SprayBottle : MonoBehaviour
         }
     }
 
-    private void DestroyAllSpawnedDirt()
+    private void DestroyAllDirt()
     {
         for (int i = spawnedDirt.Count - 1; i >= 0; i--)
         {

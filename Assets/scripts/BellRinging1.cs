@@ -7,7 +7,6 @@ using TMPro;
 public class BellRinging1 : MonoBehaviour
 {
     public bool hasRung;
-
     public int clientNumber;
     public GameObject clientOne;
     public GameObject clientTwo;
@@ -17,6 +16,8 @@ public class BellRinging1 : MonoBehaviour
     public TMPro.TextMeshProUGUI textItems;
     public NewPlayerController newPlayerController;
     public Animator bellAnimator;
+    public float bellCooldown = 1f;
+    private bool canRing = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -49,11 +50,13 @@ public class BellRinging1 : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && canRing)
         {
+            canRing = false;
             hasRung = true;
             bellAnimator.SetBool("hasRung", true);
             Debug.Log("Ding!");
+            StartCoroutine(RingCooldown());
             //add sfx
             // Note: clientNumber is incremented by the client scripts (ClientTwo.EndTransaction, etc.)
             //remove items in playerHands
@@ -65,6 +68,11 @@ public class BellRinging1 : MonoBehaviour
             }
 
         }
+    }
+     private IEnumerator RingCooldown()
+    {
+        yield return new WaitForSeconds(bellCooldown);
+        canRing = true;
     }
 
     private void OnTriggerExit(Collider other)

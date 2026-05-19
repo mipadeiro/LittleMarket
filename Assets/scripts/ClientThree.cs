@@ -6,6 +6,7 @@ public class ClientThree : MonoBehaviour
     public BellRinging1 bellScript;
     public GameObject customerThree;
     public GameObject customerDialogue;
+    public Animator bellAnimator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -41,5 +42,6 @@ public class ClientThree : MonoBehaviour
         customerDialogue.SetActive(false);
         bellScript.clientNumber = 4;
         customerThree.SetActive(false);
+        bellAnimator.SetBool("hasRung", false);
     }
 }
