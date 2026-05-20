@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Armature_Armature_walking_man_baselayer
+  m_Name: Walking_Paula
   m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
@@ -194,7 +194,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Jump_baselayer
+  m_Name: Jump_Paula
   m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
@@ -223,7 +223,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Armature_Armature_Big_Wave_Hello_baselayer
+  m_Name: Wave_Paula
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -443,7 +443,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Armature_Armature_Carry_Heavy_Object_Walk_inplace_baselayer
+  m_Name: Carry_Paula
   m_Speed: 3
   m_CycleOffset: 0
   m_Transitions:
