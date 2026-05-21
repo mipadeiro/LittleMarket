@@ -892,7 +892,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -6229,7 +6229,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -6783,7 +6783,7 @@ PrefabInstance:
     - target: {fileID: 1967891786791664190, guid: 66e0b04a391c279418429b733d1ed66f, type: 3}
       propertyPath: bookScript
       value: 
-      objectReference: {fileID: 2001870055}
+      objectReference: {fileID: 0}
     - target: {fileID: 6081077952963137034, guid: 66e0b04a391c279418429b733d1ed66f, type: 3}
       propertyPath: m_LocalScale.x
       value: 14.945382
@@ -12046,8 +12046,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2115076161}
-  - {fileID: 126654902}
   - {fileID: 846254813}
+  - {fileID: 126654902}
   m_Father: {fileID: 1835344857}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -12798,6 +12798,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1835344857}
+  - component: {fileID: 1835344858}
   m_Layer: 5
   m_Name: BookController
   m_TagString: Untagged
@@ -12830,6 +12831,40 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1835344858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835344856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df75c083fc3fb7d4baef39544e840935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BookMenu
+  playerScript: {fileID: 0}
+  chosenButton: 
+  bookCanvas: {fileID: 0}
+  bookMainMenu: {fileID: 0}
+  bookFruitMenu: {fileID: 0}
+  bookVeggieMenu: {fileID: 0}
+  bookFungusMenu: {fileID: 0}
+  fruit1Button: {fileID: 0}
+  fruit2Button: {fileID: 0}
+  fruit3Button: {fileID: 0}
+  fruit4Button: {fileID: 0}
+  fruit5Button: {fileID: 0}
+  veggie1Button: {fileID: 0}
+  veggie2Button: {fileID: 0}
+  veggie3Button: {fileID: 0}
+  veggie4Button: {fileID: 0}
+  veggie5Button: {fileID: 0}
+  fungus1Button: {fileID: 0}
+  fungus2Button: {fileID: 0}
+  fungus3Button: {fileID: 0}
+  fungus4Button: {fileID: 0}
+  fungus5Button: {fileID: 0}
 --- !u!1 &1846544447
 GameObject:
   m_ObjectHideFlags: 0
@@ -13553,7 +13588,7 @@ MonoBehaviour:
   correctCart: 0
   itemData: {fileID: 11400000, guid: 41f31bfe0a611a44c8238ed14ec49471, type: 2}
   textItems: {fileID: 42765034}
-  bookScript: {fileID: 0}
+  bookScript: {fileID: 1835344858}
 --- !u!1 &2001870050
 GameObject:
   m_ObjectHideFlags: 0
@@ -13566,7 +13601,6 @@ GameObject:
   - component: {fileID: 2001870054}
   - component: {fileID: 2001870053}
   - component: {fileID: 2001870052}
-  - component: {fileID: 2001870055}
   m_Layer: 5
   m_Name: CanvasBook
   m_TagString: Untagged
@@ -13657,43 +13691,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &2001870055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2001870050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df75c083fc3fb7d4baef39544e840935, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BookMenu
-  playerScript: {fileID: 381679389}
-  chosenButton: 
-  bookCanvas: {fileID: 1835344856}
-  bookMainMenu: {fileID: 1792324383}
-  bookFruitMenu: {fileID: 414524361}
-  bookVeggieMenu: {fileID: 1195425326}
-  bookFungusMenu: {fileID: 2044401109}
-  fruitMenuButton: {fileID: 2115076162}
-  fruit1Button: {fileID: 825286999}
-  fruit2Button: {fileID: 0}
-  fruit3Button: {fileID: 0}
-  fruit4Button: {fileID: 0}
-  fruit5Button: {fileID: 0}
-  veggieMenuButton: {fileID: 126654903}
-  veggie1Button: {fileID: 1092125591}
-  veggie2Button: {fileID: 0}
-  veggie3Button: {fileID: 0}
-  veggie4Button: {fileID: 0}
-  veggie5Button: {fileID: 0}
-  fungusMenuButton: {fileID: 846254814}
-  fungus1Button: {fileID: 1466367707}
-  fungus2Button: {fileID: 0}
-  fungus3Button: {fileID: 0}
-  fungus4Button: {fileID: 0}
-  fungus5Button: {fileID: 0}
 --- !u!1 &2044401109
 GameObject:
   m_ObjectHideFlags: 0
@@ -14318,7 +14315,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
