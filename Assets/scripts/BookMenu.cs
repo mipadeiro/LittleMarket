@@ -6,30 +6,26 @@ using UnityEngine.InputSystem;
 public class BookMenu : MonoBehaviour
 {
     public NewPlayerController playerScript;
+    public UndoButton undoScript;
     public string chosenButton;
     public GameObject bookCanvas;
     public GameObject bookMainMenu;
     public GameObject bookFruitMenu;
     public GameObject bookVeggieMenu;
     public GameObject bookFungusMenu;
-    public Button fruitMenuButton;
-    public Button fruit1Button;
-    public Button fruit2Button;
-    public Button fruit3Button;
-    public Button fruit4Button;
-    public Button fruit5Button;
-    public Button veggieMenuButton;
-    public Button veggie1Button;
-    public Button veggie2Button;
-    public Button veggie3Button;
-    public Button veggie4Button;
-    public Button veggie5Button;
-    public Button fungusMenuButton;
-    public Button fungus1Button;
-    public Button fungus2Button;
-    public Button fungus3Button;
-    public Button fungus4Button;
-    public Button fungus5Button;
+    public GameObject cancelButton;
+
+    private void Awake()
+    {
+        if (undoScript == null)
+        {
+            undoScript = FindAnyObjectByType<UndoButton>();
+            if (undoScript == null)
+            {
+                Debug.LogWarning("UndoButton not found");
+            }
+        }
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -66,36 +62,34 @@ public class BookMenu : MonoBehaviour
             bookMainMenu.SetActive(false);
             bookFungusMenu.SetActive(true);
         }
+        else if (chosenButton == "Undo")
+        {
+            if (undoScript != null)
+            {
+                undoScript.UndoLastScannedItem();
+            }
+            else
+            {
+                Debug.LogWarning("UndoButton is not assigned in BookMenu.");
+            }
+        }
+        else if (chosenButton == "Apple")
+        {
+            bookMainMenu.SetActive(true);
+            bookFruitMenu.SetActive(false);
+        }
+        else if (chosenButton == "Blue Cabbage")
+        {
+            bookMainMenu.SetActive(true);
+            bookVeggieMenu.SetActive(false);
+
+        }
+        else if (chosenButton == "Sea Grapes")
+        {
+            bookMainMenu.SetActive(true);
+            bookFungusMenu.SetActive(false);
+        }
     }
 
-    public void OnCollisionEnter(Collision collision)
-    {
-        if (gameObject == fruitMenuButton && collision.gameObject.CompareTag("Player"))
-        {
-            chosenButton = "Fruit";
-        }
-        else if (gameObject == veggieMenuButton && collision.gameObject.CompareTag("Player"))
-        {
-            chosenButton = "Veggie";
-        }
-        else if (gameObject == fungusMenuButton && collision.gameObject.CompareTag("Player"))
-        {
-            chosenButton = "Fungus";
-        }
-    }
-    public void OnCollisionExit(Collision collision)
-    {
-        if (gameObject == fruitMenuButton && collision.gameObject.CompareTag("Player"))
-        {
-            chosenButton = null;
-        }
-        else if (gameObject == veggieMenuButton && collision.gameObject.CompareTag("Player"))
-        {
-            chosenButton = null;
-        }
-        else if (gameObject == fungusMenuButton && collision.gameObject.CompareTag("Player"))
-        {
-            chosenButton = null;
-        }
-    }
+    
 }

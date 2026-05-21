@@ -18,6 +18,7 @@ public class NewPlayerController : MonoBehaviour
 
     public Transform playerHands; //location to place held items
     public GameObject heldObject = null; // reference to currently held item
+    public GameObject lastHeldObject = null; // reference to the last held item, for undo functionality
     private Transform originalParent = null; // store the original parent for returning
 
     public GameObject groundCheck; // Empty GameObject used to check if player is grounded
@@ -85,6 +86,7 @@ public class NewPlayerController : MonoBehaviour
             {
                 originalParent = closestPickup.transform.parent; // Store the original parent
                 heldObject = closestPickup;
+                lastHeldObject = heldObject; // Update last held object for undo functionality
                 paulaAnimator.SetBool("holdingObject", true); // Set holding animation state
                 heldObject.transform.SetParent(playerHands); //make child object of hands
                 heldObject.transform.localPosition = Vector3.zero; //center on hands, do i want this?

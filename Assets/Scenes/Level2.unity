@@ -768,6 +768,7 @@ GameObject:
   - component: {fileID: 126654904}
   - component: {fileID: 126654903}
   - component: {fileID: 126654906}
+  - component: {fileID: 126654907}
   m_Layer: 5
   m_Name: VeggieButton
   m_TagString: Untagged
@@ -896,8 +897,21 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 674.02527, y: 681.6809, z: 448.71326}
-  m_Center: {x: -2.3396485, y: -4.0687084, z: -201.07384}
+  m_Size: {x: 674.02527, y: 681.6809, z: 533.68207}
+  m_Center: {x: -2.3396487, y: -4.068417, z: -187.62538}
+--- !u!114 &126654907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126654901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f180b1d14a30164cb0c84a3577cdd9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VeggieMenu
+  bookScript: {fileID: 2001870055}
 --- !u!1001 &133931410
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2203,12 +2217,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemController
   isScanned: 0
   isInCart: 0
-  isWeighed: 0
   correctScan: 0
   correctCart: 0
   itemData: {fileID: 11400000, guid: c0759797dbb871e45b954b74fddcb81f, type: 2}
   textItems: {fileID: 42765034}
   bookScript: {fileID: 0}
+  undoScript: {fileID: 0}
 --- !u!114 &311821509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2750,7 +2764,7 @@ MonoBehaviour:
   - {fileID: 850290458}
   targetOffset: 3
   normalZoom: 60
-  zoomIn: 40
+  zoomIn: 50
   zoomSpeed: 5
   timer: 2
 --- !u!1 &362624812
@@ -3045,13 +3059,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Level1Tutorial, Assembly-CSharp
+      - m_Target: {fileID: 2001870055}
+        m_TargetAssemblyTypeName: BookMenu, Assembly-CSharp
         m_MethodName: OnPickUp
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Level1Tutorial, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3211,6 +3237,7 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   playerHands: {fileID: 1341314750}
   heldObject: {fileID: 0}
+  lastHeldObject: {fileID: 0}
   groundCheck: {fileID: 215329539}
   isGrounded: 0
   pickedUpThisStep: 0
@@ -3547,12 +3574,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemController
   isScanned: 0
   isInCart: 0
-  isWeighed: 0
   correctScan: 0
   correctCart: 0
   itemData: {fileID: 11400000, guid: 11a8f4e87ecc8634f875dcaa605b8840, type: 2}
   textItems: {fileID: 42765034}
   bookScript: {fileID: 0}
+  undoScript: {fileID: 0}
 --- !u!65 &410276645
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5134,10 +5161,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7498826591366968090, guid: f9d5b19e8382b3541a9e2db0a2763dc8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7498826591366968090, guid: f9d5b19e8382b3541a9e2db0a2763dc8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4998895558363415124, guid: f9d5b19e8382b3541a9e2db0a2763dc8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 973978391}
   m_SourcePrefab: {fileID: 100100000, guid: f9d5b19e8382b3541a9e2db0a2763dc8, type: 3}
 --- !u!1 &674159178
 GameObject:
@@ -5857,6 +5892,8 @@ GameObject:
   - component: {fileID: 825287001}
   - component: {fileID: 825287000}
   - component: {fileID: 825286999}
+  - component: {fileID: 825287002}
+  - component: {fileID: 825287003}
   m_Layer: 5
   m_Name: AppleButton
   m_TagString: Untagged
@@ -5966,6 +6003,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 825286997}
   m_CullTransparentMesh: 1
+--- !u!114 &825287002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825286997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8fb00561838ea541bf49895af45c3d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OptionButton
+  buttonText: {fileID: 1371561348}
+  bookScript: {fileID: 2001870055}
+--- !u!65 &825287003
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825286997}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 674.02527, y: 681.6809, z: 533.68207}
+  m_Center: {x: -2.3396487, y: -4.068417, z: -187.62538}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -6105,6 +6177,7 @@ GameObject:
   - component: {fileID: 846254815}
   - component: {fileID: 846254814}
   - component: {fileID: 846254817}
+  - component: {fileID: 846254818}
   m_Layer: 5
   m_Name: FungusButton
   m_TagString: Untagged
@@ -6233,8 +6306,21 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 674.02527, y: 681.6809, z: 448.71326}
-  m_Center: {x: -2.3396485, y: -4.0687084, z: -201.07384}
+  m_Size: {x: 674.02527, y: 681.6809, z: 533.68207}
+  m_Center: {x: -2.3396487, y: -4.068417, z: -187.62538}
+--- !u!114 &846254818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846254812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 881125df37686ce489c2c2a1cf27b48d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FungusMenu
+  bookScript: {fileID: 2001870055}
 --- !u!1 &849768567 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6064153176478479626, guid: 17ab25cdbe37f5045a2270891ee7c218, type: 3}
@@ -6615,12 +6701,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemController
   isScanned: 0
   isInCart: 0
-  isWeighed: 0
   correctScan: 0
   correctCart: 0
   itemData: {fileID: 11400000, guid: 1deddd54d3fd49c4780851fbb454054c, type: 2}
   textItems: {fileID: 42765034}
   bookScript: {fileID: 0}
+  undoScript: {fileID: 0}
 --- !u!54 &872700103
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7150,6 +7236,32 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &973978383 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4998895558363415124, guid: f9d5b19e8382b3541a9e2db0a2763dc8, type: 3}
+  m_PrefabInstance: {fileID: 658514999}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &973978391
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973978383}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.01929209, y: 0.021148399, z: 0.018248942}
+  m_Center: {x: -0.0000671274, y: 0.00013297514, z: 0.009124471}
 --- !u!1 &983693839
 GameObject:
   m_ObjectHideFlags: 0
@@ -7533,6 +7645,8 @@ GameObject:
   - component: {fileID: 1092125593}
   - component: {fileID: 1092125592}
   - component: {fileID: 1092125591}
+  - component: {fileID: 1092125594}
+  - component: {fileID: 1092125595}
   m_Layer: 5
   m_Name: CabbageButton
   m_TagString: Untagged
@@ -7642,6 +7756,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092125589}
   m_CullTransparentMesh: 1
+--- !u!114 &1092125594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092125589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8fb00561838ea541bf49895af45c3d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OptionButton
+  buttonText: {fileID: 1333305065}
+  bookScript: {fileID: 2001870055}
+--- !u!65 &1092125595
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092125589}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 674.02527, y: 681.6809, z: 533.68207}
+  m_Center: {x: -2.3396487, y: -4.068417, z: -187.62538}
 --- !u!1001 &1100392113
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8851,7 +9000,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cabbage
+  m_text: Blue Cabbage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4d2283e02fe25c94a899dd6307a9edee, type: 2}
   m_sharedMaterial: {fileID: 7347847224195810266, guid: 4d2283e02fe25c94a899dd6307a9edee, type: 2}
@@ -9905,6 +10054,8 @@ GameObject:
   - component: {fileID: 1466367709}
   - component: {fileID: 1466367708}
   - component: {fileID: 1466367707}
+  - component: {fileID: 1466367710}
+  - component: {fileID: 1466367711}
   m_Layer: 5
   m_Name: SeaGrapesButton
   m_TagString: Untagged
@@ -10014,6 +10165,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1466367705}
   m_CullTransparentMesh: 1
+--- !u!114 &1466367710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466367705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8fb00561838ea541bf49895af45c3d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OptionButton
+  buttonText: {fileID: 2117979820}
+  bookScript: {fileID: 2001870055}
+--- !u!65 &1466367711
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466367705}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 674.02527, y: 681.6809, z: 533.68207}
+  m_Center: {x: -2.3396487, y: -4.068417, z: -187.62538}
 --- !u!1 &1478777796
 GameObject:
   m_ObjectHideFlags: 0
@@ -10397,6 +10583,7 @@ GameObject:
   - component: {fileID: 1578538918}
   - component: {fileID: 1578538917}
   - component: {fileID: 1578538920}
+  - component: {fileID: 1578538921}
   m_Layer: 5
   m_Name: UndoButton
   m_TagString: Untagged
@@ -10521,12 +10708,29 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 674.02527, y: 681.6809, z: 448.71326}
-  m_Center: {x: -2.3396485, y: -4.0687084, z: -201.07384}
+  m_Size: {x: 674.02527, y: 681.6809, z: 533.68207}
+  m_Center: {x: -2.3396487, y: -4.068417, z: -187.62538}
+--- !u!114 &1578538921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578538915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19e4b71b60a8ca84cad0c7560504f204, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UndoButton
+  bookScript: {fileID: 0}
+  scannedItemName: 
+  scannedItemNames: []
+  scannedListText: {fileID: 42765034}
+  bellScript: {fileID: 0}
 --- !u!1 &1591147933
 GameObject:
   m_ObjectHideFlags: 0
@@ -11072,12 +11276,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemController
   isScanned: 0
   isInCart: 0
-  isWeighed: 0
   correctScan: 0
   correctCart: 0
   itemData: {fileID: 11400000, guid: e78ed3947485e6542b86b4c845096aa9, type: 2}
   textItems: {fileID: 42765034}
   bookScript: {fileID: 0}
+  undoScript: {fileID: 0}
 --- !u!1 &1657224554
 GameObject:
   m_ObjectHideFlags: 0
@@ -13548,12 +13752,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemController
   isScanned: 0
   isInCart: 0
-  isWeighed: 0
   correctScan: 0
   correctCart: 0
   itemData: {fileID: 11400000, guid: 41f31bfe0a611a44c8238ed14ec49471, type: 2}
   textItems: {fileID: 42765034}
   bookScript: {fileID: 0}
+  undoScript: {fileID: 0}
 --- !u!1 &2001870050
 GameObject:
   m_ObjectHideFlags: 0
@@ -13670,30 +13874,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BookMenu
   playerScript: {fileID: 381679389}
+  undoScript: {fileID: 0}
   chosenButton: 
   bookCanvas: {fileID: 1835344856}
   bookMainMenu: {fileID: 1792324383}
   bookFruitMenu: {fileID: 414524361}
   bookVeggieMenu: {fileID: 1195425326}
   bookFungusMenu: {fileID: 2044401109}
-  fruitMenuButton: {fileID: 2115076162}
-  fruit1Button: {fileID: 825286999}
-  fruit2Button: {fileID: 0}
-  fruit3Button: {fileID: 0}
-  fruit4Button: {fileID: 0}
-  fruit5Button: {fileID: 0}
-  veggieMenuButton: {fileID: 126654903}
-  veggie1Button: {fileID: 1092125591}
-  veggie2Button: {fileID: 0}
-  veggie3Button: {fileID: 0}
-  veggie4Button: {fileID: 0}
-  veggie5Button: {fileID: 0}
-  fungusMenuButton: {fileID: 846254814}
-  fungus1Button: {fileID: 1466367707}
-  fungus2Button: {fileID: 0}
-  fungus3Button: {fileID: 0}
-  fungus4Button: {fileID: 0}
-  fungus5Button: {fileID: 0}
+  cancelButton: {fileID: 0}
 --- !u!1 &2044401109
 GameObject:
   m_ObjectHideFlags: 0
@@ -14194,6 +14382,7 @@ GameObject:
   - component: {fileID: 2115076163}
   - component: {fileID: 2115076162}
   - component: {fileID: 2115076165}
+  - component: {fileID: 2115076166}
   m_Layer: 5
   m_Name: FruitButton
   m_TagString: Untagged
@@ -14322,8 +14511,21 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 674.02527, y: 681.6809, z: 448.71326}
-  m_Center: {x: -2.3396485, y: -4.0687084, z: -201.07384}
+  m_Size: {x: 674.02527, y: 681.6809, z: 533.68207}
+  m_Center: {x: -2.3396487, y: -4.068417, z: -187.62538}
+--- !u!114 &2115076166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115076160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e089410d12ecce408b666e3fb77c733, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FruitMenu
+  bookScript: {fileID: 2001870055}
 --- !u!1 &2117979818
 GameObject:
   m_ObjectHideFlags: 0
