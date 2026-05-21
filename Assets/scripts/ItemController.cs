@@ -7,6 +7,7 @@ public class ItemController : MonoBehaviour
     public bool isInCart = false;
     public bool isWeighed = false;
     public bool correctScan = false;
+    public bool correctCart = false;
     public Item itemData;
     public TMPro.TextMeshProUGUI textItems;
     public BookMenu bookScript;
@@ -25,7 +26,7 @@ public class ItemController : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Scanner") && gameObject.CompareTag("Basic"))
+        if (collision.gameObject.CompareTag("Scanner") && itemData.tags.Contains("Basic"))
         {
             isScanned = true;
             correctScan = true;
@@ -37,7 +38,7 @@ public class ItemController : MonoBehaviour
             }
         }
         
-        if (gameObject.CompareTag("Vegetable") || gameObject.CompareTag("Fruit") || gameObject.CompareTag("Fungus"))
+        if (itemData.tags.Contains("Vegetable") || itemData.tags.Contains("Fruit") || itemData.tags.Contains("Fungus"))
         {
             if (collision.gameObject.CompareTag("Scanner"))
             {
@@ -45,10 +46,32 @@ public class ItemController : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.CompareTag("Cart"))
+        if (collision.gameObject.CompareTag("Cart") && itemData.tags.Contains("Basic"))
         {
             isInCart = true;
+            correctCart = true;
             Debug.Log(name + " in cart!");
+        }
+
+        if (collision.gameObject.CompareTag("Cart") && itemData.tags.Contains("Cold"))
+        {
+            isInCart = true;
+            correctCart = false;
+            Debug.Log(name + " in wrong cart!");
+        }
+
+        if (collision.gameObject.CompareTag("ColdCart") && itemData.tags.Contains("Basic"))
+        {
+            isInCart = true;
+            correctCart = false;
+            Debug.Log(name + " in wrong cart!");
+        }
+
+        if (collision.gameObject.CompareTag("ColdCart") && itemData.tags.Contains("Cold"))
+        {
+            isInCart = true;
+            correctCart = true;
+            Debug.Log(name + " in cold cart!");
         }
     }
     private void OnTriggerExit(Collider collision)

@@ -5,9 +5,7 @@ using UnityEngine.InputSystem;
 
 public class BookMenu : MonoBehaviour
 {
-    public ItemController itemScript;
     public NewPlayerController playerScript;
-    public TMPro.TextMeshProUGUI textItems;
     public string chosenButton;
     public GameObject bookCanvas;
     public GameObject bookMainMenu;

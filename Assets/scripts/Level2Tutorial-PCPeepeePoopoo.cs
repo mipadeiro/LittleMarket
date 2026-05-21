@@ -87,6 +87,6 @@ public class Level2Tutorial : MonoBehaviour
 
     public void AdvanceStep()
     {
-        return; // Temporarily disable tutorial progres
+        return;
     }
 }
