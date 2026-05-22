@@ -1,95 +1,167 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class BookMenu : MonoBehaviour
 {
-    public NewPlayerController playerScript;
-    public UndoButton undoScript;
-    public string chosenButton;
-    public GameObject bookCanvas;
+    //choosing and hovering
+    public string hoveredCategory;
+    public string chosenCategory;
+    public string hoveredItem;
+    public string chosenItem;
+
+    //scannedItemsList
+    public List<string> scannedItems = new List<string>();
+
+    //book menus
     public GameObject bookMainMenu;
     public GameObject bookFruitMenu;
     public GameObject bookVeggieMenu;
     public GameObject bookFungusMenu;
+
+    //book buttons
     public GameObject cancelButton;
+    public GameObject undoButton;
+    public TextMeshProUGUI itemsText;
 
-    private void Awake()
-    {
-        if (undoScript == null)
-        {
-            undoScript = FindAnyObjectByType<UndoButton>();
-            if (undoScript == null)
-            {
-                Debug.LogWarning("UndoButton not found");
-            }
-        }
-    }
+    //other scripts
+    public BellRinging2 bellScript;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
-        bookCanvas.SetActive(true);
         bookMainMenu.SetActive(true);
         bookFruitMenu.SetActive(false);
         bookVeggieMenu.SetActive(false);
         bookFungusMenu.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+
     public void OnPickUp(InputAction.CallbackContext context)
     {
+        Debug.Log("PickUp action performed: " + context.performed);
+
         if (!context.performed)
+        {
             return;
+        }
 
-        if (chosenButton == "Fruit")
+        if (context.performed)
         {
-            bookMainMenu.SetActive(false);
-            bookFruitMenu.SetActive(true);
-        }
-        else if (chosenButton == "Veggie")
-        {
-            bookMainMenu.SetActive(false);
-            bookVeggieMenu.SetActive(true);
-        }
-        else if (chosenButton == "Fungus")
-        {
-            bookMainMenu.SetActive(false);
-            bookFungusMenu.SetActive(true);
-        }
-        else if (chosenButton == "Undo")
-        {
-            if (undoScript != null)
+            // Perform selection based on the currently hovered button
+            if (!string.IsNullOrEmpty(hoveredCategory))
             {
-                undoScript.UndoLastScannedItem();
+                SelectCategory(hoveredCategory);
             }
-            else
+            
+            if (!string.IsNullOrEmpty(hoveredItem))
             {
-                Debug.LogWarning("UndoButton is not assigned in BookMenu.");
+                SelectItem(hoveredItem);
             }
-        }
-        else if (chosenButton == "Apple")
-        {
-            bookMainMenu.SetActive(true);
-            bookFruitMenu.SetActive(false);
-        }
-        else if (chosenButton == "Blue Cabbage")
-        {
-            bookMainMenu.SetActive(true);
-            bookVeggieMenu.SetActive(false);
-
-        }
-        else if (chosenButton == "Sea Grapes")
-        {
-            bookMainMenu.SetActive(true);
-            bookFungusMenu.SetActive(false);
         }
     }
 
-    
+    // Public helper to perform a category selection directly (used by UI or tests)
+    public void SelectCategory(string category)
+    {
+        switch (category)
+        {
+            case "Cancel":
+                chosenCategory = "Cancel";
+                Debug.Log("Cancel button pressed");
+                bookMainMenu.SetActive(true);
+                bookFruitMenu.SetActive(false);
+                bookVeggieMenu.SetActive(false);
+                bookFungusMenu.SetActive(false);
+                cancelButton.SetActive(false);
+                break;
+            case "Fruit":
+                chosenCategory = "Fruit";
+                Debug.Log("Fruit button pressed");
+                bookMainMenu.SetActive(false);
+                bookFruitMenu.SetActive(true);
+                bookVeggieMenu.SetActive(false);
+                bookFungusMenu.SetActive(false);
+                cancelButton.SetActive(true);
+                break;
+            case "Vegetable":
+                chosenCategory = "Vegetable";
+                Debug.Log("Vegetable button pressed");
+                bookMainMenu.SetActive(false);
+                bookFruitMenu.SetActive(false);
+                bookVeggieMenu.SetActive(true);
+                bookFungusMenu.SetActive(false);
+                cancelButton.SetActive(true);
+                break;
+            case "Fungus":
+                chosenCategory = "Fungus";
+                Debug.Log("Fungus button pressed");
+                bookMainMenu.SetActive(false);
+                bookFruitMenu.SetActive(false);
+                bookVeggieMenu.SetActive(false);
+                bookFungusMenu.SetActive(true);
+                cancelButton.SetActive(true);
+                break;
+            case "Undo":
+                chosenCategory = "Undo";
+                Debug.Log("Undo button pressed");
+                UndoLastItem();
+                break;
+            default:
+                // No valid hovered category
+                break;
+        }
+    }
+
+    public void SelectItem(string item)
+    {
+        //fruit items
+
+        //vegetable items
+
+        //fungus items
+    }
+
+    public void AddItemToList(string itemName)
+    {
+        if (string.IsNullOrEmpty(itemName))
+        {
+            Debug.LogWarning("BookMenu.AddItemToList called with null or empty itemName");
+            return;
+        }
+
+        // allow duplicate scans by design
+        scannedItems.Add(itemName);
+        // update itemsText after scanning
+        itemsText.text += itemName + "\n";
+        Debug.Log("BookMenu: added scanned item: " + itemName + " (scannedItems count=" + scannedItems.Count + ")");
+    }
+
+    public void UndoLastItem()
+    {
+        if (scannedItems.Count > 0)
+        {
+            scannedItems.RemoveAt(scannedItems.Count - 1);
+            Debug.Log("BookMenu.UndoLastItem called (remaining count=" + scannedItems.Count + ")\n" + System.Environment.StackTrace);
+            // update itemsText after undo
+            itemsText.text = "";
+            foreach (string item in scannedItems)
+            {
+                itemsText.text += item + "\n";
+            }
+        }
+    }
+
+    public void ResetScanList()
+    {
+        Debug.Log("BookMenu.ResetScanList called (hasRung=" + (bellScript != null ? bellScript.hasRung.ToString() : "<no bellScript>") + ")\n" + System.Environment.StackTrace);
+        if (bellScript != null && bellScript.hasRung)
+        {
+            scannedItems.Clear();
+            itemsText.text = "";
+        }
+        
+    }
 }

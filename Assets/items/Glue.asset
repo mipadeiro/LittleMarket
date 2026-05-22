@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b2c01ca436aa2042b8543f2b9fd2e87, type: 3}
   m_Name: Glue
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  itemID: 10
+  itemID: 5
   itemName: Super Glue
   value: 8
   weight: 0.1

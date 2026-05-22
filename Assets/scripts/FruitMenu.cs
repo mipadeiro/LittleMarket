@@ -32,7 +32,7 @@ public class FruitMenu : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            bookScript.chosenButton = "Fruit";
+            bookScript.chosenCategory = "Fruit";
         }
     }
 
@@ -40,7 +40,7 @@ public class FruitMenu : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            bookScript.chosenButton = null;
+            bookScript.chosenCategory = null;
         }
     }
 }

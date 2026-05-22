@@ -88,6 +88,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d81497811407c654da3559a70976b25f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1967891786791664190}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d81497811407c654da3559a70976b25f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -5497373065005286199}
   m_SourcePrefab: {fileID: 100100000, guid: d81497811407c654da3559a70976b25f, type: 3}
 --- !u!1 &6858846449231434928 stripped
 GameObject:
@@ -170,6 +173,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemController
   isScanned: 0
-  isInCart: 0
+  correctScan: 0
   itemData: {fileID: 11400000, guid: 1a3bf4c1697b034429ea5fb006239212, type: 2}
-  textItems: {fileID: 0}
+  bookScript: {fileID: 0}
+--- !u!114 &-5497373065005286199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6858846449231434928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e81f21d52093cba449d74d45eceffc75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BasicItemController

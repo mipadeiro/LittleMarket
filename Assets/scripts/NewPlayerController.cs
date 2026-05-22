@@ -27,6 +27,19 @@ public class NewPlayerController : MonoBehaviour
     public bool pickedUpThisStep;
     public bool droppedThisStep;
     public bool isDirty = false;
+    public ScannerScript scannerScript; // Reference to the ScannerScript to manage items in the scanner
+
+    private void Awake()
+    {
+        if (scannerScript == null)
+        {
+            scannerScript = FindAnyObjectByType<ScannerScript>();
+            if (scannerScript == null)
+            {
+                Debug.LogWarning("ScannerScript not found in the scene.");
+            }
+        }
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -39,8 +52,6 @@ public class NewPlayerController : MonoBehaviour
     {
         // Read the 2D input value (e.g., Vector2(-1, 0) for left) and convert to Vector3
         moveInput = context.ReadValue<Vector2>();
-        // Debug log to show input values in the console
-        Debug.Log("Move Input: " + moveInput);
     }
 
     // Input Action callback for jumping (spacebar or south button on controller)
@@ -86,7 +97,7 @@ public class NewPlayerController : MonoBehaviour
             {
                 originalParent = closestPickup.transform.parent; // Store the original parent
                 heldObject = closestPickup;
-                lastHeldObject = heldObject; // Update last held object for undo functionality
+                scannerScript.RemoveItem(heldObject); // Remove from scanner when picked up
                 paulaAnimator.SetBool("holdingObject", true); // Set holding animation state
                 heldObject.transform.SetParent(playerHands); //make child object of hands
                 heldObject.transform.localPosition = Vector3.zero; //center on hands, do i want this?

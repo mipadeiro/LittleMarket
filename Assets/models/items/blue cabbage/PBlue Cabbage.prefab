@@ -170,6 +170,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemController
   isScanned: 0
-  isInCart: 0
+  correctScan: 0
   itemData: {fileID: 11400000, guid: 3fe71918aa8042348a5faf3b9effa6a6, type: 2}
-  textItems: {fileID: 0}
+  bookScript: {fileID: 0}

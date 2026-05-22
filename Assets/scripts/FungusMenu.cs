@@ -32,7 +32,7 @@ public class FungusMenu : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            bookScript.chosenButton = "Fungus";
+            bookScript.chosenCategory = "Fungus";
         }
     }
 
@@ -40,7 +40,7 @@ public class FungusMenu : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            bookScript.chosenButton = null;
+            bookScript.chosenCategory = null;
         }
     }
 }

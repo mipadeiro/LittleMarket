@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b2c01ca436aa2042b8543f2b9fd2e87, type: 3}
   m_Name: GoldRing
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  itemID: 5
+  itemID: 6
   itemName: Gold RIng
   value: 50
   weight: 0.05
