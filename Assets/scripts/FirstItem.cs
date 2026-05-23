@@ -2,16 +2,58 @@ using UnityEngine;
 
 public class FirstItem : MonoBehaviour
 {
-    public bool isScanned = false;
-    public bool isInCart = false;
     public Item itemData;
-    public TMPro.TextMeshProUGUI textItems;
+    public bool isScanned;
+    public bool correctScan;
+    public bool inCart;
+    public bool correctCart;
+    public UndoButton undoScript;
+    public BookMenu1 bookScript;
+    public ScannerScript1 scannerScript;
     private Level1Tutorial tutorial;
+
+    private void Awake() 
+    {
+        if (bookScript == null) 
+        {
+            bookScript = FindAnyObjectByType<BookMenu1>();
+            if (bookScript == null)
+            {
+                Debug.LogWarning("BookMenu not found"); 
+            } 
+        }
+
+        if (undoScript == null)
+        {
+            undoScript = FindAnyObjectByType<UndoButton>();
+            if (undoScript == null)
+            {
+                Debug.LogWarning("UndoButton not found");
+            } 
+        }
+
+        if (scannerScript == null)
+        {
+            scannerScript = FindAnyObjectByType<ScannerScript1>();
+            if (scannerScript == null)
+            {
+                Debug.LogWarning("ScannerScript not found");
+            }
+        }
+
+        if (tutorial == null)
+        {
+            tutorial = FindFirstObjectByType<Level1Tutorial>();
+        }
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        tutorial = FindFirstObjectByType<Level1Tutorial>();
+        isScanned = false;
+        correctScan = false;
+        inCart = false;
+        correctCart = false;
     }
 
     // Update is called once per frame
@@ -20,17 +62,14 @@ public class FirstItem : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider collision)
+    public void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Scanner"))
+        if (other.CompareTag("Scanner"))
         {
+            Debug.Log(itemData.itemName + " scanned");
             isScanned = true;
-            Debug.Log(name + " scanned!");
-            
-            if (textItems != null && itemData != null)
-            {
-                textItems.text += itemData.itemName + "\n";
-            }
+            correctScan = true;
+            bookScript.AddBasicScanToList(gameObject);
 
             if (tutorial != null)
             {
@@ -38,18 +77,57 @@ public class FirstItem : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.CompareTag("Cart"))
+        if (other.CompareTag("Cart"))
         {
-            isInCart = true;
-            Debug.Log(name + " in cart!");
+            Debug.Log(itemData.itemName + " added to cart");
+            inCart = true;
+            
+            if (itemData.tags.Contains("Cold"))
+            {
+                correctCart = false;
+            }
+            else
+            {
+                correctCart = true;
+            }
+        }
+
+        if (other.CompareTag("ColdCart"))
+        {
+            Debug.Log(itemData.itemName + " added to cold cart");
+            inCart = true;
+            
+            if (itemData.tags.Contains("Cold"))
+            {
+                correctCart = true;
+            }
+            else
+            {
+                correctCart = false;
+            }
         }
     }
-    private void OnTriggerExit(Collider collision)
+
+    public void OnTriggerExit(Collider other)
     {
-        if (collision.gameObject.CompareTag("Cart"))
+        if (other.CompareTag("Scanner"))
         {
-            isInCart = false;
-            Debug.Log(name + " removed from cart!");
+            Debug.Log(itemData.itemName + " removed from scanner");
+            scannerScript.RemoveItem(gameObject);
+        }
+
+        if (other.CompareTag("Cart"))
+        {
+            Debug.Log(itemData.itemName + " removed from cart");
+            inCart = false;
+            correctCart = false;
+        }
+
+        if (other.CompareTag("ColdCart"))
+        {
+            Debug.Log(itemData.itemName + " removed from cold cart");
+            inCart = false;
+            correctCart = false;
         }
     }
 }

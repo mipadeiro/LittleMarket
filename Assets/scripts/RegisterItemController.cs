@@ -8,7 +8,7 @@ public class RegisterItemController : MonoBehaviour
     public Item itemData;
     public bool isScanned;
     public bool correctScan;
-    public bool InCart;
+    public bool inCart;
     public bool correctCart;
     public UndoButton undoScript;
     public BookMenu bookScript;
@@ -49,7 +49,7 @@ public class RegisterItemController : MonoBehaviour
     {
         isScanned = false;
         correctScan = false;
-        InCart = false;
+        inCart = false;
         correctCart = false;
     }
 
@@ -71,7 +71,7 @@ public class RegisterItemController : MonoBehaviour
         if (other.CompareTag("Cart"))
         {
             Debug.Log(itemData.itemName + " added to cart");
-            InCart = true;
+            inCart = true;
             
             if (itemData.tags.Contains("Cold"))
             {
@@ -86,7 +86,7 @@ public class RegisterItemController : MonoBehaviour
         if (other.CompareTag("ColdCart"))
         {
             Debug.Log(itemData.itemName + " added to cold cart");
-            InCart = true;
+            inCart = true;
             
             if (itemData.tags.Contains("Cold"))
             {

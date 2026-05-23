@@ -54,6 +54,7 @@ public class BellRinging1 : MonoBehaviour
         {
             canRing = false;
             hasRung = true;
+            newPlayerController.heldObject.SetActive(false);
             bellAnimator.SetBool("hasRung", true);
             Debug.Log("Ding!");
             StartCoroutine(RingCooldown());

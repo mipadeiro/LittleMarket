@@ -87,7 +87,7 @@ PrefabInstance:
       addedObject: {fileID: 177289347623992286}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1c8ca70a3f987274884347a3ea5ec7d5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3042925125007353650}
+      addedObject: {fileID: -826838189360413046}
   m_SourcePrefab: {fileID: 100100000, guid: 1c8ca70a3f987274884347a3ea5ec7d5, type: 3}
 --- !u!1 &5938404052813688773 stripped
 GameObject:
@@ -157,7 +157,7 @@ MonoBehaviour:
   threshold: -5
   startPosition: {x: 0, y: 0, z: 0}
   startRotation: {x: 0, y: 0, z: 0}
---- !u!114 &3042925125007353650
+--- !u!114 &-826838189360413046
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,10 +166,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5938404052813688773}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 423cebb65b12e8145bba842cfdb6fbd2, type: 3}
+  m_Script: {fileID: 11500000, guid: e81f21d52093cba449d74d45eceffc75, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ItemController
-  isScanned: 0
-  isInCart: 0
+  m_EditorClassIdentifier: Assembly-CSharp::BasicItemController
   itemData: {fileID: 11400000, guid: d1a9990c536aa7243a6d6495d82f2e19, type: 2}
-  textItems: {fileID: 0}
+  isScanned: 0
+  correctScan: 0
+  InCart: 0
+  correctCart: 0
+  undoScript: {fileID: 0}
+  bookScript: {fileID: 0}
+  scannerScript: {fileID: 0}

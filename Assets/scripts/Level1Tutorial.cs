@@ -62,7 +62,7 @@ public class Level1Tutorial : MonoBehaviour
             return;
         }
 
-        if (currentStep == TutorialStep.Bag && tutorialItem != null && tutorialItem.isInCart)
+        if (currentStep == TutorialStep.Bag && tutorialItem != null && tutorialItem.inCart)
         {
             Debug.Log("Item is in cart, advancing tutorial");
             AdvanceStep();

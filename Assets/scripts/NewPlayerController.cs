@@ -108,6 +108,11 @@ public class NewPlayerController : MonoBehaviour
                     rb.isKinematic = true; // Disable physics while held
                     Debug.Log("Picked up: " + heldObject.name);
                 }
+
+                if(heldObject.GetComponent<FirstItem>() != null)
+                {
+                    pickedUpThisStep = true;
+                }
                 /* Collider collider = heldObject.GetComponent<Collider>();
                 if (collider != null)
                 {

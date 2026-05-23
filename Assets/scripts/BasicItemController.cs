@@ -6,7 +6,7 @@ public class BasicItemController : MonoBehaviour
     public Item itemData;
     public bool isScanned;
     public bool correctScan;
-    public bool InCart;
+    public bool inCart;
     public bool correctCart;
     public UndoButton undoScript;
     public BookMenu bookScript;
@@ -46,7 +46,7 @@ public class BasicItemController : MonoBehaviour
     {
         isScanned = false;
         correctScan = false;
-        InCart = false;
+        inCart = false;
         correctCart = false;
     }
 
@@ -69,7 +69,7 @@ public class BasicItemController : MonoBehaviour
         if (other.CompareTag("Cart"))
         {
             Debug.Log(itemData.itemName + " added to cart");
-            InCart = true;
+            inCart = true;
             
             if (itemData.tags.Contains("Cold"))
             {
@@ -84,7 +84,7 @@ public class BasicItemController : MonoBehaviour
         if (other.CompareTag("ColdCart"))
         {
             Debug.Log(itemData.itemName + " added to cold cart");
-            InCart = true;
+            inCart = true;
             
             if (itemData.tags.Contains("Cold"))
             {
@@ -108,14 +108,14 @@ public class BasicItemController : MonoBehaviour
         if (other.CompareTag("Cart"))
         {
             Debug.Log(itemData.itemName + " removed from cart");
-            InCart = false;
+            inCart = false;
             correctCart = false;
         }
 
         if (other.CompareTag("ColdCart"))
         {
             Debug.Log(itemData.itemName + " removed from cold cart");
-            InCart = false;
+            inCart = false;
             correctCart = false;
         }
     }

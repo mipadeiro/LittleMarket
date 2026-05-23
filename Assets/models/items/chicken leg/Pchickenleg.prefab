@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8841348989449650348}
   - component: {fileID: 6948832891063705765}
   - component: {fileID: 5186307794623442309}
-  - component: {fileID: 1953948547748309012}
+  - component: {fileID: -6420023933792602751}
   m_Layer: 0
   m_Name: Pchickenleg
   m_TagString: Pickup
@@ -158,7 +158,7 @@ MonoBehaviour:
   threshold: -5
   startPosition: {x: 0, y: 0, z: 0}
   startRotation: {x: 0, y: 0, z: 0}
---- !u!114 &1953948547748309012
+--- !u!114 &-6420023933792602751
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,10 +167,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 676179074270078589}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 423cebb65b12e8145bba842cfdb6fbd2, type: 3}
+  m_Script: {fileID: 11500000, guid: e81f21d52093cba449d74d45eceffc75, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ItemController
-  isScanned: 0
-  isInCart: 0
+  m_EditorClassIdentifier: Assembly-CSharp::BasicItemController
   itemData: {fileID: 11400000, guid: 5bda74cd49b17a64f9ccbd78b434d3bd, type: 2}
-  textItems: {fileID: 0}
+  isScanned: 0
+  correctScan: 0
+  InCart: 0
+  correctCart: 0
+  undoScript: {fileID: 0}
+  bookScript: {fileID: 0}
+  scannerScript: {fileID: 0}
