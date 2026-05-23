@@ -97,7 +97,7 @@ public class NewPlayerController : MonoBehaviour
             {
                 originalParent = closestPickup.transform.parent; // Store the original parent
                 heldObject = closestPickup;
-                scannerScript.RemoveItem(heldObject); // Remove from scanner when picked up
+                //scannerScript.RemoveItem(heldObject); // Remove from scanner when picked up
                 paulaAnimator.SetBool("holdingObject", true); // Set holding animation state
                 heldObject.transform.SetParent(playerHands); //make child object of hands
                 heldObject.transform.localPosition = Vector3.zero; //center on hands, do i want this?
@@ -108,12 +108,12 @@ public class NewPlayerController : MonoBehaviour
                     rb.isKinematic = true; // Disable physics while held
                     Debug.Log("Picked up: " + heldObject.name);
                 }
-                Collider collider = heldObject.GetComponent<Collider>();
+                /* Collider collider = heldObject.GetComponent<Collider>();
                 if (collider != null)
                 {
                     collider.enabled = false; // Disable collider to prevent interference
                 }
-                pickedUpThisStep = true;
+                pickedUpThisStep = true; */
             }
         }
     }

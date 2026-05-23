@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class ScannerScript : MonoBehaviour
 {
-    //list of present items
+    //lists of present items
     public List<GameObject> itemsInScanner = new List<GameObject>();
     //other scripts
     public BookMenu bookMenu;
@@ -20,23 +20,36 @@ public class ScannerScript : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        if (!other.CompareTag("Pickup")) return;
+
         if (other.CompareTag("Pickup"))
         {
+            //add gameobject to list
             Debug.Log("Scanner: new item entered scanner: " + other.gameObject.name + " (parent=" + (other.transform.parent? other.transform.parent.name : "null") + ")");
-            if (!itemsInScanner.Contains(other.gameObject))
-            {
-                itemsInScanner.Add(other.gameObject);
-            }
+            itemsInScanner.Add(other.gameObject);
         }
 
     }
 
-    public void RemoveItem(GameObject item)
-{
-        if (itemsInScanner.Contains(item))
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Pickup"))
         {
-            itemsInScanner.Remove(item);
-            Debug.Log("Scanner: item removed from scanner: " + item.name + " (remaining count=" + itemsInScanner.Count + ")");
+            RemoveItem(other.gameObject);
         }
-}
+    }
+
+    public void RemoveItem(GameObject item)
+    {
+        if (!itemsInScanner.Contains(item))
+        {
+            return;
+        }
+        
+        //remove gameobject from list
+        itemsInScanner.Remove(item);
+
+        Debug.Log("Scanner: item removed from scanner: " + item.name + " (remaining count=" + itemsInScanner.Count + ")");
+        
+    }   
 }

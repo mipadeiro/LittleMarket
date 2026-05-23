@@ -42,4 +42,13 @@ public class UndoButton : MonoBehaviour
             bookScript.hoveredCategory = categoryText.text;
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("left undo button");
+            bookScript.hoveredCategory = null;
+        }
+    }
 }

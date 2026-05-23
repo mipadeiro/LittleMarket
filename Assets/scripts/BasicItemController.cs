@@ -53,7 +53,7 @@ public class BasicItemController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+    
     }
 
     public void OnTriggerEnter(Collider other)
@@ -63,7 +63,7 @@ public class BasicItemController : MonoBehaviour
             Debug.Log(itemData.itemName + " scanned");
             isScanned = true;
             correctScan = true;
-            bookScript.AddItemToList(itemData.itemName);
+            bookScript.AddBasicScanToList(gameObject);
         }
 
         if (other.CompareTag("Cart"))
