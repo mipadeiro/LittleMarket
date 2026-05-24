@@ -40,6 +40,7 @@ public class BookMenu : MonoBehaviour
         bookFruitMenu.SetActive(false);
         bookVeggieMenu.SetActive(false);
         bookFungusMenu.SetActive(false);
+        cancelButton.SetActive(false);
     }
 
 
@@ -261,6 +262,7 @@ public class BookMenu : MonoBehaviour
         if (bellScript != null && bellScript.hasRung)
         {
             scannedItems.Clear();
+            scannedItemsNames.Clear();
             itemsText.text = "";
         }
         

@@ -10,9 +10,6 @@ public class BookMenu1 : MonoBehaviour
     public string hoveredCategory;
     public string chosenCategory;
     public string previousCategory;
-    public string hoveredItem;
-    public string chosenItem;
-    public string previousItem;
 
     //scannedItemsLists
     public List<GameObject> scannedItems = new List<GameObject>();
@@ -20,15 +17,10 @@ public class BookMenu1 : MonoBehaviour
 
     //book menus
     public GameObject bookMainMenu;
-    public GameObject bookFruitMenu;
-    public GameObject bookVeggieMenu;
-    public GameObject bookFungusMenu;
 
     //book buttons
-    public GameObject cancelButton;
     public GameObject undoButton;
     public TextMeshProUGUI itemsText;
-    public GameObject noItemMessage;
 
     //other scripts
     public BellRinging1 bellScript;
@@ -37,9 +29,6 @@ public class BookMenu1 : MonoBehaviour
     void Start()
     {
         bookMainMenu.SetActive(true);
-        bookFruitMenu.SetActive(false);
-        bookVeggieMenu.SetActive(false);
-        bookFungusMenu.SetActive(false);
     }
 
 
@@ -61,12 +50,6 @@ public class BookMenu1 : MonoBehaviour
                 chosenCategory = hoveredCategory;
                 SelectCategory(chosenCategory);
             }
-            
-            if (!string.IsNullOrEmpty(hoveredItem))
-            {
-                chosenItem = hoveredItem;
-                SelectItem(chosenItem);
-            }
         }
     }
 
@@ -75,52 +58,6 @@ public class BookMenu1 : MonoBehaviour
     {
         switch (category)
         {
-            case "Cancel":
-                Debug.Log("Cancel button pressed");
-                bookMainMenu.SetActive(true);
-                bookFruitMenu.SetActive(false);
-                bookVeggieMenu.SetActive(false);
-                bookFungusMenu.SetActive(false);
-                cancelButton.SetActive(false);
-                hoveredCategory = null;
-                previousCategory = chosenCategory;
-                chosenCategory = null;
-                break;
-            case "Fruit":
-                Debug.Log("Fruit button pressed");
-                bookMainMenu.SetActive(false);
-                bookFruitMenu.SetActive(true);
-                bookVeggieMenu.SetActive(false);
-                bookFungusMenu.SetActive(false);
-                cancelButton.SetActive(true);
-                previousCategory = chosenCategory;
-                chosenCategory = null;
-                hoveredCategory = null;
-
-                break;
-            case "Vegetable":
-                Debug.Log("Vegetable button pressed");
-                bookMainMenu.SetActive(false);
-                bookFruitMenu.SetActive(false);
-                bookVeggieMenu.SetActive(true);
-                bookFungusMenu.SetActive(false);
-                cancelButton.SetActive(true);
-                previousCategory = chosenCategory;
-                chosenCategory = null;
-                hoveredCategory = null;
-
-                break;
-            case "Fungus":
-                Debug.Log("Fungus button pressed");
-                bookMainMenu.SetActive(false);
-                bookFruitMenu.SetActive(false);
-                bookVeggieMenu.SetActive(false);
-                bookFungusMenu.SetActive(true);
-                cancelButton.SetActive(true);
-                previousCategory = chosenCategory;
-                chosenCategory = null;
-                hoveredCategory = null;
-                break;
             case "Undo":
                 Debug.Log("Undo button pressed");
                 UndoLastItem();
@@ -134,96 +71,35 @@ public class BookMenu1 : MonoBehaviour
         }
     }
 
-    public void SelectItem(string item)
-    {
-        switch (item)
-        {
-            //fruit items
-            case "Apple":
-                Debug.Log("Apple button chosen");
-                bookFruitMenu.SetActive(false);
-                bookMainMenu.SetActive(true);
-                hoveredItem = null;
-                break;
-            //vegetable items
-            case "Blue Cabbage":
-                Debug.Log("Blue Cabbage button chosen");
-                bookVeggieMenu.SetActive(false);
-                bookMainMenu.SetActive(true);
-                hoveredItem = null;
-                break;
-            //fungus items
-            case "Sea Grapes":
-                Debug.Log("Sea Grapes button chosen");
-                bookFungusMenu.SetActive(false);
-                bookMainMenu.SetActive(true);
-                hoveredItem = null;
-                break;
-        }
-        
-    }
-
-    public void ShowNoItemError()
-    {
-        Debug.Log("no item in scanner");
-        noItemMessage.SetActive(true);
-        StartCoroutine(HideNoItemMessage());
-    }
-
-        private IEnumerator HideNoItemMessage()
-        {
-            yield return new WaitForSeconds(3f);
-            noItemMessage.SetActive(false);
-        }
-
     //each basic item adds its gameobject and itemName to scannedItems and scannedItemsNames to show up in itemsText
     public void AddBasicScanToList(GameObject basicObject)
     {
         scannedItems.Add(basicObject);
 
-        var basic = basicObject.GetComponent<BasicItemController>();
+        var basic = basicObject.GetComponent<BasicItemController1>();
         var first = basicObject.GetComponent<FirstItem>();
-        
+
         string itemName = null;
 
-        itemName = first.itemData.itemName;
-
-        if(basic != null)
+        if (basic != null)
         {
             itemName = basic.itemData.itemName;
-            scannedItemsNames.Add(itemName);
         }
-        
-        if(first != null)
+        else if (first != null)
         {
             itemName = first.itemData.itemName;
-            scannedItemsNames.Add(itemName);
+        }
+        else
+        {
+            Debug.LogError("No valid item component found on " + basicObject.name);
+            return;
         }
 
-        Debug.Log("Added scanned item: " + basic.itemData.itemName);
+        scannedItemsNames.Add(itemName);
+
+        Debug.Log("Added scanned item: " + itemName);
 
         RefreshItemsText();
-    }
-
-    //each itemcontroller adds its gameobject to scannedItems list
-    public void AddItemToList(GameObject scannedObject)
-    {
-        // allow duplicate scans by design
-        scannedItems.Add(scannedObject);
-
-        Debug.Log("Added scanned item: " + scannedObject);
-    }
-    
-    //each registered item adds whatever itemChosen is to scannedItemsNames to show up in itemsText
-    public void AddChoiceToList(string chosenItem)
-    {
-        if(chosenItem != null)
-        {
-            scannedItemsNames.Add(chosenItem);
-            RefreshItemsText();
-
-            Debug.Log("Added scanned item name: " + chosenItem);
-        }  
     }
 
     private void RefreshItemsText()
@@ -250,18 +126,18 @@ public class BookMenu1 : MonoBehaviour
 
         if (obj != null)
         {
-            var basic = obj.GetComponent<BasicItemController>();
-            var register = obj.GetComponent<RegisterItemController>();
+            var basic = obj.GetComponent<BasicItemController1>();
+            var first = obj.GetComponent<FirstItem>();
 
             if (basic != null)
             {
                 basic.isScanned = false;
                 basic.correctScan = false;
             }
-            else if (register != null)
+            else if (first != null)
             {
-                register.isScanned = false;
-                register.correctScan = false;
+                first.isScanned = false;
+                first.correctScan = false;
             }
         }
 
@@ -273,6 +149,7 @@ public class BookMenu1 : MonoBehaviour
         if (bellScript != null && bellScript.hasRung)
         {
             scannedItems.Clear();
+            scannedItemsNames.Clear();
             itemsText.text = "";
         }
         

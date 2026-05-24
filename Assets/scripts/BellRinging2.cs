@@ -24,6 +24,20 @@ public class BellRinging2 : MonoBehaviour
     public float bellCooldown = 1f;
     private bool canRing = true;
 
+    public BookMenu bookScript;
+
+    private void Awake()
+    {
+        if(bookScript == null)
+        {
+            FindAnyObjectByType<BookMenu>();
+            if (bookScript == null)
+            {
+                Debug.Log("book menu not found for bellscript");
+            }
+        }
+    } 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -40,7 +54,6 @@ public class BellRinging2 : MonoBehaviour
             Debug.Log("Client Five Active");
             clientFive.SetActive(true);
             clientFiveActivated = true;
-            textItems.text = "";
         }
 
         if (clientNumber == 6 && hasRung == false && !clientSixActivated)
@@ -49,7 +62,6 @@ public class BellRinging2 : MonoBehaviour
             Debug.Log("Client Six Active");
             clientSix.SetActive(true);
             clientSixActivated = true;
-            textItems.text = "";
         }
 
         if (clientNumber == 7 && hasRung == false && !clientSevenActivated)
@@ -58,7 +70,6 @@ public class BellRinging2 : MonoBehaviour
             Debug.Log("Client Seven Active");
             clientSeven.SetActive(true);
             clientSevenActivated = true;
-            textItems.text = "";
         }
 
         if (clientNumber == 8 && hasRung == false && !clientEightActivated)
@@ -67,7 +78,6 @@ public class BellRinging2 : MonoBehaviour
             Debug.Log("Client Eight Active");
             clientEight.SetActive(true);
             clientEightActivated = true;
-            textItems.text = "";
         }
     }
 
@@ -75,7 +85,7 @@ public class BellRinging2 : MonoBehaviour
     {
         if (other.CompareTag("Player") && canRing)
         {
-            canRing = false;
+            bookScript.ResetScanList();
             hasRung = true;
             bellAnimator.SetBool("hasRung", true);
             newPlayerController.heldObject.SetActive(false);
@@ -90,7 +100,7 @@ public class BellRinging2 : MonoBehaviour
                 newPlayerController.heldObject = null; // Clear the reference to the held object
                 newPlayerController.paulaAnimator.SetBool("holdingObject", false); // Reset holding animation state
             }
-
+            canRing = false;
         }
     }
 

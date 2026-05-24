@@ -17,7 +17,20 @@ public class BellRinging1 : MonoBehaviour
     public NewPlayerController1 newPlayerController;
     public Animator bellAnimator;
     public float bellCooldown = 1f;
-    private bool canRing = true;
+    public bool canRing = true;
+    public BookMenu1 bookScript;
+
+    private void Awake()
+    {
+        if(bookScript == null)
+        {
+            FindAnyObjectByType<BookMenu1>();
+            if(bookScript == null)
+            {
+                Debug.Log("BookMenu1 not found");
+            }
+        }
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,7 +48,6 @@ public class BellRinging1 : MonoBehaviour
             Debug.Log("Client Two Active");
             clientTwo.SetActive(true);
             clientTwoActivated = true;
-            textItems.text = "";
         }
 
         if (clientNumber == 3 && hasRung == false && !clientThreeActivated)
@@ -44,7 +56,6 @@ public class BellRinging1 : MonoBehaviour
             Debug.Log("Client Three Active");
             clientThree.SetActive(true);
             clientThreeActivated = true;
-            textItems.text = "";
         }
     }
 
@@ -52,9 +63,8 @@ public class BellRinging1 : MonoBehaviour
     {
         if (other.CompareTag("Player") && canRing)
         {
-            canRing = false;
             hasRung = true;
-            newPlayerController.heldObject.SetActive(false);
+            bookScript.ResetScanList();
             bellAnimator.SetBool("hasRung", true);
             Debug.Log("Ding!");
             StartCoroutine(RingCooldown());
@@ -63,10 +73,10 @@ public class BellRinging1 : MonoBehaviour
             //remove items in playerHands
             if (newPlayerController.heldObject != null)
             {
-                newPlayerController.heldObject.transform.SetParent(null); // Detach the held object from the player's hands
-                newPlayerController.heldObject = null; // Clear the reference to the held object
+                newPlayerController.heldObject.SetActive(false);
                 newPlayerController.paulaAnimator.SetBool("holdingObject", false); // Reset holding animation state
             }
+            canRing = false;
 
         }
     }
