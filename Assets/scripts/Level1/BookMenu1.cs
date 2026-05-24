@@ -179,14 +179,26 @@ public class BookMenu1 : MonoBehaviour
     //each basic item adds its gameobject and itemName to scannedItems and scannedItemsNames to show up in itemsText
     public void AddBasicScanToList(GameObject basicObject)
     {
-        var basic = basicObject.GetComponent<BasicItemController>();
-        if (basic == null || basic.itemData == null) 
-        {
-            return;
-        }
-
         scannedItems.Add(basicObject);
-        scannedItemsNames.Add(basic.itemData.itemName);
+
+        var basic = basicObject.GetComponent<BasicItemController>();
+        var first = basicObject.GetComponent<FirstItem>();
+        
+        string itemName = null;
+
+        itemName = first.itemData.itemName;
+
+        if(basic != null)
+        {
+            itemName = basic.itemData.itemName;
+            scannedItemsNames.Add(itemName);
+        }
+        
+        if(first != null)
+        {
+            itemName = first.itemData.itemName;
+            scannedItemsNames.Add(itemName);
+        }
 
         Debug.Log("Added scanned item: " + basic.itemData.itemName);
 

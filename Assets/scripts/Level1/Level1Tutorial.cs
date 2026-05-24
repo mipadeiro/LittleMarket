@@ -5,7 +5,7 @@ public class Level1Tutorial : MonoBehaviour
 {
     public GameObject tutorialBG;
     public TMPro.TextMeshProUGUI tutorialText;
-    public NewPlayerController newPlayerController;
+    public NewPlayerController1 newPlayerController;
     public BellRinging1 bellScript;
     public GameObject scanner;
     public GameObject bag;
@@ -34,7 +34,7 @@ public class Level1Tutorial : MonoBehaviour
     void Start()
     {
         if (newPlayerController == null)
-            newPlayerController = FindFirstObjectByType<NewPlayerController>();
+            newPlayerController = FindFirstObjectByType<NewPlayerController1>();
 
         tutorialBG.SetActive(true);
         currentStep = TutorialStep.Greeting;

@@ -14,7 +14,7 @@ public class BellRinging1 : MonoBehaviour
     public bool clientTwoActivated;
     public bool clientThreeActivated;
     public TMPro.TextMeshProUGUI textItems;
-    public NewPlayerController newPlayerController;
+    public NewPlayerController1 newPlayerController;
     public Animator bellAnimator;
     public float bellCooldown = 1f;
     private bool canRing = true;

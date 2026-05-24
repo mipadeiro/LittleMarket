@@ -7,7 +7,7 @@ public class FirstItem : MonoBehaviour
     public bool correctScan;
     public bool inCart;
     public bool correctCart;
-    public UndoButton undoScript;
+    public UndoButton1 undoScript;
     public BookMenu1 bookScript;
     public ScannerScript1 scannerScript;
     private Level1Tutorial tutorial;
@@ -25,7 +25,7 @@ public class FirstItem : MonoBehaviour
 
         if (undoScript == null)
         {
-            undoScript = FindAnyObjectByType<UndoButton>();
+            undoScript = FindAnyObjectByType<UndoButton1>();
             if (undoScript == null)
             {
                 Debug.LogWarning("UndoButton not found");

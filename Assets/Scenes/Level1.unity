@@ -828,6 +828,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 90957129}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &93129029 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5938404052813688773, guid: 3edc9ce0ed51c914b85c5cc37e218aca, type: 3}
+  m_PrefabInstance: {fileID: 1149094237}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &112271829
 GameObject:
   m_ObjectHideFlags: 0
@@ -1601,6 +1606,7 @@ GameObject:
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
+  - component: {fileID: 330585549}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1741,6 +1747,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   audioClips: []
   audioSource: {fileID: 0}
+--- !u!114 &330585549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab85a517f50e3bf4099f530126f7ea07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SmoothCameraFollowZoom
+  target: {fileID: 1021302562}
+  offsetX: 0
+  offsetY: 5
+  offsetZ: -10
+  smoothTime: 0.25
+  zoomObjects:
+  - {fileID: 850290458}
+  targetOffset: 3
+  normalZoom: 60
+  zoomIn: 47
+  zoomSpeed: 5
+  timer: 2
 --- !u!1 &362624812
 GameObject:
   m_ObjectHideFlags: 0
@@ -2035,7 +2065,7 @@ GameObject:
   - component: {fileID: 383025472}
   - component: {fileID: 383025471}
   - component: {fileID: 383025470}
-  - component: {fileID: 383025469}
+  - component: {fileID: 383025474}
   m_Layer: 5
   m_Name: UndoButton
   m_TagString: Untagged
@@ -2063,21 +2093,6 @@ RectTransform:
   m_AnchoredPosition: {x: -185.86543, y: -167.0214}
   m_SizeDelta: {x: 700, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &383025469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 383025467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19e4b71b60a8ca84cad0c7560504f204, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UndoButton
-  categoryText: {fileID: 377748426}
-  bookScript: {fileID: 0}
-  scannerScript: {fileID: 0}
 --- !u!65 &383025470
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2181,6 +2196,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 383025467}
   m_CullTransparentMesh: 1
+--- !u!114 &383025474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383025467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92bc0e271d7bb4447808f4b5185c4e0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UndoButton1
+  categoryText: {fileID: 377748426}
+  bookScript: {fileID: 2001870056}
+  scannerScript: {fileID: 850290459}
 --- !u!1 &383961151
 GameObject:
   m_ObjectHideFlags: 0
@@ -3116,8 +3146,8 @@ MonoBehaviour:
   clientThree: {fileID: 2120637642}
   clientTwoActivated: 0
   clientThreeActivated: 0
-  textItems: {fileID: 0}
-  newPlayerController: {fileID: 1021302559}
+  textItems: {fileID: 771992164}
+  newPlayerController: {fileID: 1021302563}
   bellAnimator: {fileID: 1171354404}
   bellCooldown: 1
 --- !u!1 &567129850
@@ -5038,7 +5068,7 @@ GameObject:
   - component: {fileID: 1021302562}
   - component: {fileID: 1021302561}
   - component: {fileID: 1021302560}
-  - component: {fileID: 1021302559}
+  - component: {fileID: 1021302563}
   - component: {fileID: 1021302558}
   m_Layer: 0
   m_Name: 'Player '
@@ -5074,8 +5104,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1021302559}
-        m_TargetAssemblyTypeName: NewPlayerController, Assembly-CSharp
+      - m_Target: {fileID: 1021302563}
+        m_TargetAssemblyTypeName: NewPlayerController1, Assembly-CSharp
         m_MethodName: Move
         m_Mode: 0
         m_Arguments:
@@ -5106,8 +5136,8 @@ MonoBehaviour:
     m_ActionName: 'Player/Look[/Mouse/delta,/Pen/delta]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1021302559}
-        m_TargetAssemblyTypeName: NewPlayerController, Assembly-CSharp
+      - m_Target: {fileID: 1021302563}
+        m_TargetAssemblyTypeName: NewPlayerController1, Assembly-CSharp
         m_MethodName: PickUp
         m_Mode: 0
         m_Arguments:
@@ -5130,12 +5160,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2001870056}
+        m_TargetAssemblyTypeName: BookMenu1, Assembly-CSharp
+        m_MethodName: OnPickUp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 852140f2-7766-474d-8707-702459ba45f3
     m_ActionName: 'Player/Pick Up[/Mouse/leftButton]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1021302559}
-        m_TargetAssemblyTypeName: NewPlayerController, Assembly-CSharp
+      - m_Target: {fileID: 1021302563}
+        m_TargetAssemblyTypeName: NewPlayerController1, Assembly-CSharp
         m_MethodName: Drop
         m_Mode: 0
         m_Arguments:
@@ -5162,8 +5204,8 @@ MonoBehaviour:
     m_ActionName: 'Player/Drop[/Mouse/rightButton]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1021302559}
-        m_TargetAssemblyTypeName: NewPlayerController, Assembly-CSharp
+      - m_Target: {fileID: 1021302563}
+        m_TargetAssemblyTypeName: NewPlayerController1, Assembly-CSharp
         m_MethodName: Jump
         m_Mode: 0
         m_Arguments:
@@ -5261,36 +5303,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &1021302559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1021302557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e356f9248367d14781fea194534c6fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NewPlayerController
-  speed: 3
-  jumpHeight: 1.75
-  gravity: -9.81
-  rotationSpeed: 10
-  pickupRange: 0.5
-  controller: {fileID: 1021302560}
-  paulaAnimator: {fileID: 26124870}
-  moveInput: {x: 0, y: 0, z: 0}
-  velocity: {x: 0, y: 0, z: 0}
-  playerHands: {fileID: 866555152}
-  heldObject: {fileID: 0}
-  lastHeldObject: {fileID: 0}
-  groundCheck: {fileID: 2125701829}
-  isGrounded: 0
-  pickedUpThisStep: 0
-  droppedThisStep: 0
-  isDirty: 0
-  scannerScript: {fileID: 0}
 --- !u!143 &1021302560
 CharacterController:
   m_ObjectHideFlags: 0
@@ -5347,6 +5359,36 @@ Transform:
   - {fileID: 2125701834}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1021302563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021302557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3486056b03a17b04cbdd04a83c22f4b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NewPlayerController1
+  speed: 3
+  jumpHeight: 1.75
+  gravity: -9.81
+  rotationSpeed: 10
+  pickupRange: 0.5
+  controller: {fileID: 1021302560}
+  paulaAnimator: {fileID: 26124870}
+  moveInput: {x: 0, y: 0, z: 0}
+  velocity: {x: 0, y: 0, z: 0}
+  playerHands: {fileID: 866555152}
+  heldObject: {fileID: 0}
+  lastHeldObject: {fileID: 0}
+  groundCheck: {fileID: 2125701829}
+  isGrounded: 0
+  pickedUpThisStep: 0
+  droppedThisStep: 0
+  isDirty: 0
+  scannerScript: {fileID: 850290459}
 --- !u!1 &1058124765
 GameObject:
   m_ObjectHideFlags: 0
@@ -5581,6 +5623,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1321448515}
     m_Modifications:
+    - target: {fileID: -826838189360413046, guid: 3edc9ce0ed51c914b85c5cc37e218aca, type: 3}
+      propertyPath: undoScript
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3042925125007353650, guid: 3edc9ce0ed51c914b85c5cc37e218aca, type: 3}
       propertyPath: textItems
       value: 
@@ -5641,16 +5687,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -826838189360413046, guid: 3edc9ce0ed51c914b85c5cc37e218aca, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5938404052813688773, guid: 3edc9ce0ed51c914b85c5cc37e218aca, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1149094245}
   m_SourcePrefab: {fileID: 100100000, guid: 3edc9ce0ed51c914b85c5cc37e218aca, type: 3}
 --- !u!4 &1149094238 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6422875966942705023, guid: 3edc9ce0ed51c914b85c5cc37e218aca, type: 3}
   m_PrefabInstance: {fileID: 1149094237}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1149094245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93129029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 334fef8bddf84a346b37afd0246aa531, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BasicItemController1
+  itemData: {fileID: 11400000, guid: d1a9990c536aa7243a6d6495d82f2e19, type: 2}
+  isScanned: 0
+  correctScan: 0
+  inCart: 0
+  correctCart: 0
+  undoScript: {fileID: 383025474}
+  bookScript: {fileID: 2001870056}
+  scannerScript: {fileID: 850290459}
 --- !u!1 &1171354400 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6841404666581128098, guid: 17ab25cdbe37f5045a2270891ee7c218, type: 3}
@@ -6603,9 +6673,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Level1Tutorial
   tutorialBG: {fileID: 643411916}
   tutorialText: {fileID: 307548724}
-  newPlayerController: {fileID: 1021302559}
+  newPlayerController: {fileID: 1021302563}
   bellScript: {fileID: 561630970}
-  scanner: {fileID: 1976647223}
+  scanner: {fileID: 850290454}
   bag: {fileID: 1013900950}
   tutorialController: {fileID: 112271829}
   tutorialItem: {fileID: 1976647227}
@@ -8346,7 +8416,7 @@ MonoBehaviour:
   correctScan: 0
   inCart: 0
   correctCart: 0
-  undoScript: {fileID: 383025469}
+  undoScript: {fileID: 383025474}
   bookScript: {fileID: 2001870056}
   scannerScript: {fileID: 850290459}
 --- !u!114 &1976647228
@@ -9110,7 +9180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f649ac5da8de3b8429f7f559ea96d49f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GroundCheck
-  playerScript: {fileID: 1021302559}
+  playerScript: {fileID: 0}
 --- !u!135 &2125701831
 SphereCollider:
   m_ObjectHideFlags: 0
