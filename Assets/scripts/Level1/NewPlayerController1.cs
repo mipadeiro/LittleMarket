@@ -7,7 +7,7 @@ public class NewPlayerController1 : MonoBehaviour
     public float speed = 3f;
     public float jumpHeight = 1.75f;
     public float gravity = -9.81f; // Gravity acceleration (negative for downward pull)
-    public float rotationSpeed = 10f; // How quickly the player rotates towards movement direction
+    public float rotationSpeed = 7f; // How quickly the player rotates towards movement direction
     public float pickupRange = 0.5f; // how close the player needs to be to
 
     // References to components and variables for movement
@@ -28,6 +28,7 @@ public class NewPlayerController1 : MonoBehaviour
     public bool droppedThisStep;
     public bool isDirty = false;
     public ScannerScript1 scannerScript; // Reference to the ScannerScript to manage items in the scanner
+    public SmoothCameraFollowZoom cameraScript;
 
     private void Awake()
     {
@@ -39,12 +40,34 @@ public class NewPlayerController1 : MonoBehaviour
                 Debug.LogWarning("ScannerScript not found in the scene.");
             }
         }
+
+        if (cameraScript == null)
+        {
+            cameraScript = FindAnyObjectByType<SmoothCameraFollowZoom>();
+            if(cameraScript == null)
+            {
+                Debug.Log("camera script not found");
+            }
+        }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
 
+    }
+
+    public void ZoomOut(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            cameraScript.SetZoomOut(true);
+        }
+        else if (context.canceled)
+        {
+            cameraScript.SetZoomOut(false);
+        }
+        
     }
 
     // Input Action callback for movement (WASD or left joystick)

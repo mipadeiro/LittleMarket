@@ -4670,6 +4670,7 @@ MonoBehaviour:
   newPlayerController: {fileID: 381679389}
   bellAnimator: {fileID: 1247389615}
   bellCooldown: 1
+  bookScript: {fileID: 0}
 --- !u!1 &562661228
 GameObject:
   m_ObjectHideFlags: 0
