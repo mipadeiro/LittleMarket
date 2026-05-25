@@ -6,6 +6,7 @@ public class ItemRespawn : MonoBehaviour
     public float threshold = -5f;
     public Vector3 startPosition;
     public Vector3 startRotation;
+    public int itemFallen = 0;
 
     void Start()
     {
@@ -32,6 +33,8 @@ public class ItemRespawn : MonoBehaviour
                 rb2d.angularVelocity = 0f;
                 rb2d.Sleep();
             }
+            
+            itemFallen++;
         }
     }
 }

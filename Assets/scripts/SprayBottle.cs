@@ -15,6 +15,9 @@ public class SprayBottle : MonoBehaviour
     private bool previousHasRung = false;
     private readonly System.Collections.Generic.List<GameObject> spawnedDirt = new System.Collections.Generic.List<GameObject>();
 
+    public bool isDirty = false;
+    public int cleanedDirt = 0;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -44,14 +47,20 @@ public class SprayBottle : MonoBehaviour
             spawnedDirt.Add(dirt);
         }
         Debug.Log("dirty as hell out here");
+        isDirty = true;
     }
 
     public void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            if(isDirty == true)
+            {
+                cleanedDirt++;
+            }
             sprayEffect.SetActive(true);
             isSpraying = true;
+            isDirty = false;
             DestroyAllDirt();
         }
     }

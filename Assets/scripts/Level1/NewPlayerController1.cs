@@ -1,6 +1,9 @@
 using NUnit.Framework;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
+using TMPro;
 
 public class NewPlayerController1 : MonoBehaviour
 {
@@ -9,6 +12,12 @@ public class NewPlayerController1 : MonoBehaviour
     public float gravity = -9.81f; // Gravity acceleration (negative for downward pull)
     public float rotationSpeed = 7f; // How quickly the player rotates towards movement direction
     public float pickupRange = 0.5f; // how close the player needs to be to
+
+    public int fallenPlayer = 0;
+    private bool isStunned = false;
+    public float stunDuration = 3f;
+    public TextMeshPro stunText;
+    public GameObject stunBG;
 
     // References to components and variables for movement
     public CharacterController controller; // Unity's CharacterController for collision-aware movement
@@ -174,6 +183,14 @@ public class NewPlayerController1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isStunned)
+        {
+            // Still apply gravity so player falls naturally
+            velocity.y += gravity * Time.deltaTime;
+            controller.Move(velocity * Time.deltaTime);
+            return; //stop all input & movement
+        }
+
         isGrounded = controller.isGrounded;
         //Create a movement vector from input (x from left/right, z from up/down, y=0 for horizontal)
         Vector3 move = new Vector3(moveInput.x, 0, moveInput.y);
@@ -241,5 +258,32 @@ public class NewPlayerController1 : MonoBehaviour
             speed = 3f; // Speed back to normal
             jumpHeight = 1.5f; // Jump height back to normal
         }
+    }
+
+    public IEnumerator FallStun()
+    {
+        if (isStunned) yield break;
+
+        isStunned = true;
+        fallenPlayer++;
+
+        float timer = stunDuration;
+
+        stunBG.SetActive(true);
+        stunText.gameObject.SetActive(true); // show text
+
+        while (timer > 0f)
+        {
+            timer -= Time.deltaTime;
+
+            int seconds = Mathf.CeilToInt(timer);
+            stunText.text = seconds.ToString();
+
+            yield return null;
+        }
+
+        stunText.gameObject.SetActive(false); // hide text
+        stunBG.SetActive(false);
+        isStunned = false;
     }
 }

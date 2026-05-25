@@ -19,15 +19,25 @@ public class BellRinging1 : MonoBehaviour
     public float bellCooldown = 1f;
     public bool canRing = true;
     public BookMenu1 bookScript;
+    public Level1Points pointsScript;
+    public bool levelOver;
 
     private void Awake()
     {
         if(bookScript == null)
         {
-            FindAnyObjectByType<BookMenu1>();
+            bookScript = FindAnyObjectByType<BookMenu1>();
             if(bookScript == null)
             {
                 Debug.Log("BookMenu1 not found");
+            }
+        }
+        if(pointsScript == null)
+        {
+            pointsScript = FindAnyObjectByType<Level1Points>();
+            if(pointsScript == null)
+            {
+                Debug.Log("Level1Points not found");
             }
         }
     }
@@ -37,6 +47,7 @@ public class BellRinging1 : MonoBehaviour
     {
         clientNumber = 1;
         hasRung = false;
+        levelOver = false;
     }
 
     // Update is called once per frame
@@ -56,6 +67,15 @@ public class BellRinging1 : MonoBehaviour
             Debug.Log("Client Three Active");
             clientThree.SetActive(true);
             clientThreeActivated = true;
+        }
+
+        if (clientNumber == 4 && levelOver == false)
+        {
+            levelOver = true;
+            clientThree.SetActive(false);
+            Debug.Log("Level Over");
+            EndLevel();
+
         }
     }
 
@@ -96,6 +116,11 @@ public class BellRinging1 : MonoBehaviour
             //add sfx
 
         }
+    }
+
+    public void EndLevel()
+    {
+        pointsScript.CalculatePoints();
     }
         
 }
