@@ -9,9 +9,10 @@ public class ClientFour : MonoBehaviour
     public GameObject customerDialogue;
     public Animator bellAnimator;
     public int clientID = 4;
+    private bool hasEnded = false;
 
     //timer things
-    public float maxTime = 180f;
+    public float maxTime = 210f;
     private float currentTime;
     public bool timerRunning;
     public float timeSpent;
@@ -50,6 +51,7 @@ public class ClientFour : MonoBehaviour
             currentTime = maxTime;
             timerRunning = true;
             hasStarted = true;
+            hasEnded = false;
 
             Debug.Log("Timer started");
 
@@ -58,6 +60,12 @@ public class ClientFour : MonoBehaviour
         if (bellScript.clientNumber == 4 && bellScript.hasRung == true)
         {
             EndTransaction();
+
+            if(timerRunning)
+            {
+                timerRunning = false;
+                OnTimerFinished();
+            }
         }
 
         if(!timerRunning)
@@ -76,12 +84,6 @@ public class ClientFour : MonoBehaviour
             timerRunning = false;
             OnTimerFinished();
         }
-
-        if(bellScript.hasRung == true && timerRunning)
-        {
-            timerRunning = false;
-            OnTimerFinished();
-        }
     }
 
     public void StartTransaction()
@@ -91,6 +93,12 @@ public class ClientFour : MonoBehaviour
 
     public void EndTransaction()
     {
+        if (hasEnded)
+        {
+            return;
+        }
+        hasEnded = true;
+
         customerDialogue.SetActive(false);
         bellScript.clientNumber = 5;
         bellScript.hasRung = false;

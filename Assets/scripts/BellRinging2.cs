@@ -96,9 +96,9 @@ public class BellRinging2 : MonoBehaviour
             //remove items in playerHands
             if (newPlayerController.heldObject != null)
             {
+                newPlayerController.paulaAnimator.SetBool("holdingObject", false); // Reset holding animation state
                 newPlayerController.heldObject.transform.SetParent(null); // Detach the held object from the player's hands
                 newPlayerController.heldObject = null; // Clear the reference to the held object
-                newPlayerController.paulaAnimator.SetBool("holdingObject", false); // Reset holding animation state
             }
             canRing = false;
         }
