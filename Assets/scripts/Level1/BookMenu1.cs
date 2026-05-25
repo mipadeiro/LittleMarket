@@ -104,11 +104,11 @@ public class BookMenu1 : MonoBehaviour
 
     private void RefreshItemsText()
     {
-        itemsText.text = "";
+        itemsText.text = string.Join("\n", scannedItemsNames);
 
         foreach (string item in scannedItemsNames)
         {
-            itemsText.text += item + "\n"; // paragraph spacing
+            Debug.Log($"[{item}]");
         }
     }
 

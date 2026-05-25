@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.XR;
+using TMPro;
 
 public class ClientTimer1 : MonoBehaviour
 {
@@ -8,13 +9,14 @@ public class ClientTimer1 : MonoBehaviour
     private float currentTime;
     public bool timerRunning;
 
-    public float timeLeft;
+    public float timeSpent;
     private bool hasStarted = false;
 
     //clock UI
     public RectTransform meterHand;
-    public float startAngle = 90f;
-    public float endAngle = -90f;
+    public float startX= -635;
+    public float endX = -417f;
+    public TextMeshProUGUI timerText;
 
     public BellRinging1 bellScript;
 
@@ -57,6 +59,8 @@ public class ClientTimer1 : MonoBehaviour
 
         currentTime -= Time.deltaTime;
 
+        UpdateTimerText();
+
         UpdateHand();
 
         if(currentTime <= 0f)
@@ -76,9 +80,17 @@ public class ClientTimer1 : MonoBehaviour
     void UpdateHand()
     {
         float t = currentTime / maxTime;
-        float angle = Mathf.Lerp(endAngle, startAngle, t);
-        meterHand.localRotation = Quaternion.Euler(0, 0, angle);
+        float x = Mathf.Lerp(endX, startX, t);
+        meterHand.anchoredPosition = new Vector2(x, meterHand.anchoredPosition.y);
 
+    }
+
+    void UpdateTimerText()
+    {
+        int minutes = Mathf.FloorToInt(currentTime / 60f);
+        int seconds = Mathf.FloorToInt(currentTime % 60f);
+
+        timerText.text = $"{minutes:00}:{seconds:00}";
     }
 
     public void StopTimer()
@@ -88,7 +100,7 @@ public class ClientTimer1 : MonoBehaviour
 
     void OnTimerFinished()
     {
-        timeLeft = maxTime - currentTime;
-        Debug.Log("Client timed out at:" + timeLeft);
+        timeSpent = maxTime - currentTime;
+        Debug.Log("Client timed out at:" + timeSpent);
     }
 }

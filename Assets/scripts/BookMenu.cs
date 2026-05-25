@@ -206,9 +206,9 @@ public class BookMenu : MonoBehaviour
     //each registered item adds whatever itemChosen is to scannedItemsNames to show up in itemsText
     public void AddChoiceToList(string chosenItem)
     {
-        if(chosenItem != null)
+        if (!string.IsNullOrWhiteSpace(chosenItem))
         {
-            scannedItemsNames.Add(chosenItem);
+            scannedItemsNames.Add(chosenItem.Trim());
             RefreshItemsText();
 
             Debug.Log("Added scanned item name: " + chosenItem);
@@ -217,11 +217,11 @@ public class BookMenu : MonoBehaviour
 
     private void RefreshItemsText()
     {
-        itemsText.text = "";
+        itemsText.text = string.Join("\n", scannedItemsNames);
 
         foreach (string item in scannedItemsNames)
         {
-            itemsText.text += item + "\n"; // paragraph spacing
+            Debug.Log($"[{item}]");
         }
     }
 

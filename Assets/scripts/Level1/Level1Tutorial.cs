@@ -22,7 +22,13 @@ public class Level1Tutorial : MonoBehaviour
     public GameObject westButtonImg;
     public GameObject uiControlsImg;
 
-    private enum TutorialStep { Greeting,Move, Jump, PickUp, Drop, Scan, Bag, Bell, Completed }
+    //arrows
+    public GameObject arrowHoney;
+    public GameObject arrowScan;
+    public GameObject arrowCart;
+    public GameObject arrowBell;
+
+    private enum TutorialStep { Greeting, Move, Jump, PickUp, Drop, Scan, Bag, Bell, Completed }
     private enum DeviceType { Unknown, Keyboard, Gamepad }
 
     private TutorialStep currentStep = TutorialStep.Move;
@@ -36,9 +42,14 @@ public class Level1Tutorial : MonoBehaviour
         if (newPlayerController == null)
             newPlayerController = FindFirstObjectByType<NewPlayerController1>();
 
+        if (bellScript == null)
+            bellScript = FindFirstObjectByType<BellRinging1>();
+
+
         tutorialBG.SetActive(true);
         currentStep = TutorialStep.Greeting;
         jumpPressed = false;
+        bellScript.canRing = false;
         UpdateTutorialText();
     }
 
@@ -227,6 +238,7 @@ public class Level1Tutorial : MonoBehaviour
                     : "With their significant strength, and the left mouse button, they can pick up almost anything! Even if it's much bigger than them. ";
                 mouseImg.SetActive(currentDevice == DeviceType.Keyboard);
                 eastButtonImg.SetActive(currentDevice == DeviceType.Gamepad);
+                arrowHoney.SetActive(true);
                 break;
             case TutorialStep.Drop:
                 actionText = currentDevice == DeviceType.Gamepad
@@ -237,15 +249,20 @@ public class Level1Tutorial : MonoBehaviour
                 break;
             case TutorialStep.Scan:
                 actionText = "Now, our intrepid shopkeep can use all of these skills together to register items to the book. They need only set the item down on the symbol etched into the table.";
+                arrowScan.SetActive(true);
                 break;
             case TutorialStep.Bag:
                 actionText = "Lastly, they must set the registered item into the client's basket.";
+                arrowCart.SetActive(true);
                 break;
             case TutorialStep.Bell:
                 actionText = "Now that all the customer's items have been safely put away, the hero shall end the transaction by jumping on the bell to ring it.";
+                arrowBell.SetActive(true);
+                bellScript.canRing = true;
                 break;
             case TutorialStep.Completed:
                 actionText = "What an aweinspiring performance! This shop is truly in safe hands. Now it is up to our hero to use their skills for the rest of the day!";
+                arrowBell.SetActive(false);
                 mouseImg.SetActive(currentDevice == DeviceType.Keyboard);
                 eastButtonImg.SetActive(currentDevice == DeviceType.Gamepad);
                 break;
@@ -278,6 +295,10 @@ public class Level1Tutorial : MonoBehaviour
         eastButtonImg.SetActive(false);
         submitButtonImg.SetActive(false);
         westButtonImg.SetActive(false);
+        arrowBell.SetActive(false);
+        arrowCart.SetActive(false);
+        arrowHoney.SetActive(false);
+        arrowScan.SetActive(false);
 
         UpdateTutorialText();
     }
