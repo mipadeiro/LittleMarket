@@ -3668,7 +3668,6 @@ MonoBehaviour:
   canRing: 1
   bookScript: {fileID: 2001870056}
   pointsScript: {fileID: 1687859137}
-  scoreboardUI: {fileID: 1084498201}
   levelOver: 0
 --- !u!136 &561630971
 CapsuleCollider:
@@ -6790,7 +6789,7 @@ GameObject:
   - component: {fileID: 1021302563}
   - component: {fileID: 1021302558}
   m_Layer: 0
-  m_Name: 'Player '
+  m_Name: PlayerPaula
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8227,6 +8226,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243861271}
   m_CullTransparentMesh: 1
+--- !u!1 &1245525289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1245525291}
+  - component: {fileID: 1245525290}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1245525290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245525289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fef5df244efa9d429562bf9e9a6d877, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  level1ScoreLinnea: 0
+  level2ScoreLinnea: 0
+  level3ScoreLinnea: 0
+  level4ScoreLinnea: 0
+  level1ScorePaula: 0
+  level2ScorePaula: 0
+  level3ScorePaula: 0
+  level4ScorePaula: 0
+  level1ScoreCreek: 0
+  level2ScoreCreek: 0
+  level3ScoreCreek: 0
+  level4ScoreCreek: 0
+  level1ScoreFred: 0
+  level2ScoreFred: 0
+  level3ScoreFred: 0
+  level4ScoreFred: 0
+--- !u!4 &1245525291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245525289}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.18225, y: -0.03427, z: 0.73894}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1261416534
 GameObject:
   m_ObjectHideFlags: 0
@@ -10845,6 +10904,7 @@ MonoBehaviour:
   clientThree: {fileID: 567129853}
   timerScript: {fileID: 2120637645}
   playerScript: {fileID: 1021302563}
+  playerCharacter: {fileID: 1021302557}
   honey: {fileID: 1976647223}
   hairDye: {fileID: 311821504}
   superGlue: {fileID: 410276639}
@@ -13421,3 +13481,4 @@ SceneRoots:
   - {fileID: 1100392113}
   - {fileID: 146123481}
   - {fileID: 1212243585}
+  - {fileID: 1245525291}

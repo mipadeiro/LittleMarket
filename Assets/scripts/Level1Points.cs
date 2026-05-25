@@ -9,6 +9,7 @@ public class Level1Points : MonoBehaviour
     public ClientThreeScript clientThree;
     public ClientTimer1 timerScript;
     public NewPlayerController1 playerScript;
+    public GameObject playerCharacter;
     public GameObject honey;
     public GameObject hairDye;
     public GameObject superGlue;
@@ -23,7 +24,7 @@ public class Level1Points : MonoBehaviour
     public float timeClient1 = 0;
     public float timeClient2 = 0;
     public float timeClient3 = 0;
-    public float timeScore = 0;
+    public int timeScore = 0;
     public TextMeshProUGUI timebonus;
     public int fallenItems = 0;
     public TextMeshProUGUI itemsfallen;
@@ -46,7 +47,7 @@ public class Level1Points : MonoBehaviour
     public int noItemFall = 0;
     public TextMeshProUGUI nofallitem;
 
-    public float level1TotalScore;
+    public int level1TotalScore;
     public TextMeshProUGUI totalScore;
     //public int noPrjectileHit = 200;
 
@@ -365,5 +366,25 @@ public class Level1Points : MonoBehaviour
         nofallitem.text = noItemFall.ToString();
 
         totalScore.text = level1TotalScore.ToString();
+
+        if(playerCharacter.name.Contains("PlayerPaula"))
+        {
+            GameManager.Instance.level1ScorePaula = level1TotalScore;
+        }
+
+        if(playerCharacter.name.Contains("PlayerLinnea"))
+        {
+            GameManager.Instance.level1ScoreLinnea = level1TotalScore;
+        }
+
+        if(playerCharacter.name.Contains("PlayerCreek"))
+        {
+            GameManager.Instance.level1ScoreCreek = level1TotalScore;
+        }
+        
+        if(playerCharacter.name.Contains("PlayerFred"))
+        {
+            GameManager.Instance.level1ScoreCreek = level1TotalScore;
+        }
     }
 }
