@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: mat
+  m_Name: boxyellow 1
   m_Shader: {fileID: -6465566751694194690, guid: b2c58a39b59af42b081d22622f1969e6, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -25,11 +25,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AO_r_metalic_g:
-        m_Texture: {fileID: 2800000, guid: 0a9504d27c50d8f43b1d28edfd3128b7, type: 3}
+        m_Texture: {fileID: 2800000, guid: b325c23c89203c148a8b96ef7d6bcf82, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BC_rgb_smoothness_a:
-        m_Texture: {fileID: 2800000, guid: 5ebf2f81896bd214eb233029cbdd7383, type: 3}
+        m_Texture: {fileID: 2800000, guid: 080395afd5c9fde40baa2d555f8188db, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -108,7 +108,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Metalic: 0
+    - _Metalic: 1
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -123,7 +123,7 @@ Material:
     - _StrokeBlendingNoiseScale: 500
     - _StrokeBlendingNoiseStrength: 0.15
     - _StrokeRandomness: 1
-    - _StrokeScale: 5
+    - _StrokeScale: 9
     - _Surface: 0
     - _UseBlendingNoise: 1
     - _Variation: 0.1
@@ -131,7 +131,7 @@ Material:
     - _XRMotionVectorsPass: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.82043856, g: 0.7058824, b: 1, a: 1}
+    - _BaseColor: {r: 0.4716981, g: 0.13794938, b: 0.13794938, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
@@ -139,7 +139,7 @@ Material:
     - _VariationColorB: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &5048311614518214825
+--- !u!114 &7397725565025563516
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
