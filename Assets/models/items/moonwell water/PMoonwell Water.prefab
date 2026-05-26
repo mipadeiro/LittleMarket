@@ -10,27 +10,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 234108cbd3166b74685697702e460fce, type: 3}
       propertyPath: m_LocalScale.x
-      value: 49.865364
+      value: 45.457764
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 234108cbd3166b74685697702e460fce, type: 3}
       propertyPath: m_LocalScale.y
-      value: 49.865364
+      value: 45.457764
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 234108cbd3166b74685697702e460fce, type: 3}
       propertyPath: m_LocalScale.z
-      value: 49.865364
+      value: 45.457764
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 234108cbd3166b74685697702e460fce, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.1239998
+      value: -1.12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 234108cbd3166b74685697702e460fce, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.128
+      value: 1.08
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 234108cbd3166b74685697702e460fce, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.6209999
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 234108cbd3166b74685697702e460fce, type: 3}
       propertyPath: m_LocalRotation.w
@@ -81,13 +81,13 @@ PrefabInstance:
       addedObject: {fileID: 6020838726559183091}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 234108cbd3166b74685697702e460fce, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1234271578637442899}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 234108cbd3166b74685697702e460fce, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 7402196326438213844}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 234108cbd3166b74685697702e460fce, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1025628977696137080}
+      addedObject: {fileID: 2810775557785432559}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 234108cbd3166b74685697702e460fce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2933111129454249726}
   m_SourcePrefab: {fileID: 100100000, guid: 234108cbd3166b74685697702e460fce, type: 3}
 --- !u!1 &785788111635267542 stripped
 GameObject:
@@ -121,8 +121,44 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &1234271578637442899
-BoxCollider:
+--- !u!114 &7402196326438213844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785788111635267542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7213b020e9340e14196df133de588bc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemRespawn
+  threshold: -5
+  startPosition: {x: 0, y: 0, z: 0}
+  startRotation: {x: 0, y: 0, z: 0}
+  itemFallen: 0
+--- !u!114 &2810775557785432559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785788111635267542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 334fef8bddf84a346b37afd0246aa531, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BasicItemController1
+  itemData: {fileID: 11400000, guid: 375a12c5a18e2a5438fbed6b7f8a9f97, type: 2}
+  isScanned: 0
+  correctScan: 0
+  inCart: 0
+  correctCart: 0
+  undoScript: {fileID: 0}
+  bookScript: {fileID: 0}
+  scannerScript: {fileID: 0}
+--- !u!64 &2933111129454249726
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -139,41 +175,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.02, y: 0.019999996, z: 0.035872642}
-  m_Center: {x: 0, y: 0, z: 0.007936326}
---- !u!114 &7402196326438213844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 785788111635267542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7213b020e9340e14196df133de588bc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ItemRespawn
-  threshold: -5
-  startPosition: {x: 0, y: 0, z: 0}
-  startRotation: {x: 0, y: 0, z: 0}
---- !u!114 &1025628977696137080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 785788111635267542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e81f21d52093cba449d74d45eceffc75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BasicItemController
-  itemData: {fileID: 11400000, guid: 375a12c5a18e2a5438fbed6b7f8a9f97, type: 2}
-  isScanned: 0
-  correctScan: 0
-  InCart: 0
-  correctCart: 0
-  undoScript: {fileID: 0}
-  bookScript: {fileID: 0}
-  scannerScript: {fileID: 0}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4711208715938537054, guid: 234108cbd3166b74685697702e460fce, type: 3}

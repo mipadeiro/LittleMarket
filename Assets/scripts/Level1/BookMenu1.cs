@@ -129,12 +129,12 @@ public class BookMenu1 : MonoBehaviour
             var basic = obj.GetComponent<BasicItemController1>();
             var first = obj.GetComponent<FirstItem>();
 
-            if (basic != null)
+            if (basic != null && !scannedItems.Contains(obj))
             {
                 basic.isScanned = false;
                 basic.correctScan = false;
             }
-            else if (first != null)
+            else if (first != null && !scannedItems.Contains(obj))
             {
                 first.isScanned = false;
                 first.correctScan = false;

@@ -265,7 +265,7 @@ public class NewPlayerController1 : MonoBehaviour
         if (isStunned) yield break;
 
         isStunned = true;
-        fallenPlayer++;
+        fallenPlayer = fallenPlayer + 1;
 
         float timer = stunDuration;
 

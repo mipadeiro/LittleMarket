@@ -242,12 +242,12 @@ public class BookMenu : MonoBehaviour
             var basic = obj.GetComponent<BasicItemController>();
             var register = obj.GetComponent<RegisterItemController>();
 
-            if (basic != null)
+            if (basic != null && !scannedItems.Contains(obj))
             {
                 basic.isScanned = false;
                 basic.correctScan = false;
             }
-            else if (register != null)
+            else if (register != null && !scannedItems.Contains(obj))
             {
                 register.isScanned = false;
                 register.correctScan = false;

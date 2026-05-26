@@ -81,13 +81,13 @@ PrefabInstance:
       addedObject: {fileID: 8764453934945717324}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d81497811407c654da3559a70976b25f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 171271579831732906}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d81497811407c654da3559a70976b25f, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 6803291382727984730}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d81497811407c654da3559a70976b25f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -5497373065005286199}
+      addedObject: {fileID: 2657169411604909961}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d81497811407c654da3559a70976b25f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 306045472932322738}
   m_SourcePrefab: {fileID: 100100000, guid: d81497811407c654da3559a70976b25f, type: 3}
 --- !u!1 &6858846449231434928 stripped
 GameObject:
@@ -121,8 +121,44 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &171271579831732906
-BoxCollider:
+--- !u!114 &6803291382727984730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6858846449231434928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7213b020e9340e14196df133de588bc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemRespawn
+  threshold: -5
+  startPosition: {x: 0, y: 0, z: 0}
+  startRotation: {x: 0, y: 0, z: 0}
+  itemFallen: 0
+--- !u!114 &2657169411604909961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6858846449231434928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 334fef8bddf84a346b37afd0246aa531, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BasicItemController1
+  itemData: {fileID: 11400000, guid: 1a3bf4c1697b034429ea5fb006239212, type: 2}
+  isScanned: 0
+  correctScan: 0
+  inCart: 0
+  correctCart: 0
+  undoScript: {fileID: 0}
+  bookScript: {fileID: 0}
+  scannerScript: {fileID: 0}
+--- !u!64 &306045472932322738
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -139,41 +175,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.0303793, y: 0.024999995, z: 0.00505721}
-  m_Center: {x: -0.0026896503, y: 0, z: -1.164153e-10}
---- !u!114 &6803291382727984730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6858846449231434928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7213b020e9340e14196df133de588bc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ItemRespawn
-  threshold: -5
-  startPosition: {x: 0, y: 0, z: 0}
-  startRotation: {x: 0, y: 0, z: 0}
---- !u!114 &-5497373065005286199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6858846449231434928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e81f21d52093cba449d74d45eceffc75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BasicItemController
-  itemData: {fileID: 11400000, guid: 1a3bf4c1697b034429ea5fb006239212, type: 2}
-  isScanned: 0
-  correctScan: 0
-  InCart: 0
-  correctCart: 0
-  undoScript: {fileID: 0}
-  bookScript: {fileID: 0}
-  scannerScript: {fileID: 0}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8803937527578110353, guid: d81497811407c654da3559a70976b25f, type: 3}

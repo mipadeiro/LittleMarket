@@ -5,7 +5,7 @@ using TMPro;
 public class ClientTimer1 : MonoBehaviour
 {
     //timer
-    public float maxTime = 120f;
+    public float maxTime = 180f;
     private float currentTime;
     public bool timerRunning;
 

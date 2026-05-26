@@ -3,6 +3,14 @@ using TMPro;
 
 public class Level1Points : MonoBehaviour
 {
+    //endlevel ui
+    public GameObject winBook;
+    public GameObject firstStar;
+    public GameObject secondStar;
+    public GameObject thirdStar;
+    public GameObject failBook;
+
+
     public GameObject level1Controller;
     public ClientOneScript clientOne;
     public ClientTwoScript clientTwo;
@@ -10,6 +18,8 @@ public class Level1Points : MonoBehaviour
     public ClientTimer1 timerScript;
     public NewPlayerController1 playerScript;
     public GameObject playerCharacter;
+
+    //items
     public GameObject honey;
     public GameObject hairDye;
     public GameObject superGlue;
@@ -89,6 +99,7 @@ public class Level1Points : MonoBehaviour
 
     public void CalculatePoints()
     {
+        playerScript.enabled = false;
         fallenItems = 0;
         notScannedItems = 0;
         wrongScanItems = 0;
@@ -198,23 +209,24 @@ public class Level1Points : MonoBehaviour
         //third client
         //time
         timeClient1 =  timerScript.timeSpent;
-        if((timeClient1 / 4) < 25)
+        timeClient1 = (timeClient1 * 100) / timerScript.maxTime;
+        if(timeClient1 < 25)
         {
             timeScore = timeScore + 500;
         }
-        else if((timeClient1 / 4) > 25 && (timeClient1 / 4) < 50)
+        else if(timeClient1 > 25 && timeClient1 < 50)
         {
             timeScore = timeScore + 250;
         }
-        else if((timeClient1 / 4) > 50 && (timeClient1 / 4) < 75)
+        else if(timeClient1 > 50 && timeClient1 < 75)
         {
             timeScore = timeScore + 100;
         }
-        else if((timeClient1 / 4) > 75 && (timeClient1 / 4) < 99)
+        else if(timeClient1 > 75 && timeClient1 < 99)
         {
             timeScore = timeScore + 30;
         }
-        else if((timeClient1 / 4) > 99)
+        else if(timeClient1 > 99)
         {
             timeScore = timeScore + 0;
         }
@@ -344,6 +356,28 @@ public class Level1Points : MonoBehaviour
 
     public void ShowPoints()
     {
+        if(level1TotalScore < 150)
+        {
+            failBook.SetActive(true);
+        }
+        else if (level1TotalScore < 350 && level1TotalScore > 150)
+        {
+            winBook.SetActive(true);
+            firstStar.SetActive(true);
+        }
+        else if (level1TotalScore < 550 && level1TotalScore > 350)
+        {
+            winBook.SetActive(true);
+            firstStar.SetActive(true);
+            secondStar.SetActive(true);
+        }
+        else if (level1TotalScore > 550)
+        {
+            winBook.SetActive(true);
+            firstStar.SetActive(true);
+            secondStar.SetActive(true);
+            thirdStar.SetActive(true);
+        }
 
         timebonus.text = timeScore.ToString();
 

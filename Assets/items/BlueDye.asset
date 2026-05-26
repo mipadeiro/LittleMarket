@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b2c01ca436aa2042b8543f2b9fd2e87, type: 3}
+  m_Name: BlueDye
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  itemID: 4
+  itemName: Blue Mane Dye
+  value: 20
+  weight: 0.7
+  prefab: {fileID: 2883101783624082697, guid: 61b701a1ee9e68d43acb343d5a9106cd, type: 3}
+  tags:
+  - Basic

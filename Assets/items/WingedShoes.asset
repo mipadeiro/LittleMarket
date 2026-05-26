@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item
   itemID: 13
   itemName: Winged Shoe
-  value: 30
+  value: 45
   weight: 0.4
   prefab: {fileID: 5995651810617690287, guid: c0f4edbaae161b44bb8c51173856bdb6, type: 3}
   tags:
