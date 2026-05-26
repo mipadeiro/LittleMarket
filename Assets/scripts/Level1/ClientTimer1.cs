@@ -14,8 +14,8 @@ public class ClientTimer1 : MonoBehaviour
 
     //clock UI
     public RectTransform meterHand;
-    public float startX= -635;
-    public float endX = -417f;
+    public float startX= -1351f;
+    public float endX = -304f;
     public TextMeshProUGUI timerText;
 
     public BellRinging1 bellScript;
