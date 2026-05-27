@@ -4,25 +4,29 @@ using UnityEngine.InputSystem;
 using TMPro;
 
 
-public class BellRinging2 : MonoBehaviour
+public class BellRinging3 : MonoBehaviour
 {
     public bool hasRung;
-public float bellCooldown = 1f;
+    public float bellCooldown = 1f;
     private bool canRing = true;
     public bool levelOver = false;
     public int clientNumber;
 
-    public GameObject clientFour;
-    public GameObject clientFive;
-    public GameObject clientSix;
-    public GameObject clientSeven;
-    public GameObject clientEight;
-    public bool clientFiveActivated;
-    public bool clientSixActivated;
-    public bool clientSevenActivated;
-    public bool clientEightActivated;
+    public GameObject clientNine;
+    public GameObject clientTen;
+    public GameObject clientEleven;
+    public GameObject clientTwelve;
+    public GameObject clientThirteen;
+    public GameObject clientFourteen;
+    public bool clientNineActivated;
+    public bool clientTenActivated;
+    public bool clientElevenActivated;
+    public bool clientTwelveActivated;
+    public bool clientThirteenActivated;
+    public bool clientFourteenActivated;
 
-    public Level2Points pointsScript;
+
+    public Level3Points pointsScript;
     public BookMenu bookScript;
     public NewPlayerController newPlayerController;
     public Animator bellAnimator;
@@ -37,66 +41,84 @@ public float bellCooldown = 1f;
                 Debug.Log("book menu not found for bellscript");
             }
         }
+        if(pointsScript == null)
+        {
+            FindAnyObjectByType<Level3Points>();
+            if (pointsScript == null)
+            {
+                Debug.Log("book menu not found for bellscript");
+            }
+        }
     } 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        clientNumber = 4;
+        clientNumber = 9;
         hasRung = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (clientNumber == 5 && hasRung == false && !clientFiveActivated)
+        if (clientNumber == 10 && hasRung == false && !clientTenActivated)
         {
             bellAnimator.SetBool("hasRung", false);
-            clientFour.SetActive(false);
+            clientNine.SetActive(false);
             Debug.Log("Client Five Active");
-            clientFive.SetActive(true);
-            clientFiveActivated = true;
+            clientTen.SetActive(true);
+            clientTenActivated = true;
             bookScript.ResetScanList();
         }
 
-        if (clientNumber == 6 && hasRung == false && !clientSixActivated)
+        if (clientNumber == 11 && hasRung == false && !clientElevenActivated)
         {
             bellAnimator.SetBool("hasRung", false);
-            clientFive.SetActive(false);
+            clientTen.SetActive(false);
             Debug.Log("Client Six Active");
-            clientSix.SetActive(true);
-            clientSixActivated = true;
+            clientEleven.SetActive(true);
+            clientElevenActivated = true;
             bookScript.ResetScanList();
 
         }
 
-        if (clientNumber == 7 && hasRung == false && !clientSevenActivated)
+        if (clientNumber == 12 && hasRung == false && !clientTwelveActivated)
         {
             bellAnimator.SetBool("hasRung", false);
-            clientSix.SetActive(false);
+            clientEleven.SetActive(false);
             Debug.Log("Client Seven Active");
-            clientSeven.SetActive(true);
-            clientSevenActivated = true;
+            clientTwelve.SetActive(true);
+            clientTwelveActivated = true;
             bookScript.ResetScanList();
         }
 
-        if (clientNumber == 8 && hasRung == false && !clientEightActivated)
+        if (clientNumber == 13 && hasRung == false && !clientThirteenActivated)
         {
             bellAnimator.SetBool("hasRung", false);
-            clientSeven.SetActive(false);
+            clientTwelve.SetActive(false);
             Debug.Log("Client Eight Active");
-            clientEight.SetActive(true);
-            clientEightActivated = true;
+            clientThirteen.SetActive(true);
+            clientThirteenActivated = true;
             bookScript.ResetScanList();
         }
 
-        if (clientNumber == 9 && levelOver == false)
+        if (clientNumber == 14 && hasRung == false && !clientFourteenActivated)
+        {
+            bellAnimator.SetBool("hasRung", false);
+            clientThirteen.SetActive(false);
+            Debug.Log("Client Eight Active");
+            clientFourteen.SetActive(true);
+            clientFourteenActivated = true;
+            bookScript.ResetScanList();
+        }
+
+        if (clientNumber == 15 && levelOver == false)
         {
             levelOver = true;
             bellAnimator.SetBool("hasRung", false);
-            clientEight.SetActive(false);
+            clientFourteen.SetActive(false);
             Debug.Log("Level Over");
-            clientEightActivated = false;
+            clientFourteenActivated = false;
             bookScript.ResetScanList();
             EndLevel();
         }
