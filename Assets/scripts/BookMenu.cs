@@ -146,6 +146,24 @@ public class BookMenu : MonoBehaviour
                 bookMainMenu.SetActive(true);
                 hoveredItem = null;
                 break;
+            case "Amrita Grapes":
+                Debug.Log("Apple button chosen");
+                bookFruitMenu.SetActive(false);
+                bookMainMenu.SetActive(true);
+                hoveredItem = null;
+                break;
+            case "Star Fruit":
+                Debug.Log("Apple button chosen");
+                bookFruitMenu.SetActive(false);
+                bookMainMenu.SetActive(true);
+                hoveredItem = null;
+                break;
+            case "Lemon":
+                Debug.Log("Apple button chosen");
+                bookFruitMenu.SetActive(false);
+                bookMainMenu.SetActive(true);
+                hoveredItem = null;
+                break;
             //vegetable items
             case "Blue Cabbage":
                 Debug.Log("Blue Cabbage button chosen");
@@ -153,8 +171,38 @@ public class BookMenu : MonoBehaviour
                 bookMainMenu.SetActive(true);
                 hoveredItem = null;
                 break;
+            case "Potato":
+                Debug.Log("Blue Cabbage button chosen");
+                bookVeggieMenu.SetActive(false);
+                bookMainMenu.SetActive(true);
+                hoveredItem = null;
+                break;
+            case "Kale":
+                Debug.Log("Blue Cabbage button chosen");
+                bookVeggieMenu.SetActive(false);
+                bookMainMenu.SetActive(true);
+                hoveredItem = null;
+                break;
+            case "Cilantro":
+                Debug.Log("Blue Cabbage button chosen");
+                bookVeggieMenu.SetActive(false);
+                bookMainMenu.SetActive(true);
+                hoveredItem = null;
+                break;
             //fungus items
-            case "Sea Grapes":
+            case "Glowing Mushroom":
+                Debug.Log("Sea Grapes button chosen");
+                bookFungusMenu.SetActive(false);
+                bookMainMenu.SetActive(true);
+                hoveredItem = null;
+                break;
+            case "Red Mushroom":
+                Debug.Log("Sea Grapes button chosen");
+                bookFungusMenu.SetActive(false);
+                bookMainMenu.SetActive(true);
+                hoveredItem = null;
+                break;
+            case "Portobello Mushroom":
                 Debug.Log("Sea Grapes button chosen");
                 bookFungusMenu.SetActive(false);
                 bookMainMenu.SetActive(true);

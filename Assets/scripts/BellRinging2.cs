@@ -7,8 +7,11 @@ using TMPro;
 public class BellRinging2 : MonoBehaviour
 {
     public bool hasRung;
-
+public float bellCooldown = 1f;
+    private bool canRing = true;
+    public bool levelOver = false;
     public int clientNumber;
+
     public GameObject clientFour;
     public GameObject clientFive;
     public GameObject clientSix;
@@ -18,12 +21,11 @@ public class BellRinging2 : MonoBehaviour
     public bool clientSixActivated;
     public bool clientSevenActivated;
     public bool clientEightActivated;
+
+    public Level2Points pointsScript;
+    public BookMenu bookScript;
     public NewPlayerController newPlayerController;
     public Animator bellAnimator;
-    public float bellCooldown = 1f;
-    private bool canRing = true;
-
-    public BookMenu bookScript;
 
     private void Awake()
     {
@@ -49,6 +51,7 @@ public class BellRinging2 : MonoBehaviour
     {
         if (clientNumber == 5 && hasRung == false && !clientFiveActivated)
         {
+            bellAnimator.SetBool("hasRung", false);
             clientFour.SetActive(false);
             Debug.Log("Client Five Active");
             clientFive.SetActive(true);
@@ -58,6 +61,7 @@ public class BellRinging2 : MonoBehaviour
 
         if (clientNumber == 6 && hasRung == false && !clientSixActivated)
         {
+            bellAnimator.SetBool("hasRung", false);
             clientFive.SetActive(false);
             Debug.Log("Client Six Active");
             clientSix.SetActive(true);
@@ -68,6 +72,7 @@ public class BellRinging2 : MonoBehaviour
 
         if (clientNumber == 7 && hasRung == false && !clientSevenActivated)
         {
+            bellAnimator.SetBool("hasRung", false);
             clientSix.SetActive(false);
             Debug.Log("Client Seven Active");
             clientSeven.SetActive(true);
@@ -77,11 +82,23 @@ public class BellRinging2 : MonoBehaviour
 
         if (clientNumber == 8 && hasRung == false && !clientEightActivated)
         {
+            bellAnimator.SetBool("hasRung", false);
             clientSeven.SetActive(false);
             Debug.Log("Client Eight Active");
             clientEight.SetActive(true);
             clientEightActivated = true;
             bookScript.ResetScanList();
+        }
+
+        if (clientNumber == 9 && levelOver == false)
+        {
+            levelOver = true;
+            bellAnimator.SetBool("hasRung", false);
+            clientEight.SetActive(false);
+            Debug.Log("Level Over");
+            clientEightActivated = false;
+            bookScript.ResetScanList();
+            EndLevel();
         }
     }
 
@@ -124,6 +141,11 @@ public class BellRinging2 : MonoBehaviour
             //add sfx
 
         }
+    }
+
+    public void EndLevel()
+    {
+        pointsScript.CalculatePoints();
     }
 
 }

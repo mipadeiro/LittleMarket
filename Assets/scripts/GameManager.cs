@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour
     public int level3ScoreFred;
     public int level4ScoreFred;
 
+    //store characters
+    public string activeCharacter;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
