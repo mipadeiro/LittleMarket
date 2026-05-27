@@ -2,14 +2,15 @@ using UnityEngine;
 
 public class UIButton3DSound : MonoBehaviour
 {
-    public AudioSource audioSource;
-    public AudioClip clickClip;
+    private AudioSource audioSource;
+
+    void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     public void PlayClickSound()
     {
-        if (audioSource != null && clickClip != null)
-        {
-            audioSource.PlayOneShot(clickClip);
-        }
+        audioSource.Play();
     }
 }
