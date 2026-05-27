@@ -14,8 +14,8 @@ public class Level1Tutorial : MonoBehaviour
 
     public GameObject wasdImg;
     public GameObject spacebarImg;
-    public GameObject mouseImg;
-    public GameObject joystickImg;
+    public GameObject mouseLImg;
+    public GameObject mouseRImg;
     public GameObject southButtonImg;
     public GameObject eastButtonImg;
     public GameObject submitButtonImg;
@@ -215,7 +215,7 @@ public class Level1Tutorial : MonoBehaviour
         {
             case TutorialStep.Greeting:
                 actionText = "Our brave hero's first day as a shopkeeper! How exciting, but also daunting";
-                mouseImg.SetActive(true);
+                mouseLImg.SetActive(true);
                 submitButtonImg.SetActive(true);
                 break;
             case TutorialStep.Move:
@@ -223,7 +223,6 @@ public class Level1Tutorial : MonoBehaviour
                     ? "Thankfully, our protagonist is capable of impressive physical feats. Like walking, with the left joystick."
                     : "Thankfully, our protagonist is capable of impressive physical feats. Like walking, with WASD.";
                 wasdImg.SetActive(currentDevice == DeviceType.Keyboard);
-                joystickImg.SetActive(currentDevice == DeviceType.Gamepad);
                 break;
             case TutorialStep.Jump:
                 actionText = currentDevice == DeviceType.Gamepad
@@ -236,7 +235,7 @@ public class Level1Tutorial : MonoBehaviour
                 actionText = currentDevice == DeviceType.Gamepad
                     ? "With their significant strength, and the east button, they can pick up almost anything! Even if it's much bigger than them. "
                     : "With their significant strength, and the left mouse button, they can pick up almost anything! Even if it's much bigger than them. ";
-                mouseImg.SetActive(currentDevice == DeviceType.Keyboard);
+                mouseLImg.SetActive(currentDevice == DeviceType.Keyboard);
                 eastButtonImg.SetActive(currentDevice == DeviceType.Gamepad);
                 arrowHoney.SetActive(true);
                 break;
@@ -244,7 +243,7 @@ public class Level1Tutorial : MonoBehaviour
                 actionText = currentDevice == DeviceType.Gamepad
                     ? "And, of course, swiftly put them down. (With the west button)."
                     : "And, of course, swiftly put them down. (With the right mouse button).";
-                mouseImg.SetActive(currentDevice == DeviceType.Keyboard);
+                mouseRImg.SetActive(currentDevice == DeviceType.Keyboard);
                 westButtonImg.SetActive(currentDevice == DeviceType.Gamepad);
                 break;
             case TutorialStep.Scan:
@@ -263,7 +262,7 @@ public class Level1Tutorial : MonoBehaviour
             case TutorialStep.Completed:
                 actionText = "What an aweinspiring performance! This shop is truly in safe hands. Now it is up to our hero to use their skills for the rest of the day!";
                 arrowBell.SetActive(false);
-                mouseImg.SetActive(currentDevice == DeviceType.Keyboard);
+                mouseLImg.SetActive(currentDevice == DeviceType.Keyboard);
                 eastButtonImg.SetActive(currentDevice == DeviceType.Gamepad);
                 break;
         }
@@ -289,8 +288,8 @@ public class Level1Tutorial : MonoBehaviour
         }
         wasdImg.SetActive(false);
         spacebarImg.SetActive(false);
-        mouseImg.SetActive(false);
-        joystickImg.SetActive(false);
+        mouseLImg.SetActive(false);
+        mouseRImg.SetActive(false);
         southButtonImg.SetActive(false);
         eastButtonImg.SetActive(false);
         submitButtonImg.SetActive(false);

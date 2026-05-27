@@ -19,8 +19,8 @@ public class ClientFourScript : MonoBehaviour
     private bool hasStarted = false;
     //clock UI
     public RectTransform meterHand;
-    public float startX= -635;
-    public float endX = -417f;
+    public float startX= -1351;
+    public float endX = -304f;
     public TextMeshProUGUI timerText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

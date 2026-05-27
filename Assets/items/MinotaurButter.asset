@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: MinotaurButter
   m_EditorClassIdentifier: Assembly-CSharp::Item
   itemID: 1
-  itemName: Butter
+  itemName: Minotaur Butter
   value: 3
   weight: 0.75
   prefab: {fileID: 8115235730569432886, guid: c63eb52a99492514da1de3358157d4e4, type: 3}
   tags:
   - Basic
-  - Cold

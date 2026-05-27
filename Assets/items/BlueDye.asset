@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BlueDye
   m_EditorClassIdentifier: Assembly-CSharp::Item
   itemID: 4
-  itemName: Blue Mane Dye
+  itemName: Waterproof Mane Dye
   value: 20
   weight: 0.7
   prefab: {fileID: 2883101783624082697, guid: 61b701a1ee9e68d43acb343d5a9106cd, type: 3}

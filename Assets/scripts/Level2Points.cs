@@ -3,6 +3,13 @@ using TMPro;
 
 public class Level2Points : MonoBehaviour
 {
+    //endlevel ui
+    public GameObject winBook;
+    public GameObject firstStar;
+    public GameObject secondStar;
+    public GameObject thirdStar;
+    public GameObject failBook;
+    
     //scripts
     public ClientFourScript clientFour;
     public ClientFiveScript clientFive;

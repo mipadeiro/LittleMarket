@@ -259,12 +259,8 @@ public class BookMenu : MonoBehaviour
 
     public void ResetScanList()
     {
-        if (bellScript != null && bellScript.hasRung)
-        {
             scannedItems.Clear();
             scannedItemsNames.Clear();
             itemsText.text = "";
-        }
-        
     }
 }

@@ -18,7 +18,6 @@ public class BellRinging2 : MonoBehaviour
     public bool clientSixActivated;
     public bool clientSevenActivated;
     public bool clientEightActivated;
-    public TMPro.TextMeshProUGUI textItems;
     public NewPlayerController newPlayerController;
     public Animator bellAnimator;
     public float bellCooldown = 1f;
@@ -54,6 +53,7 @@ public class BellRinging2 : MonoBehaviour
             Debug.Log("Client Five Active");
             clientFive.SetActive(true);
             clientFiveActivated = true;
+            bookScript.ResetScanList();
         }
 
         if (clientNumber == 6 && hasRung == false && !clientSixActivated)
@@ -62,6 +62,8 @@ public class BellRinging2 : MonoBehaviour
             Debug.Log("Client Six Active");
             clientSix.SetActive(true);
             clientSixActivated = true;
+            bookScript.ResetScanList();
+
         }
 
         if (clientNumber == 7 && hasRung == false && !clientSevenActivated)
@@ -70,6 +72,7 @@ public class BellRinging2 : MonoBehaviour
             Debug.Log("Client Seven Active");
             clientSeven.SetActive(true);
             clientSevenActivated = true;
+            bookScript.ResetScanList();
         }
 
         if (clientNumber == 8 && hasRung == false && !clientEightActivated)
@@ -78,6 +81,7 @@ public class BellRinging2 : MonoBehaviour
             Debug.Log("Client Eight Active");
             clientEight.SetActive(true);
             clientEightActivated = true;
+            bookScript.ResetScanList();
         }
     }
 

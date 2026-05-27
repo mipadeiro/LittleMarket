@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 122a2bebd81744e4693b2a469a2e296a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.2083344
+      value: -6.91
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 122a2bebd81744e4693b2a469a2e296a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.15891427
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 122a2bebd81744e4693b2a469a2e296a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.9008267
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 122a2bebd81744e4693b2a469a2e296a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -66,7 +66,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ee459909cb025cd42893008ba8529447, type: 2}
     - target: {fileID: 919132149155446097, guid: 122a2bebd81744e4693b2a469a2e296a, type: 3}
       propertyPath: m_Name
-      value: Canned Tuna
+      value: PCanned Tuna
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 122a2bebd81744e4693b2a469a2e296a, type: 3}
+      propertyPath: m_TagString
+      value: Pickup
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -102,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81f21d52093cba449d74d45eceffc75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasicItemController
-  itemData: {fileID: 0}
+  itemData: {fileID: 11400000, guid: c3bf57bfec775c0449498b51e18605f9, type: 2}
   isScanned: 0
   correctScan: 0
   inCart: 0
