@@ -27,7 +27,7 @@ public class BellRinging3 : MonoBehaviour
 
 
     public Level3Points pointsScript;
-    public BookMenu bookScript;
+    public BookMenu3 bookScript;
     public NewPlayerController newPlayerController;
     public Animator bellAnimator;
 
@@ -35,7 +35,7 @@ public class BellRinging3 : MonoBehaviour
     {
         if(bookScript == null)
         {
-            FindAnyObjectByType<BookMenu>();
+            FindAnyObjectByType<BookMenu3>();
             if (bookScript == null)
             {
                 Debug.Log("book menu not found for bellscript");

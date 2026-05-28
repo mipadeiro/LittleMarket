@@ -5,14 +5,14 @@ using TMPro;
 public class UndoButton3 : MonoBehaviour
 {
     public TextMeshProUGUI categoryText;
-    public BookMenu bookScript;
+    public BookMenu3 bookScript;
     public ScannerScript3 scannerScript;
 
     private void Awake()
     {
         if (bookScript == null)
         {
-            bookScript = FindAnyObjectByType<BookMenu>();
+            bookScript = FindAnyObjectByType<BookMenu3>();
             if (bookScript == null)
             {
                 Debug.LogWarning("BookMenu not found");

@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: a848db665fb605e4dac89687b1d496c2, type: 2}
     - target: {fileID: 919132149155446097, guid: aaf9d82f510d6d543b12f78e04412f4f, type: 3}
       propertyPath: m_Name
-      value: Advice Mirror
+      value: PAdvice Mirror
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -66,9 +66,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aaf9d82f510d6d543b12f78e04412f4f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3440809940136258571}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aaf9d82f510d6d543b12f78e04412f4f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 651782686730258389}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aaf9d82f510d6d543b12f78e04412f4f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6274505954409688886}
@@ -127,26 +124,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &651782686730258389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2337858162612286320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e81f21d52093cba449d74d45eceffc75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BasicItemController
-  itemData: {fileID: 0}
-  isScanned: 0
-  correctScan: 0
-  inCart: 0
-  correctCart: 0
-  undoScript: {fileID: 0}
-  bookScript: {fileID: 0}
-  scannerScript: {fileID: 0}
 --- !u!114 &6274505954409688886
 MonoBehaviour:
   m_ObjectHideFlags: 0

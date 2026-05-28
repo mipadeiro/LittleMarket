@@ -1,9 +1,9 @@
 using UnityEngine;
 using TMPro;
 
-public class CategoryButton3 : MonoBehaviour
+public class ItemButton3 : MonoBehaviour
 {
-    public TextMeshProUGUI categoryText;
+    public TextMeshProUGUI itemText;
     public BookMenu3 bookScript;
 
     private void Awake()
@@ -13,6 +13,7 @@ public class CategoryButton3 : MonoBehaviour
             bookScript = FindAnyObjectByType<BookMenu3>();
         }
     }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -30,7 +31,7 @@ public class CategoryButton3 : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // Notify BookMenu which category is being hovered so the PickUp action can confirm selection
-            bookScript.hoveredCategory = categoryText.text;
+            bookScript.hoveredItem = itemText.text;
         }
     }
 
@@ -39,9 +40,9 @@ public class CategoryButton3 : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // Clear hovered state when player leaves the trigger
-            if (bookScript != null && bookScript.hoveredCategory == categoryText.text)
+            if (bookScript != null && bookScript.hoveredItem == itemText.text)
             {
-                bookScript.hoveredCategory = null;
+                bookScript.hoveredItem = null;
             }
         }
     }

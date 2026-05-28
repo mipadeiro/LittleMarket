@@ -10,9 +10,9 @@ public class RegisterItemController3 : MonoBehaviour
     public bool correctScan;
     public bool inCart;
     public bool correctCart;
-    public UndoButton undoScript;
+    public UndoButton3 undoScript;
     public BookMenu3 bookScript;
-    public ScannerScript scannerScript;
+    public ScannerScript3 scannerScript;
     
     private void Awake() 
     {
@@ -27,7 +27,7 @@ public class RegisterItemController3 : MonoBehaviour
 
         if (undoScript == null)
         {
-            undoScript = FindAnyObjectByType<UndoButton>();
+            undoScript = FindAnyObjectByType<UndoButton3>();
             if (undoScript == null)
             {
                 Debug.LogWarning("UndoButton not found");
@@ -36,7 +36,7 @@ public class RegisterItemController3 : MonoBehaviour
 
         if (scannerScript == null)
         {
-            scannerScript = FindAnyObjectByType<ScannerScript>();
+            scannerScript = FindAnyObjectByType<ScannerScript3>();
             if (scannerScript == null)
             {
                 Debug.LogWarning("ScannerScript not found");
