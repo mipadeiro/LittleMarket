@@ -63,7 +63,7 @@ public class ClientNineScript : MonoBehaviour
 
         }
 
-        if (bellScript.clientNumber == 8 && bellScript.hasRung == true)
+        if (bellScript.clientNumber == 10 && bellScript.hasRung == true)
         {
             EndTransaction();
 
@@ -101,6 +101,7 @@ public class ClientNineScript : MonoBehaviour
     public void StartTransaction()
     {
         customerDialogue.SetActive(true);
+        //activate customer visuals here then add start transaction and end transaction into bell script
     }
 
     public void EndTransaction()

@@ -28,7 +28,7 @@ public class BellRinging3 : MonoBehaviour
 
     public Level3Points pointsScript;
     public BookMenu3 bookScript;
-    public NewPlayerController newPlayerController;
+    public NewPlayerController3 newPlayerController;
     public Animator bellAnimator;
 
     private void Awake()
@@ -65,7 +65,7 @@ public class BellRinging3 : MonoBehaviour
         {
             bellAnimator.SetBool("hasRung", false);
             clientNine.SetActive(false);
-            Debug.Log("Client Five Active");
+            Debug.Log("Client Ten Active");
             clientTen.SetActive(true);
             clientTenActivated = true;
             bookScript.ResetScanList();
@@ -75,7 +75,7 @@ public class BellRinging3 : MonoBehaviour
         {
             bellAnimator.SetBool("hasRung", false);
             clientTen.SetActive(false);
-            Debug.Log("Client Six Active");
+            Debug.Log("Client Eleven Active");
             clientEleven.SetActive(true);
             clientElevenActivated = true;
             bookScript.ResetScanList();
@@ -86,7 +86,7 @@ public class BellRinging3 : MonoBehaviour
         {
             bellAnimator.SetBool("hasRung", false);
             clientEleven.SetActive(false);
-            Debug.Log("Client Seven Active");
+            Debug.Log("Client Twelve Active");
             clientTwelve.SetActive(true);
             clientTwelveActivated = true;
             bookScript.ResetScanList();
@@ -96,7 +96,7 @@ public class BellRinging3 : MonoBehaviour
         {
             bellAnimator.SetBool("hasRung", false);
             clientTwelve.SetActive(false);
-            Debug.Log("Client Eight Active");
+            Debug.Log("Client Thirteen Active");
             clientThirteen.SetActive(true);
             clientThirteenActivated = true;
             bookScript.ResetScanList();
@@ -106,7 +106,7 @@ public class BellRinging3 : MonoBehaviour
         {
             bellAnimator.SetBool("hasRung", false);
             clientThirteen.SetActive(false);
-            Debug.Log("Client Eight Active");
+            Debug.Log("Client Fourteen Active");
             clientFourteen.SetActive(true);
             clientFourteenActivated = true;
             bookScript.ResetScanList();

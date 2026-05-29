@@ -36,7 +36,6 @@ public class ClientTenScript : MonoBehaviour
             }
         }
 
-        StartTransaction();
     }
 
     // Update is called once per frame
@@ -63,7 +62,7 @@ public class ClientTenScript : MonoBehaviour
 
         }
 
-        if (bellScript.clientNumber == 8 && bellScript.hasRung == true)
+        if (bellScript.clientNumber == 11 && bellScript.hasRung == true)
         {
             EndTransaction();
 

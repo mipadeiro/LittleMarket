@@ -36,7 +36,6 @@ public class ClientElevenScript : MonoBehaviour
             }
         }
 
-        StartTransaction();
     }
 
     // Update is called once per frame
