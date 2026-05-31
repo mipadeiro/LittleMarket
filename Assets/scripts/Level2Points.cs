@@ -138,19 +138,19 @@ public class Level2Points : MonoBehaviour
         timeClient4 = (timeClient4 * 100) / clientFour.maxTime;
         if(timeClient4 < 25)
         {
-            timeScore = timeScore + 300;
+            timeScore = timeScore + 100;
         }
         else if(timeClient4 > 25 && timeClient4 < 50)
         {
-            timeScore = timeScore + 200;
+            timeScore = timeScore + 75;
         }
         else if(timeClient4 > 50 && timeClient4 < 75)
         {
-            timeScore = timeScore + 100;
+            timeScore = timeScore + 50;
         }
         else if(timeClient4 > 75 && timeClient4 < 99)
         {
-            timeScore = timeScore + 30;
+            timeScore = timeScore + 25;
         }
         else if(timeClient4 > 99)
         {
@@ -224,19 +224,19 @@ public class Level2Points : MonoBehaviour
         timeClient5 = (timeClient5 * 100) / clientFive.maxTime;
         if(timeClient5 < 25)
         {
-            timeScore = timeScore + 300;
+            timeScore = timeScore + 100;
         }
         else if(timeClient5 > 25 && timeClient5 < 50)
         {
-            timeScore = timeScore + 200;
+            timeScore = timeScore + 750;
         }
         else if(timeClient5 > 50 && timeClient5 < 75)
         {
-            timeScore = timeScore + 100;
+            timeScore = timeScore + 50;
         }
         else if(timeClient5 > 75 && timeClient5 < 99)
         {
-            timeScore = timeScore + 30;
+            timeScore = timeScore + 25;
         }
         else if(timeClient5 > 99)
         {
@@ -327,19 +327,19 @@ public class Level2Points : MonoBehaviour
         timeClient6 = (timeClient6 * 100) / clientSix.maxTime;
         if(timeClient6 < 25)
         {
-            timeScore = timeScore + 300;
+            timeScore = timeScore + 100;
         }
         else if(timeClient6 > 25 && timeClient6 < 50)
         {
-            timeScore = timeScore + 200;
+            timeScore = timeScore + 75;
         }
         else if(timeClient6 > 50 && timeClient6 < 75)
         {
-            timeScore = timeScore + 100;
+            timeScore = timeScore + 50;
         }
         else if(timeClient6 > 75 && timeClient6 < 99)
         {
-            timeScore = timeScore + 30;
+            timeScore = timeScore + 25;
         }
         else if(timeClient6 > 99)
         {
@@ -430,19 +430,19 @@ public class Level2Points : MonoBehaviour
         timeClient7 = (timeClient7 * 100) / clientSeven.maxTime;
         if(timeClient7 < 25)
         {
-            timeScore = timeScore + 300;
+            timeScore = timeScore + 100;
         }
         else if(timeClient7 > 25 && timeClient7 < 50)
         {
-            timeScore = timeScore + 200;
+            timeScore = timeScore + 75;
         }
         else if(timeClient7 > 50 && timeClient7 < 75)
         {
-            timeScore = timeScore + 100;
+            timeScore = timeScore + 50;
         }
         else if(timeClient7 > 75 && timeClient7 < 99)
         {
-            timeScore = timeScore + 30;
+            timeScore = timeScore + 25;
         }
         else if(timeClient7 > 99)
         {
@@ -533,19 +533,19 @@ public class Level2Points : MonoBehaviour
         timeClient8 = (timeClient8 * 100) / clientEight.maxTime;
         if(timeClient8 < 25)
         {
-            timeScore = timeScore + 300;
+            timeScore = timeScore + 100;
         }
         else if(timeClient8 > 25 && timeClient8 < 50)
         {
-            timeScore = timeScore + 200;
+            timeScore = timeScore + 75;
         }
         else if(timeClient8 > 50 && timeClient8 < 75)
         {
-            timeScore = timeScore + 100;
+            timeScore = timeScore + 50;
         }
         else if(timeClient8 > 75 && timeClient8 < 99)
         {
-            timeScore = timeScore + 30;
+            timeScore = timeScore + 25;
         }
         else if(timeClient8 > 99)
         {
@@ -654,7 +654,7 @@ public class Level2Points : MonoBehaviour
 
         //cleaned dirt
         sprayUses = sprayScript.cleanedDirt;
-        sprayUses = sprayUses * 20;
+        sprayUses = sprayUses * 100;
 
         if(notScannedItems == 0 && wrongScanItems == 0)
         {
@@ -679,22 +679,22 @@ public class Level2Points : MonoBehaviour
 
     public void ShowPoints()
     {
-        if(level2TotalScore < 2000)
+        if(level2TotalScore < 1800)
         {
             failBook.SetActive(true);
         }
-        else if (level2TotalScore < 2800 && level2TotalScore > 2000)
+        else if (level2TotalScore < 2400 && level2TotalScore > 1800)
         {
             winBook.SetActive(true);
             firstStar.SetActive(true);
         }
-        else if (level2TotalScore < 3200 && level2TotalScore > 2800)
+        else if (level2TotalScore < 3500 && level2TotalScore > 2400)
         {
             winBook.SetActive(true);
             firstStar.SetActive(true);
             secondStar.SetActive(true);
         }
-        else if (level2TotalScore > 3200)
+        else if (level2TotalScore > 3500)
         {
             winBook.SetActive(true);
             firstStar.SetActive(true);

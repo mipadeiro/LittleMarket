@@ -212,19 +212,19 @@ public class Level1Points : MonoBehaviour
         timeClient1 = (timeClient1 * 100) / timerScript.maxTime;
         if(timeClient1 < 25)
         {
-            timeScore = timeScore + 500;
+            timeScore = timeScore + 100;
         }
         else if(timeClient1 > 25 && timeClient1 < 50)
         {
-            timeScore = timeScore + 250;
+            timeScore = timeScore + 75;
         }
         else if(timeClient1 > 50 && timeClient1 < 75)
         {
-            timeScore = timeScore + 100;
+            timeScore = timeScore + 50;
         }
         else if(timeClient1 > 75 && timeClient1 < 99)
         {
-            timeScore = timeScore + 30;
+            timeScore = timeScore + 25;
         }
         else if(timeClient1 > 99)
         {
@@ -335,19 +335,19 @@ public class Level1Points : MonoBehaviour
 
         if(notScannedItems == 0 && wrongScanItems == 0)
         {
-            perfectScan = 75;
+            perfectScan = 1000;
         }
         if(notInCart == 0 && wrongCart == 0)
         {
-            perfectCart = 50;
+            perfectCart = 800;
         }
         if(playerScript.fallenPlayer == 0)
         {
-            noPlayerFall = 150;
+            noPlayerFall = 500;
         }
         if(fallenItems == 0)
         {
-            noItemFall = 100;
+            noItemFall = 600;
         }
 
         level1TotalScore = timeScore + fallenItems + notScannedItems + wrongScanItems + notInCart + wrongCart + perfectScan + perfectCart + noPlayerFall + noItemFall;
@@ -356,22 +356,22 @@ public class Level1Points : MonoBehaviour
 
     public void ShowPoints()
     {
-        if(level1TotalScore < 150)
+        if(level1TotalScore < 1500)
         {
             failBook.SetActive(true);
         }
-        else if (level1TotalScore < 350 && level1TotalScore > 150)
+        else if (level1TotalScore < 1950 && level1TotalScore > 1500)
         {
             winBook.SetActive(true);
             firstStar.SetActive(true);
         }
-        else if (level1TotalScore < 550 && level1TotalScore > 350)
+        else if (level1TotalScore < 2400 && level1TotalScore > 1950)
         {
             winBook.SetActive(true);
             firstStar.SetActive(true);
             secondStar.SetActive(true);
         }
-        else if (level1TotalScore > 550)
+        else if (level1TotalScore > 2400)
         {
             winBook.SetActive(true);
             firstStar.SetActive(true);
