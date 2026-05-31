@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public class Level3Points : MonoBehaviour
+public class Level4Points : MonoBehaviour
 {
     //endlevel ui
     public GameObject winBook;
@@ -11,9 +11,9 @@ public class Level3Points : MonoBehaviour
     public GameObject failBook;
     
     //scripts
-    public ClientFifteenScript clientNine;
-    public ClientSixteenScript clientTen;
-    public ClientSeventeenScript clientEleven;
+    public ClientFifteenScript clientFifteen;
+    public ClientSixteenScript clientSixteen;
+    public ClientSeventeenScript clientSeventeen;
     public SprayBottle3 sprayScript;
     public NewPlayerController3 playerScript;
     public GameObject playerCharacter;
@@ -25,7 +25,7 @@ public class Level3Points : MonoBehaviour
     public GameObject beanCan;
     public GameObject breadSticks;
     public GameObject hairPotion;
-    public GameObject portobello;
+    public GameObject redMushroom;
     public GameObject pomegranate;
     public GameObject gummyEyes;
     public GameObject ginger;
@@ -37,24 +37,13 @@ public class Level3Points : MonoBehaviour
     public GameObject chilliPepper;
     public GameObject phoenixAsh;
     public GameObject flamingCroissant;
-    public GameObject garlicPerfume;
-    public GameObject deadlyAxe;
-    public GameObject arrows;
-    public GameObject mincedGarlic;
-    public GameObject mirror;
-    public GameObject mandrake;
-    public GameObject lizardTail;
-    public GameObject redMushroom;
-    public GameObject glassBall;
+    public GameObject dragonEgg;
     public LevelManager levelManager;
 
     //variables to store points and respective txt
-    public float timeClient9 = 0;
-    public float timeClient10 = 0;
-    public float timeClient11 = 0;
-    public float timeClient12 = 0;
-    public float timeClient13 = 0;
-    public float timeClient14 = 0;
+    public float timeClient15 = 0;
+    public float timeClient16 = 0;
+    public float timeClient17 = 0;
     public int timeScore = 0;
     public TextMeshProUGUI timebonus;
     public int fallenItems = 0;
@@ -78,7 +67,7 @@ public class Level3Points : MonoBehaviour
     public int noItemFall = 0;
     public TextMeshProUGUI nofallitem;
 
-    public int level3TotalScore;
+    public int level4TotalScore;
     public TextMeshProUGUI totalScore;
     //public int noPrjectileHit = 200;
 
@@ -86,29 +75,17 @@ public class Level3Points : MonoBehaviour
 
     private void Awake()
     {
-        if(clientNine == null)
+        if(clientFifteen == null)
         {
-            clientNine = FindAnyObjectByType<ClientNineScript>();
+            clientFifteen = FindAnyObjectByType<ClientFifteenScript>();
         }
-        if(clientTen == null)
+        if(clientSixteen == null)
         {
-            clientTen = FindAnyObjectByType<ClientTenScript>();
+            clientSixteen = FindAnyObjectByType<ClientSixteenScript>();
         }
-        if(clientEleven == null)
+        if(clientSeventeen == null)
         {
-            clientEleven = FindAnyObjectByType<ClientElevenScript>();
-        }
-        if(clientTwelve == null)
-        {
-            clientTwelve = FindAnyObjectByType<ClientTwelveScript>();
-        }
-        if(clientThirteen == null)
-        {
-            clientThirteen = FindAnyObjectByType<ClientThirteenScript>();
-        }
-        if(clientFourteen == null)
-        {
-            clientFourteen = FindAnyObjectByType<ClientFourteenScript>();
+            clientSeventeen = FindAnyObjectByType<ClientSeventeenScript>();
         }
         if(levelManager == null)
         {
@@ -152,579 +129,55 @@ public class Level3Points : MonoBehaviour
 
         //CLIENT FOUR
         //time bonus
-        timeClient9 =  clientNine.timeSpent;
-        timeClient9 = (timeClient9 * 100) / clientNine.maxTime;
-        if(timeClient9 < 25)
+        timeClient15 =  clientFifteen.timeSpent;
+        timeClient15 = (timeClient15 * 100) / clientFifteen.maxTime;
+        if(timeClient15 < 25)
         {
             timeScore = timeScore + 100;
         }
-        else if(timeClient9 > 25 && timeClient9 < 50)
+        else if(timeClient15 > 25 && timeClient15 < 50)
         {
             timeScore = timeScore + 75;
         }
-        else if(timeClient9 > 50 && timeClient9 < 75)
+        else if(timeClient15 > 50 && timeClient15 < 75)
         {
             timeScore = timeScore + 50;
         }
-        else if(timeClient9 > 75 && timeClient9 < 99)
+        else if(timeClient15 > 75 && timeClient15 < 99)
         {
             timeScore = timeScore + 25;
         }
-        else if(timeClient9 > 99)
+        else if(timeClient15 > 99)
         {
             timeScore = timeScore + 0;
         }
 
         //item falls
-        fallenItems = fallenItems + conditioner.GetComponent<ItemRespawn>().itemFallen;
-        fallenItems = fallenItems + flyingFish.GetComponent<ItemRespawn>().itemFallen;
-        fallenItems = fallenItems + chickenLeg.GetComponent<ItemRespawn>().itemFallen;
-        fallenItems = fallenItems + ice.GetComponent<ItemRespawn>().itemFallen;
-
-        //not scanned
-        if(conditioner.GetComponent<BasicItemController3>().isScanned == false)
-        {
-            notScannedItems = notScannedItems - 20;
-        }
-        if(flyingFish.GetComponent<BasicItemController3>().isScanned == false)
-        {
-            notScannedItems = notScannedItems - 20;
-        }
-        if(chickenLeg.GetComponent<BasicItemController3>().isScanned == false)
-        {
-            notScannedItems = notScannedItems - 20;
-        }
-        if(ice.GetComponent<BasicItemController3>().isScanned == false)
-        {
-            notScannedItems = notScannedItems - 20;
-        }
-
-        //wrong scan
-        if(conditioner.GetComponent<BasicItemController3>().correctScan == false)
-        {
-            wrongScanItems = wrongScanItems - 15;
-        }
-        if(flyingFish.GetComponent<BasicItemController3>().correctScan == false)
-        {
-            wrongScanItems = wrongScanItems - 15;
-        }
-        if(chickenLeg.GetComponent<BasicItemController3>().correctScan == false)
-        {
-            wrongScanItems = wrongScanItems - 15;
-        }
-        if(ice.GetComponent<BasicItemController3>().correctScan == false)
-        {
-            wrongScanItems = wrongScanItems - 15;
-        }
-
-        //not in cart
-        if(conditioner.GetComponent<BasicItemController3>().inCart == false)
-        {
-            notInCart = notInCart - 10;
-        }
-        if(flyingFish.GetComponent<BasicItemController3>().inCart == false)
-        {
-            notInCart = notInCart - 10;
-        }
-        if(chickenLeg.GetComponent<BasicItemController3>().inCart == false)
-        {
-            notInCart = notInCart - 10;
-        }
-        if(ice.GetComponent<BasicItemController3>().inCart == false)
-        {
-            notInCart = notInCart - 10;
-        }
-        
-        //wrong cart
-        if(conditioner.GetComponent<BasicItemController3>().correctCart == false)
-        {
-            notInCart = notInCart - 20;
-        }
-        if(flyingFish.GetComponent<BasicItemController3>().correctCart == false)
-        {
-            notInCart = notInCart - 20;
-        }
-        
-        if(chickenLeg.GetComponent<BasicItemController3>().correctCart == false)
-        {
-            notInCart = notInCart - 20;
-        }
-        if(ice.GetComponent<BasicItemController3>().correctCart == false)
-        {
-            notInCart = notInCart - 20;
-        }
-
-        //CLIENT FIVE
-        //time bonus
-        timeClient10 =  clientTen.timeSpent;
-        timeClient10 = (timeClient10 * 100) / clientTen.maxTime;
-        if(timeClient10 < 25)
-        {
-            timeScore = timeScore + 100;
-        }
-        else if(timeClient10 > 25 && timeClient10 < 50)
-        {
-            timeScore = timeScore + 75;
-        }
-        else if(timeClient10 > 50 && timeClient10 < 75)
-        {
-            timeScore = timeScore + 50;
-        }
-        else if(timeClient10 > 75 && timeClient10 < 99)
-        {
-            timeScore = timeScore + 25;
-        }
-        else if(timeClient10 > 99)
-        {
-            timeScore = timeScore + 0;
-        }
-
-        //item falls
-        fallenItems = fallenItems + runestick.GetComponent<ItemRespawn>().itemFallen;
-        fallenItems = fallenItems + bansheeBones.GetComponent<ItemRespawn>().itemFallen;
-        fallenItems = fallenItems + acorn.GetComponent<ItemRespawn>().itemFallen;
-        fallenItems = fallenItems + sasquatch.GetComponent<ItemRespawn>().itemFallen;
-
-        //not scanned
-        if(runestick.GetComponent<BasicItemController3>().isScanned == false)
-        {
-            notScannedItems = notScannedItems - 20;
-        }
-        if(bansheeBones.GetComponent<BasicItemController3>().isScanned == false)
-        {
-            notScannedItems = notScannedItems - 20;
-        }
-        if(acorn.GetComponent<RegisterItemController3>().isScanned == false)
-        {
-            notScannedItems = notScannedItems - 20;
-        }
-        if(sasquatch.GetComponent<BasicItemController3>().isScanned == false)
-        {
-            notScannedItems = notScannedItems - 20;
-        }
-
-        //wrong scan
-        if(runestick.GetComponent<BasicItemController3>().correctScan == false)
-        {
-            wrongScanItems = wrongScanItems - 15;
-        }
-        if(bansheeBones.GetComponent<BasicItemController3>().correctScan == false)
-        {
-            wrongScanItems = wrongScanItems - 15;
-        }
-        if(acorn.GetComponent<RegisterItemController3>().correctScan == false)
-        {
-            wrongScanItems = wrongScanItems - 15;
-        }
-        if(sasquatch.GetComponent<BasicItemController3>().correctScan == false)
-        {
-            wrongScanItems = wrongScanItems - 15;
-        }
-
-        //not in cart
-        if(runestick.GetComponent<BasicItemController3>().inCart == false)
-        {
-            notInCart = notInCart - 10;
-        }
-        if(bansheeBones.GetComponent<BasicItemController3>().inCart == false)
-        {
-            notInCart = notInCart - 10;
-        }
-        if(acorn.GetComponent<RegisterItemController3>().inCart == false)
-        {
-            notInCart = notInCart - 10;
-        }
-        if(sasquatch.GetComponent<BasicItemController3>().inCart == false)
-        {
-            notInCart = notInCart - 10;
-        }
-        
-        //wrong cart
-        if(runestick.GetComponent<BasicItemController3>().correctCart == false)
-        {
-            notInCart = notInCart - 20;
-        }
-        if(bansheeBones.GetComponent<BasicItemController3>().correctCart == false)
-        {
-            notInCart = notInCart - 20;
-        }
-        if(acorn.GetComponent<BasicItemController3>().correctCart == false)
-        {
-            notInCart = notInCart - 20;
-        }
-        if(sasquatch.GetComponent<BasicItemController3>().correctCart == false)
-        {
-            notInCart = notInCart - 20;
-        }
-
-        //CLIENT SIX
-        //time bonus
-        timeClient11 =  clientEleven.timeSpent;
-        timeClient11 = (timeClient11 * 100) / clientEleven.maxTime;
-        if(timeClient11 < 25)
-        {
-            timeScore = timeScore + 100;
-        }
-        else if(timeClient11 > 25 && timeClient11 < 50)
-        {
-            timeScore = timeScore + 75;
-        }
-        else if(timeClient11 > 50 && timeClient11 < 75)
-        {
-            timeScore = timeScore + 50;
-        }
-        else if(timeClient11 > 75 && timeClient11 < 99)
-        {
-            timeScore = timeScore + 25;
-        }
-        else if(timeClient11 > 99)
-        {
-            timeScore = timeScore + 0;
-        }
-
-        //item falls
-        fallenItems = fallenItems + cilantro.GetComponent<ItemRespawn>().itemFallen;
-        fallenItems = fallenItems + fishFingers.GetComponent<ItemRespawn>().itemFallen;
-        fallenItems = fallenItems + steak.GetComponent<ItemRespawn>().itemFallen;
-        fallenItems = fallenItems + oliveOil.GetComponent<ItemRespawn>().itemFallen;
-
-        //not scanned
-        if(cilantro.GetComponent<RegisterItemController3>().isScanned == false)
-        {
-            notScannedItems = notScannedItems - 20;
-        }
-        if(fishFingers.GetComponent<BasicItemController3>().isScanned == false)
-        {
-            notScannedItems = notScannedItems - 20;
-        }
-        if(steak.GetComponent<BasicItemController3>().isScanned == false)
-        {
-            notScannedItems = notScannedItems - 20;
-        }
-        if(oliveOil.GetComponent<BasicItemController3>().isScanned == false)
-        {
-            notScannedItems = notScannedItems - 20;
-        }
-
-        //wrong scan
-        if(cilantro.GetComponent<RegisterItemController3>().correctScan == false)
-        {
-            wrongScanItems = wrongScanItems - 15;
-        }
-        if(fishFingers.GetComponent<BasicItemController3>().correctScan == false)
-        {
-            wrongScanItems = wrongScanItems - 15;
-        }
-        if(steak.GetComponent<BasicItemController3>().correctScan == false)
-        {
-            wrongScanItems = wrongScanItems - 15;
-        }
-        if(oliveOil.GetComponent<BasicItemController3>().correctScan == false)
-        {
-            wrongScanItems = wrongScanItems - 15;
-        }
-
-        //not in cart
-        if(cilantro.GetComponent<RegisterItemController3>().inCart == false)
-        {
-            notInCart = notInCart - 10;
-        }
-        if(fishFingers.GetComponent<BasicItemController3>().inCart == false)
-        {
-            notInCart = notInCart - 10;
-        }
-        if(steak.GetComponent<BasicItemController3>().inCart == false)
-        {
-            notInCart = notInCart - 10;
-        }
-        if(oliveOil.GetComponent<BasicItemController3>().inCart == false)
-        {
-            notInCart = notInCart - 10;
-        }
-        
-        //wrong cart
-        if(cilantro.GetComponent<RegisterItemController3>().correctCart == false)
-        {
-            notInCart = notInCart - 20;
-        }
-        if(fishFingers.GetComponent<BasicItemController3>().correctCart == false)
-        {
-            notInCart = notInCart - 20;
-        }
-        if(steak.GetComponent<BasicItemController3>().correctCart == false)
-        {
-            notInCart = notInCart - 20;
-        }
-        if(oliveOil.GetComponent<BasicItemController3>().correctCart == false)
-        {
-            notInCart = notInCart - 20;
-        }
-
-        //CLIENT SEVEN
-        //time bonus
-        timeClient12 =  clientTwelve.timeSpent;
-        timeClient12 = (timeClient12 * 100) / clientTwelve.maxTime;
-        if(timeClient12 < 25)
-        {
-            timeScore = timeScore + 100;
-        }
-        else if(timeClient12 > 25 && timeClient12 < 50)
-        {
-            timeScore = timeScore + 75;
-        }
-        else if(timeClient12 > 50 && timeClient12 < 75)
-        {
-            timeScore = timeScore + 50;
-        }
-        else if(timeClient12 > 75 && timeClient12 < 99)
-        {
-            timeScore = timeScore + 25;
-        }
-        else if(timeClient12 > 99)
-        {
-            timeScore = timeScore + 0;
-        }
-
-        //item falls
-        fallenItems = fallenItems + redWine.GetComponent<ItemRespawn>().itemFallen;
-        fallenItems = fallenItems + flyingSausage.GetComponent<ItemRespawn>().itemFallen;
-        fallenItems = fallenItems + blood.GetComponent<ItemRespawn>().itemFallen;
-        fallenItems = fallenItems + glowTomato.GetComponent<ItemRespawn>().itemFallen;
-        fallenItems = fallenItems + glowberrySqueeze.GetComponent<ItemRespawn>().itemFallen;
-
-        //not scanned
-        if(redWine.GetComponent<BasicItemController3>().isScanned == false)
-        {
-            notScannedItems = notScannedItems - 20;
-        }
-        if(flyingSausage.GetComponent<BasicItemController3>().isScanned == false)
-        {
-            notScannedItems = notScannedItems - 20;
-        }
-        if(blood.GetComponent<BasicItemController3>().isScanned == false)
-        {
-            notScannedItems = notScannedItems - 20;
-        }
-        if(glowTomato.GetComponent<RegisterItemController3>().isScanned == false)
-        {
-            notScannedItems = notScannedItems - 20;
-        }
-        if(glowberrySqueeze.GetComponent<BasicItemController3>().isScanned == false)
-        {
-            notScannedItems = notScannedItems - 20;
-        }
-
-        //wrong scan
-        if(redWine.GetComponent<BasicItemController3>().correctScan == false)
-        {
-            wrongScanItems = wrongScanItems - 15;
-        }
-        if(flyingSausage.GetComponent<BasicItemController3>().correctScan == false)
-        {
-            wrongScanItems = wrongScanItems - 15;
-        }
-        if(blood.GetComponent<BasicItemController3>().correctScan == false)
-        {
-            wrongScanItems = wrongScanItems - 15;
-        }
-        if(glowTomato.GetComponent<RegisterItemController3>().correctScan == false)
-        {
-            wrongScanItems = wrongScanItems - 15;
-        }
-        if(glowberrySqueeze.GetComponent<BasicItemController3>().correctScan == false)
-        {
-            wrongScanItems = wrongScanItems - 15;
-        }
-
-        //not in cart
-        if(redWine.GetComponent<BasicItemController3>().inCart == false)
-        {
-            notInCart = notInCart - 10;
-        }
-        if(flyingSausage.GetComponent<BasicItemController3>().inCart == false)
-        {
-            notInCart = notInCart - 10;
-        }
-        if(blood.GetComponent<BasicItemController3>().inCart == false)
-        {
-            notInCart = notInCart - 10;
-        }
-        if(glowTomato.GetComponent<RegisterItemController3>().inCart == false)
-        {
-            notInCart = notInCart - 10;
-        }
-        if(glowberrySqueeze.GetComponent<BasicItemController3>().inCart == false)
-        {
-            notInCart = notInCart - 10;
-        }
-        
-        //wrong cart
-        if(redWine.GetComponent<BasicItemController3>().correctCart == false)
-        {
-            notInCart = notInCart - 20;
-        }
-        if(flyingSausage.GetComponent<BasicItemController3>().correctCart == false)
-        {
-            notInCart = notInCart - 20;
-        }
-        if(blood.GetComponent<BasicItemController3>().correctCart == false)
-        {
-            notInCart = notInCart - 20;
-        }
-        if(glowTomato.GetComponent<RegisterItemController3>().correctCart == false)
-        {
-            notInCart = notInCart - 20;
-        }
-        if(glowberrySqueeze.GetComponent<BasicItemController3>().correctCart == false)
-        {
-            notInCart = notInCart - 20;
-        }
-
-        //CLIENT SEVEN
-        //time bonus
-        timeClient13 =  clientThirteen.timeSpent;
-        timeClient13 = (timeClient13 * 100) / clientThirteen.maxTime;
-        if(timeClient13 < 25)
-        {
-            timeScore = timeScore + 100;
-        }
-        else if(timeClient13 > 25 && timeClient13 < 50)
-        {
-            timeScore = timeScore + 75;
-        }
-        else if(timeClient13 > 50 && timeClient13 < 75)
-        {
-            timeScore = timeScore + 50;
-        }
-        else if(timeClient13 > 75 && timeClient13 < 99)
-        {
-            timeScore = timeScore + 25;
-        }
-        else if(timeClient13 > 99)
-        {
-            timeScore = timeScore + 0;
-        }
-
-        //item falls
-        fallenItems = fallenItems + garlicPerfume.GetComponent<ItemRespawn>().itemFallen;
-        fallenItems = fallenItems + deadlyAxe.GetComponent<ItemRespawn>().itemFallen;
-        fallenItems = fallenItems + arrows.GetComponent<ItemRespawn>().itemFallen;
-        fallenItems = fallenItems + mincedGarlic.GetComponent<ItemRespawn>().itemFallen;
-
-        //not scanned
-        if(garlicPerfume.GetComponent<BasicItemController3>().isScanned == false)
-        {
-            notScannedItems = notScannedItems - 20;
-        }
-        if(deadlyAxe.GetComponent<BasicItemController3>().isScanned == false)
-        {
-            notScannedItems = notScannedItems - 20;
-        }
-        if(arrows.GetComponent<BasicItemController3>().isScanned == false)
-        {
-            notScannedItems = notScannedItems - 20;
-        }
-        if(mincedGarlic.GetComponent<BasicItemController3>().isScanned == false)
-        {
-            notScannedItems = notScannedItems - 20;
-        }
-
-        //wrong scan
-        if(garlicPerfume.GetComponent<BasicItemController3>().correctScan == false)
-        {
-            wrongScanItems = wrongScanItems - 15;
-        }
-        if(deadlyAxe.GetComponent<BasicItemController3>().correctScan == false)
-        {
-            wrongScanItems = wrongScanItems - 15;
-        }
-        if(arrows.GetComponent<BasicItemController3>().correctScan == false)
-        {
-            wrongScanItems = wrongScanItems - 15;
-        }
-        if(mincedGarlic.GetComponent<BasicItemController3>().correctScan == false)
-        {
-            wrongScanItems = wrongScanItems - 15;
-        }
-
-        //not in cart
-        if(garlicPerfume.GetComponent<BasicItemController3>().inCart == false)
-        {
-            notInCart = notInCart - 10;
-        }
-        if(deadlyAxe.GetComponent<BasicItemController3>().inCart == false)
-        {
-            notInCart = notInCart - 10;
-        }
-        if(arrows.GetComponent<BasicItemController3>().inCart == false)
-        {
-            notInCart = notInCart - 10;
-        }
-        if(mincedGarlic.GetComponent<BasicItemController3>().inCart == false)
-        {
-            notInCart = notInCart - 10;
-        }
-        
-        //wrong cart
-        if(garlicPerfume.GetComponent<BasicItemController3>().correctCart == false)
-        {
-            notInCart = notInCart - 20;
-        }
-        if(deadlyAxe.GetComponent<BasicItemController3>().correctCart == false)
-        {
-            notInCart = notInCart - 20;
-        }
-        if(arrows.GetComponent<BasicItemController3>().correctCart == false)
-        {
-            notInCart = notInCart - 20;
-        }
-        if(mincedGarlic.GetComponent<BasicItemController3>().correctCart == false)
-        {
-            notInCart = notInCart - 20;
-        }
-
-        //CLIENT SEVEN
-        //time bonus
-        timeClient13 =  clientThirteen.timeSpent;
-        timeClient13 = (timeClient13 * 100) / clientThirteen.maxTime;
-        if(timeClient13 < 25)
-        {
-            timeScore = timeScore + 100;
-        }
-        else if(timeClient13 > 25 && timeClient13 < 50)
-        {
-            timeScore = timeScore + 75;
-        }
-        else if(timeClient13 > 50 && timeClient13 < 75)
-        {
-            timeScore = timeScore + 50;
-        }
-        else if(timeClient13 > 75 && timeClient13 < 99)
-        {
-            timeScore = timeScore + 25;
-        }
-        else if(timeClient13 > 99)
-        {
-            timeScore = timeScore + 0;
-        }
-
-        //item falls
-        fallenItems = fallenItems + mirror.GetComponent<ItemRespawn>().itemFallen;
-        fallenItems = fallenItems + mandrake.GetComponent<ItemRespawn>().itemFallen;
-        fallenItems = fallenItems + lizardTail.GetComponent<ItemRespawn>().itemFallen;
+        fallenItems = fallenItems + centaurMilk.GetComponent<ItemRespawn>().itemFallen;
+        fallenItems = fallenItems + goldEgg.GetComponent<ItemRespawn>().itemFallen;
+        fallenItems = fallenItems + beanCan.GetComponent<ItemRespawn>().itemFallen;
+        fallenItems = fallenItems + breadSticks.GetComponent<ItemRespawn>().itemFallen;
+        fallenItems = fallenItems + hairPotion.GetComponent<ItemRespawn>().itemFallen;
         fallenItems = fallenItems + redMushroom.GetComponent<ItemRespawn>().itemFallen;
-        fallenItems = fallenItems + glassBall.GetComponent<ItemRespawn>().itemFallen;
 
         //not scanned
-        if(mirror.GetComponent<BasicItemController3>().isScanned == false)
+        if(centaurMilk.GetComponent<BasicItemController3>().isScanned == false)
         {
             notScannedItems = notScannedItems - 20;
         }
-        if(mandrake.GetComponent<RegisterItemController3>().isScanned == false)
+        if(goldEgg.GetComponent<BasicItemController3>().isScanned == false)
         {
             notScannedItems = notScannedItems - 20;
         }
-        if(lizardTail.GetComponent<BasicItemController3>().isScanned == false)
+        if(beanCan.GetComponent<BasicItemController3>().isScanned == false)
+        {
+            notScannedItems = notScannedItems - 20;
+        }
+        if(breadSticks.GetComponent<BasicItemController3>().isScanned == false)
+        {
+            notScannedItems = notScannedItems - 20;
+        }
+        if(hairPotion.GetComponent<BasicItemController3>().isScanned == false)
         {
             notScannedItems = notScannedItems - 20;
         }
@@ -732,21 +185,25 @@ public class Level3Points : MonoBehaviour
         {
             notScannedItems = notScannedItems - 20;
         }
-        if(glassBall.GetComponent<BasicItemController3>().isScanned == false)
-        {
-            notScannedItems = notScannedItems - 20;
-        }
 
         //wrong scan
-        if(mirror.GetComponent<BasicItemController3>().correctScan == false)
+        if(centaurMilk.GetComponent<BasicItemController3>().correctScan == false)
         {
             wrongScanItems = wrongScanItems - 15;
         }
-        if(mandrake.GetComponent<RegisterItemController3>().correctScan == false)
+        if(goldEgg.GetComponent<BasicItemController3>().correctScan == false)
         {
             wrongScanItems = wrongScanItems - 15;
         }
-        if(lizardTail.GetComponent<BasicItemController3>().correctScan == false)
+        if(beanCan.GetComponent<BasicItemController3>().correctScan == false)
+        {
+            wrongScanItems = wrongScanItems - 15;
+        }
+        if(breadSticks.GetComponent<BasicItemController3>().correctScan == false)
+        {
+            wrongScanItems = wrongScanItems - 15;
+        }
+        if(hairPotion.GetComponent<BasicItemController3>().correctScan == false)
         {
             wrongScanItems = wrongScanItems - 15;
         }
@@ -754,21 +211,25 @@ public class Level3Points : MonoBehaviour
         {
             wrongScanItems = wrongScanItems - 15;
         }
-        if(glassBall.GetComponent<BasicItemController3>().correctCart == false)
-        {
-            notInCart = notInCart - 20;
-        }
 
         //not in cart
-        if(mirror.GetComponent<BasicItemController3>().inCart == false)
+        if(centaurMilk.GetComponent<BasicItemController3>().inCart == false)
         {
             notInCart = notInCart - 10;
         }
-        if(mandrake.GetComponent<RegisterItemController3>().inCart == false)
+        if(goldEgg.GetComponent<BasicItemController3>().inCart == false)
         {
             notInCart = notInCart - 10;
         }
-        if(lizardTail.GetComponent<BasicItemController3>().inCart == false)
+        if(beanCan.GetComponent<BasicItemController3>().inCart == false)
+        {
+            notInCart = notInCart - 10;
+        }
+        if(breadSticks.GetComponent<BasicItemController3>().inCart == false)
+        {
+            notInCart = notInCart - 10;
+        }
+        if(hairPotion.GetComponent<BasicItemController3>().inCart == false)
         {
             notInCart = notInCart - 10;
         }
@@ -776,32 +237,309 @@ public class Level3Points : MonoBehaviour
         {
             notInCart = notInCart - 10;
         }
-        if(glassBall.GetComponent<BasicItemController3>().inCart == false)
+        
+        //wrong cart
+        if(centaurMilk.GetComponent<BasicItemController3>().correctCart == false)
+        {
+            wrongCart = wrongCart - 20;
+        }
+        if(goldEgg.GetComponent<BasicItemController3>().correctCart == false)
+        {
+            wrongCart = wrongCart - 20;
+        }
+        
+        if(beanCan.GetComponent<BasicItemController3>().correctCart == false)
+        {
+            wrongCart = wrongCart - 20;
+        }
+        if(breadSticks.GetComponent<BasicItemController3>().correctCart == false)
+        {
+            wrongCart = wrongCart - 20;
+        }
+        if(hairPotion.GetComponent<BasicItemController3>().correctCart == false)
+        {
+            wrongCart = wrongCart - 20;
+        }
+        if(redMushroom.GetComponent<RegisterItemController3>().correctCart == false)
+        {
+            wrongCart = wrongCart - 20;
+        }
+
+        //CLIENT FIVE
+        //time bonus
+        timeClient16 =  clientSixteen.timeSpent;
+        timeClient16 = (timeClient16 * 100) / clientSixteen.maxTime;
+        if(timeClient16 < 25)
+        {
+            timeScore = timeScore + 100;
+        }
+        else if(timeClient16 > 25 && timeClient16 < 50)
+        {
+            timeScore = timeScore + 75;
+        }
+        else if(timeClient16 > 50 && timeClient16 < 75)
+        {
+            timeScore = timeScore + 50;
+        }
+        else if(timeClient16 > 75 && timeClient16 < 99)
+        {
+            timeScore = timeScore + 25;
+        }
+        else if(timeClient16 > 99)
+        {
+            timeScore = timeScore + 0;
+        }
+
+        //item falls
+        fallenItems = fallenItems + pomegranate.GetComponent<ItemRespawn>().itemFallen;
+        fallenItems = fallenItems + gummyEyes.GetComponent<ItemRespawn>().itemFallen;
+        fallenItems = fallenItems + ginger.GetComponent<ItemRespawn>().itemFallen;
+        fallenItems = fallenItems + rapunzel.GetComponent<ItemRespawn>().itemFallen;
+        fallenItems = fallenItems + frozenBread.GetComponent<ItemRespawn>().itemFallen;
+        fallenItems = fallenItems + whiteWine.GetComponent<ItemRespawn>().itemFallen;
+
+        //not scanned
+        if(pomegranate.GetComponent<RegisterItemController3>().isScanned == false)
+        {
+            notScannedItems = notScannedItems - 20;
+        }
+        if(gummyEyes.GetComponent<BasicItemController3>().isScanned == false)
+        {
+            notScannedItems = notScannedItems - 20;
+        }
+        if(ginger.GetComponent<RegisterItemController3>().isScanned == false)
+        {
+            notScannedItems = notScannedItems - 20;
+        }
+        if(rapunzel.GetComponent<BasicItemController3>().isScanned == false)
+        {
+            notScannedItems = notScannedItems - 20;
+        }
+        if(frozenBread.GetComponent<BasicItemController3>().isScanned == false)
+        {
+            notScannedItems = notScannedItems - 20;
+        }
+        if(whiteWine.GetComponent<BasicItemController3>().isScanned == false)
+        {
+            notScannedItems = notScannedItems - 20;
+        }
+
+        //wrong scan
+        if(pomegranate.GetComponent<RegisterItemController3>().correctScan == false)
+        {
+            wrongScanItems = wrongScanItems - 15;
+        }
+        if(gummyEyes.GetComponent<BasicItemController3>().correctScan == false)
+        {
+            wrongScanItems = wrongScanItems - 15;
+        }
+        if(ginger.GetComponent<RegisterItemController3>().correctScan == false)
+        {
+            wrongScanItems = wrongScanItems - 15;
+        }
+        if(rapunzel.GetComponent<BasicItemController3>().correctScan == false)
+        {
+            wrongScanItems = wrongScanItems - 15;
+        }
+        if(frozenBread.GetComponent<BasicItemController3>().correctScan == false)
+        {
+            wrongScanItems = wrongScanItems - 15;
+        }
+        if(whiteWine.GetComponent<BasicItemController3>().correctScan == false)
+        {
+            wrongScanItems = wrongScanItems - 15;
+        }
+        
+
+        //not in cart
+        if(pomegranate.GetComponent<RegisterItemController3>().inCart == false)
+        {
+            notInCart = notInCart - 10;
+        }
+        if(gummyEyes.GetComponent<BasicItemController3>().inCart == false)
+        {
+            notInCart = notInCart - 10;
+        }
+        if(ginger.GetComponent<RegisterItemController3>().inCart == false)
+        {
+            notInCart = notInCart - 10;
+        }
+        if(rapunzel.GetComponent<BasicItemController3>().inCart == false)
+        {
+            notInCart = notInCart - 10;
+        }
+        if(frozenBread.GetComponent<BasicItemController3>().inCart == false)
+        {
+            notInCart = notInCart - 10;
+        }
+        if(whiteWine.GetComponent<BasicItemController3>().inCart == false)
         {
             notInCart = notInCart - 10;
         }
         
         //wrong cart
-        if(mirror.GetComponent<BasicItemController3>().correctCart == false)
+        if(pomegranate.GetComponent<RegisterItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
-        if(mandrake.GetComponent<RegisterItemController3>().correctCart == false)
+        if(gummyEyes.GetComponent<BasicItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
-        if(lizardTail.GetComponent<BasicItemController3>().correctCart == false)
+        if(ginger.GetComponent<RegisterItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
-        if(redMushroom.GetComponent<RegisterItemController3>().correctCart == false)
+        if(rapunzel.GetComponent<BasicItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
-        if(glassBall.GetComponent<BasicItemController3>().correctCart == false)
+        if(frozenBread.GetComponent<BasicItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
+        if(whiteWine.GetComponent<BasicItemController3>().correctCart == false)
+        {
+            wrongCart = wrongCart - 20;
+        }
+
+        //CLIENT SIX
+        //time bonus
+        timeClient17 =  clientSeventeen.timeSpent;
+        timeClient17 = (timeClient17 * 100) / clientSeventeen.maxTime;
+        if(timeClient17 < 25)
+        {
+            timeScore = timeScore + 100;
+        }
+        else if(timeClient17 > 25 && timeClient17 < 50)
+        {
+            timeScore = timeScore + 75;
+        }
+        else if(timeClient17 > 50 && timeClient17 < 75)
+        {
+            timeScore = timeScore + 50;
+        }
+        else if(timeClient17 > 75 && timeClient17 < 99)
+        {
+            timeScore = timeScore + 25;
+        }
+        else if(timeClient17 > 99)
+        {
+            timeScore = timeScore + 0;
+        }
+
+        //item falls
+        fallenItems = fallenItems + krakenStick.GetComponent<ItemRespawn>().itemFallen;
+        fallenItems = fallenItems + smokedSausages.GetComponent<ItemRespawn>().itemFallen;
+        fallenItems = fallenItems + chilliPepper.GetComponent<ItemRespawn>().itemFallen;
+        fallenItems = fallenItems + phoenixAsh.GetComponent<ItemRespawn>().itemFallen;
+        fallenItems = fallenItems + flamingCroissant.GetComponent<ItemRespawn>().itemFallen;
+        fallenItems = fallenItems + dragonEgg.GetComponent<ItemRespawn>().itemFallen;
+
+        //not scanned
+        if(krakenStick.GetComponent<BasicItemController3>().isScanned == false)
+        {
+            notScannedItems = notScannedItems - 20;
+        }
+        if(smokedSausages.GetComponent<BasicItemController3>().isScanned == false)
+        {
+            notScannedItems = notScannedItems - 20;
+        }
+        if(chilliPepper.GetComponent<RegisterItemController3>().isScanned == false)
+        {
+            notScannedItems = notScannedItems - 20;
+        }
+        if(phoenixAsh.GetComponent<BasicItemController3>().isScanned == false)
+        {
+            notScannedItems = notScannedItems - 20;
+        }
+        if(flamingCroissant.GetComponent<BasicItemController3>().isScanned == false)
+        {
+            notScannedItems = notScannedItems - 20;
+        }
+        if(dragonEgg.GetComponent<BasicItemController3>().isScanned == false)
+        {
+            notScannedItems = notScannedItems - 20;
+        }
+
+        //wrong scan
+        if(krakenStick.GetComponent<BasicItemController3>().correctScan == false)
+        {
+            wrongScanItems = wrongScanItems - 15;
+        }
+        if(smokedSausages.GetComponent<BasicItemController3>().correctScan == false)
+        {
+            wrongScanItems = wrongScanItems - 15;
+        }
+        if(chilliPepper.GetComponent<RegisterItemController3>().correctScan == false)
+        {
+            wrongScanItems = wrongScanItems - 15;
+        }
+        if(phoenixAsh.GetComponent<BasicItemController3>().correctScan == false)
+        {
+            wrongScanItems = wrongScanItems - 15;
+        }
+        if(flamingCroissant.GetComponent<BasicItemController3>().correctScan == false)
+        {
+            wrongScanItems = wrongScanItems - 15;
+        }
+        if(dragonEgg.GetComponent<BasicItemController3>().correctScan == false)
+        {
+            wrongScanItems = wrongScanItems - 15;
+        }
+
+        //not in cart
+        if(krakenStick.GetComponent<BasicItemController3>().inCart == false)
+        {
+            notInCart = notInCart - 10;
+        }
+        if(smokedSausages.GetComponent<BasicItemController3>().inCart == false)
+        {
+            notInCart = notInCart - 10;
+        }
+        if(chilliPepper.GetComponent<RegisterItemController3>().inCart == false)
+        {
+            notInCart = notInCart - 10;
+        }
+        if(phoenixAsh.GetComponent<BasicItemController3>().inCart == false)
+        {
+            notInCart = notInCart - 10;
+        }
+        if(flamingCroissant.GetComponent<BasicItemController3>().inCart == false)
+        {
+            notInCart = notInCart - 10;
+        }
+        if(dragonEgg.GetComponent<BasicItemController3>().inCart == false)
+        {
+            notInCart = notInCart - 10;
+        }
+        
+        //wrong cart
+        if(krakenStick.GetComponent<BasicItemController3>().correctCart == false)
+        {
+            wrongCart = wrongCart - 20;
+        }
+        if(smokedSausages.GetComponent<BasicItemController3>().correctCart == false)
+        {
+            wrongCart = wrongCart - 20;
+        }
+        if(chilliPepper.GetComponent<RegisterItemController3>().correctCart == false)
+        {
+            wrongCart = wrongCart - 20;
+        }
+        if(phoenixAsh.GetComponent<BasicItemController3>().correctCart == false)
+        {
+            wrongCart = wrongCart - 20;
+        }
+        if(flamingCroissant.GetComponent<BasicItemController3>().correctCart == false)
+        {
+            wrongCart = wrongCart - 20;
+        }
+        if(dragonEgg.GetComponent<BasicItemController3>().correctCart == false)
+        {
+            wrongCart = wrongCart - 20;
+        }
+
 
         //final calculations
 
@@ -829,13 +567,13 @@ public class Level3Points : MonoBehaviour
             noItemFall = 600;
         }
 
-        level3TotalScore = timeScore + fallenItems + notScannedItems + wrongScanItems + notInCart + wrongCart + sprayUses + perfectScan + perfectCart + noPlayerFall + noItemFall;
+        level4TotalScore = timeScore + fallenItems + notScannedItems + wrongScanItems + notInCart + wrongCart + sprayUses + perfectScan + perfectCart + noPlayerFall + noItemFall;
         ShowPoints();
     }
 
     public void ShowPoints()
     {
-        if(level3TotalScore < 1900)
+        if(level4TotalScore < 1900)
         {
             failBook.SetActive(true);
             winBook.SetActive(false);
@@ -843,7 +581,7 @@ public class Level3Points : MonoBehaviour
             secondStar.SetActive(false);
             thirdStar.SetActive(false);
         }
-        else if (level3TotalScore < 2750 && level3TotalScore > 1900)
+        else if (level4TotalScore < 2750 && level4TotalScore > 1900)
         {
             failBook.SetActive(false);
             winBook.SetActive(true);
@@ -851,7 +589,7 @@ public class Level3Points : MonoBehaviour
             secondStar.SetActive(false);
             thirdStar.SetActive(false);
         }
-        else if (level3TotalScore < 3850 && level3TotalScore > 2750)
+        else if (level4TotalScore < 3850 && level4TotalScore > 2750)
         {
             failBook.SetActive(false);
             winBook.SetActive(true);
@@ -859,7 +597,7 @@ public class Level3Points : MonoBehaviour
             secondStar.SetActive(true);
             thirdStar.SetActive(false);
         }
-        else if (level3TotalScore > 3850)
+        else if (level4TotalScore > 3850)
         {
             failBook.SetActive(false);
             winBook.SetActive(true);
@@ -888,26 +626,26 @@ public class Level3Points : MonoBehaviour
 
         nofallitem.text = noItemFall.ToString();
 
-        totalScore.text = level3TotalScore.ToString();
+        totalScore.text = level4TotalScore.ToString();
 
         if(GameManager.Instance.activeCharacter == "PlayerPaula")
         {
-            GameManager.Instance.level3ScorePaula = level3TotalScore;
+            GameManager.Instance.level3ScorePaula = level4TotalScore;
         }
 
         if(GameManager.Instance.activeCharacter == "PlayerLinnea")
         {
-            GameManager.Instance.level3ScoreLinnea = level3TotalScore;
+            GameManager.Instance.level3ScoreLinnea = level4TotalScore;
         }
 
         if(GameManager.Instance.activeCharacter == "PlayerCreek")
         {
-            GameManager.Instance.level3ScoreCreek = level3TotalScore;
+            GameManager.Instance.level3ScoreCreek = level4TotalScore;
         }
         
         if(GameManager.Instance.activeCharacter == "PlayerFred")
         {
-            GameManager.Instance.level3ScoreFred = level3TotalScore;
+            GameManager.Instance.level3ScoreFred = level4TotalScore;
         }
 
         GameManager.Instance.level3Completed = true;

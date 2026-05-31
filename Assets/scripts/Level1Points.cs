@@ -138,7 +138,7 @@ public class Level1Points : MonoBehaviour
         //wrong cart
         if(honey.GetComponent<FirstItem>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
 
         //cleaned dirt
@@ -195,15 +195,15 @@ public class Level1Points : MonoBehaviour
         //wrong cart
         if(hairDye.GetComponent<BasicItemController1>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
         if(superGlue.GetComponent<BasicItemController1>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
         if(unicornHorn.GetComponent<BasicItemController1>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
 
         //third client
@@ -307,23 +307,23 @@ public class Level1Points : MonoBehaviour
         //wrong cart
         if(lembasBread.GetComponent<BasicItemController1>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
         if(goldRing.GetComponent<BasicItemController1>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
         if(moonwellWater.GetComponent<BasicItemController1>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
         if(wingedShoes.GetComponent<BasicItemController1>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
         if(dirtBegone.GetComponent<BasicItemController1>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
 
         //final calculations

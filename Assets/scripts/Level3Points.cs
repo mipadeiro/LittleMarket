@@ -241,20 +241,20 @@ public class Level3Points : MonoBehaviour
         //wrong cart
         if(conditioner.GetComponent<BasicItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
         if(flyingFish.GetComponent<BasicItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
         
         if(chickenLeg.GetComponent<BasicItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
         if(ice.GetComponent<BasicItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
 
         //CLIENT FIVE
@@ -345,19 +345,19 @@ public class Level3Points : MonoBehaviour
         //wrong cart
         if(runestick.GetComponent<BasicItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
         if(bansheeBones.GetComponent<BasicItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
         if(acorn.GetComponent<BasicItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
         if(sasquatch.GetComponent<BasicItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
 
         //CLIENT SIX
@@ -448,19 +448,19 @@ public class Level3Points : MonoBehaviour
         //wrong cart
         if(cilantro.GetComponent<RegisterItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
         if(fishFingers.GetComponent<BasicItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
         if(steak.GetComponent<BasicItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
         if(oliveOil.GetComponent<BasicItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
 
         //CLIENT SEVEN
@@ -564,23 +564,23 @@ public class Level3Points : MonoBehaviour
         //wrong cart
         if(redWine.GetComponent<BasicItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
         if(flyingSausage.GetComponent<BasicItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
         if(blood.GetComponent<BasicItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
         if(glowTomato.GetComponent<RegisterItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
         if(glowberrySqueeze.GetComponent<BasicItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
 
         //CLIENT SEVEN
@@ -671,19 +671,19 @@ public class Level3Points : MonoBehaviour
         //wrong cart
         if(garlicPerfume.GetComponent<BasicItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
         if(deadlyAxe.GetComponent<BasicItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
         if(arrows.GetComponent<BasicItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
         if(mincedGarlic.GetComponent<BasicItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
 
         //CLIENT SEVEN
@@ -759,7 +759,7 @@ public class Level3Points : MonoBehaviour
         }
         if(glassBall.GetComponent<BasicItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongScanItems = wrongScanItems - 15;
         }
 
         //not in cart
@@ -787,23 +787,23 @@ public class Level3Points : MonoBehaviour
         //wrong cart
         if(mirror.GetComponent<BasicItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
         if(mandrake.GetComponent<RegisterItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
         if(lizardTail.GetComponent<BasicItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
         if(redMushroom.GetComponent<RegisterItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
         if(glassBall.GetComponent<BasicItemController3>().correctCart == false)
         {
-            notInCart = notInCart - 20;
+            wrongCart = wrongCart - 20;
         }
 
         //final calculations
