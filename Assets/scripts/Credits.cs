@@ -7,6 +7,7 @@ public class CreditsSceneSwitcher : MonoBehaviour
     [SerializeField] private float delay = 33f;
 
     private bool hasSwitched = false;
+    public GameObject skipButton;
 
     void Start()
     {
@@ -22,7 +23,7 @@ public class CreditsSceneSwitcher : MonoBehaviour
 
         if (keyboard || mouse)
         {
-            LoadScene();
+            skipButton.SetActive(true);
         }
     }
 
