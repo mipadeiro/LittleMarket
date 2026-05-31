@@ -149,8 +149,8 @@ public class NewPlayerController3 : MonoBehaviour
                 if (collider != null)
                 {
                     collider.enabled = false; // Disable collider to prevent interference
-                }
-                pickedUpThisStep = true; */
+                }*/
+                pickedUpThisStep = true; 
             }
         }
     }

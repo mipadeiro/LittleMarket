@@ -52,9 +52,9 @@ public class BellRinging2 : MonoBehaviour
         if (clientNumber == 5 && hasRung == false && !clientFiveActivated)
         {
             bellAnimator.SetBool("hasRung", false);
-            clientFour.SetActive(false);
+            clientFour.GetComponent<ClientFourScript>().EndTransaction();
             Debug.Log("Client Five Active");
-            clientFive.SetActive(true);
+            clientFive.GetComponent<ClientFiveScript>().StartTransaction();
             clientFiveActivated = true;
             bookScript.ResetScanList();
         }
@@ -62,9 +62,9 @@ public class BellRinging2 : MonoBehaviour
         if (clientNumber == 6 && hasRung == false && !clientSixActivated)
         {
             bellAnimator.SetBool("hasRung", false);
-            clientFive.SetActive(false);
+            clientFive.GetComponent<ClientFiveScript>().EndTransaction();
             Debug.Log("Client Six Active");
-            clientSix.SetActive(true);
+            clientSix.GetComponent<ClientSixScript>().StartTransaction();
             clientSixActivated = true;
             bookScript.ResetScanList();
 
@@ -73,9 +73,9 @@ public class BellRinging2 : MonoBehaviour
         if (clientNumber == 7 && hasRung == false && !clientSevenActivated)
         {
             bellAnimator.SetBool("hasRung", false);
-            clientSix.SetActive(false);
+            clientSix.GetComponent<ClientSixScript>().EndTransaction();
             Debug.Log("Client Seven Active");
-            clientSeven.SetActive(true);
+            clientSeven.GetComponent<ClientSevenScript>().StartTransaction();
             clientSevenActivated = true;
             bookScript.ResetScanList();
         }
@@ -83,9 +83,9 @@ public class BellRinging2 : MonoBehaviour
         if (clientNumber == 8 && hasRung == false && !clientEightActivated)
         {
             bellAnimator.SetBool("hasRung", false);
-            clientSeven.SetActive(false);
+            clientSeven.GetComponent<ClientSevenScript>().EndTransaction();
             Debug.Log("Client Eight Active");
-            clientEight.SetActive(true);
+            clientEight.GetComponent<ClientEightScript>().StartTransaction();
             clientEightActivated = true;
             bookScript.ResetScanList();
         }
@@ -94,7 +94,7 @@ public class BellRinging2 : MonoBehaviour
         {
             levelOver = true;
             bellAnimator.SetBool("hasRung", false);
-            clientEight.SetActive(false);
+            clientEight.GetComponent<ClientEightScript>().EndTransaction();
             Debug.Log("Level Over");
             clientEightActivated = false;
             bookScript.ResetScanList();
@@ -106,6 +106,7 @@ public class BellRinging2 : MonoBehaviour
     {
         if (other.CompareTag("Player") && canRing)
         {
+            clientNumber = clientNumber + 1;
             bookScript.ResetScanList();
             hasRung = true;
             bellAnimator.SetBool("hasRung", true);

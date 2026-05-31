@@ -64,9 +64,9 @@ public class BellRinging3 : MonoBehaviour
         if (clientNumber == 10 && hasRung == false && !clientTenActivated)
         {
             bellAnimator.SetBool("hasRung", false);
-            clientNine.SetActive(false);
+            clientNine.GetComponent<ClientNineScript>().EndTransaction();
             Debug.Log("Client Ten Active");
-            clientTen.SetActive(true);
+            clientTen.GetComponent<ClientTenScript>().StartTransaction();
             clientTenActivated = true;
             bookScript.ResetScanList();
         }
@@ -74,9 +74,9 @@ public class BellRinging3 : MonoBehaviour
         if (clientNumber == 11 && hasRung == false && !clientElevenActivated)
         {
             bellAnimator.SetBool("hasRung", false);
-            clientTen.SetActive(false);
+            clientTen.GetComponent<ClientTenScript>().EndTransaction();
             Debug.Log("Client Eleven Active");
-            clientEleven.SetActive(true);
+            clientEleven.GetComponent<ClientElevenScript>().StartTransaction();
             clientElevenActivated = true;
             bookScript.ResetScanList();
 
@@ -85,9 +85,9 @@ public class BellRinging3 : MonoBehaviour
         if (clientNumber == 12 && hasRung == false && !clientTwelveActivated)
         {
             bellAnimator.SetBool("hasRung", false);
-            clientEleven.SetActive(false);
+            clientEleven.GetComponent<ClientElevenScript>().EndTransaction();
             Debug.Log("Client Twelve Active");
-            clientTwelve.SetActive(true);
+            clientTwelve.GetComponent<ClientTwelveScript>().StartTransaction();
             clientTwelveActivated = true;
             bookScript.ResetScanList();
         }
@@ -95,9 +95,9 @@ public class BellRinging3 : MonoBehaviour
         if (clientNumber == 13 && hasRung == false && !clientThirteenActivated)
         {
             bellAnimator.SetBool("hasRung", false);
-            clientTwelve.SetActive(false);
+            clientTwelve.GetComponent<ClientTwelveScript>().EndTransaction();
             Debug.Log("Client Thirteen Active");
-            clientThirteen.SetActive(true);
+            clientThirteen.GetComponent<ClientThirteenScript>().StartTransaction();
             clientThirteenActivated = true;
             bookScript.ResetScanList();
         }
@@ -105,9 +105,9 @@ public class BellRinging3 : MonoBehaviour
         if (clientNumber == 14 && hasRung == false && !clientFourteenActivated)
         {
             bellAnimator.SetBool("hasRung", false);
-            clientThirteen.SetActive(false);
+            clientThirteen.GetComponent<ClientThirteenScript>().EndTransaction();
             Debug.Log("Client Fourteen Active");
-            clientFourteen.SetActive(true);
+            clientFourteen.GetComponent<ClientFourteenScript>().StartTransaction();
             clientFourteenActivated = true;
             bookScript.ResetScanList();
         }
@@ -116,7 +116,7 @@ public class BellRinging3 : MonoBehaviour
         {
             levelOver = true;
             bellAnimator.SetBool("hasRung", false);
-            clientFourteen.SetActive(false);
+            clientFourteen.GetComponent<ClientFourteenScript>().EndTransaction();
             Debug.Log("Level Over");
             clientFourteenActivated = false;
             bookScript.ResetScanList();
@@ -130,6 +130,7 @@ public class BellRinging3 : MonoBehaviour
         {
             bookScript.ResetScanList();
             hasRung = true;
+            clientNumber = clientNumber + 1;
             bellAnimator.SetBool("hasRung", true);
             newPlayerController.heldObject.SetActive(false);
             Debug.Log("Ding!");

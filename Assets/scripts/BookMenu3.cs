@@ -228,7 +228,7 @@ public class BookMenu3 : MonoBehaviour
     //each basic item adds its gameobject and itemName to scannedItems and scannedItemsNames to show up in itemsText
     public void AddBasicScanToList(GameObject basicObject)
     {
-        var basic = basicObject.GetComponent<BasicItemController>();
+        var basic = basicObject.GetComponent<BasicItemController3>();
         if (basic == null || basic.itemData == null) 
         {
             return;

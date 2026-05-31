@@ -6504,8 +6504,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NewPlayerController, Assembly-CSharp
+      - m_Target: {fileID: 381679389}
+        m_TargetAssemblyTypeName: NewPlayerController3, Assembly-CSharp
         m_MethodName: Move
         m_Mode: 0
         m_Arguments:
@@ -6536,8 +6536,8 @@ MonoBehaviour:
     m_ActionName: 'Player/Look[/Mouse/delta,/Pen/delta]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NewPlayerController, Assembly-CSharp
+      - m_Target: {fileID: 381679389}
+        m_TargetAssemblyTypeName: NewPlayerController3, Assembly-CSharp
         m_MethodName: PickUp
         m_Mode: 0
         m_Arguments:
@@ -6548,8 +6548,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BookMenu, Assembly-CSharp
+      - m_Target: {fileID: 2001870056}
+        m_TargetAssemblyTypeName: BookMenu3, Assembly-CSharp
         m_MethodName: OnPickUp
         m_Mode: 0
         m_Arguments:
@@ -6576,8 +6576,8 @@ MonoBehaviour:
     m_ActionName: 'Player/Pick Up[/Mouse/leftButton]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NewPlayerController, Assembly-CSharp
+      - m_Target: {fileID: 381679389}
+        m_TargetAssemblyTypeName: NewPlayerController3, Assembly-CSharp
         m_MethodName: Drop
         m_Mode: 0
         m_Arguments:
@@ -6604,8 +6604,8 @@ MonoBehaviour:
     m_ActionName: 'Player/Drop[/Mouse/rightButton]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NewPlayerController, Assembly-CSharp
+      - m_Target: {fileID: 381679389}
+        m_TargetAssemblyTypeName: NewPlayerController3, Assembly-CSharp
         m_MethodName: Jump
         m_Mode: 0
         m_Arguments:
@@ -6696,8 +6696,8 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NewPlayerController, Assembly-CSharp
+      - m_Target: {fileID: 381679389}
+        m_TargetAssemblyTypeName: NewPlayerController3, Assembly-CSharp
         m_MethodName: ZoomOut
         m_Mode: 0
         m_Arguments:
@@ -7484,6 +7484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ClientFourteenScript
   bellScript: {fileID: 561630972}
   customerDialogue: {fileID: 132981477}
+  customerVisuals: {fileID: 1715615081}
   bellAnimator: {fileID: 836723039}
   clientID: 8
   maxTime: 150
@@ -8702,8 +8703,8 @@ Transform:
   m_GameObject: {fileID: 527151514}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.124311745, z: -0, w: 0.99224323}
-  m_LocalPosition: {x: 0, y: 0, z: 1.48}
-  m_LocalScale: {x: 1.8819299, y: 2.043, z: 2.2801921}
+  m_LocalPosition: {x: 0.23, y: 0, z: 1.1}
+  m_LocalScale: {x: 2.0129123, y: 2.043, z: 2.4459622}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 701466849}
@@ -9337,12 +9338,12 @@ MonoBehaviour:
   bellCooldown: 1
   levelOver: 0
   clientNumber: 0
-  clientNine: {fileID: 833306840}
-  clientTen: {fileID: 1193448769}
-  clientEleven: {fileID: 2120637642}
-  clientTwelve: {fileID: 878658383}
-  clientThirteen: {fileID: 657827565}
-  clientFourteen: {fileID: 1715615081}
+  clientNine: {fileID: 2113395768}
+  clientTen: {fileID: 1857468317}
+  clientEleven: {fileID: 1934747127}
+  clientTwelve: {fileID: 750963019}
+  clientThirteen: {fileID: 859053271}
+  clientFourteen: {fileID: 455653276}
   clientNineActivated: 0
   clientTenActivated: 0
   clientElevenActivated: 0
@@ -11908,6 +11909,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ClientTwelveScript
   bellScript: {fileID: 561630972}
   customerDialogue: {fileID: 1479795390}
+  customerVisuals: {fileID: 878658383}
   bellAnimator: {fileID: 836723039}
   clientID: 8
   maxTime: 150
@@ -14071,6 +14073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ClientThirteenScript
   bellScript: {fileID: 561630972}
   customerDialogue: {fileID: 1368073972}
+  customerVisuals: {fileID: 657827565}
   bellAnimator: {fileID: 836723039}
   clientID: 8
   maxTime: 150
@@ -19865,11 +19868,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5e220b4929717e9439e5654907ec9165, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.020000458
+      value: 0.341
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5e220b4929717e9439e5654907ec9165, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.37
+      value: -1.18
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5e220b4929717e9439e5654907ec9165, type: 3}
       propertyPath: m_LocalPosition.z
@@ -22083,27 +22086,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 9aa93f6c22c761044980ee68964bc53b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 58.763275
+      value: 62.446686
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9aa93f6c22c761044980ee68964bc53b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 58.76327
+      value: 62.446682
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9aa93f6c22c761044980ee68964bc53b, type: 3}
       propertyPath: m_LocalScale.z
-      value: 73.1243
+      value: 77.707886
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9aa93f6c22c761044980ee68964bc53b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.010000229
+      value: 0.22
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9aa93f6c22c761044980ee68964bc53b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.26
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9aa93f6c22c761044980ee68964bc53b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.47
+      value: 1.07
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9aa93f6c22c761044980ee68964bc53b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -28797,6 +28800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ClientTenScript
   bellScript: {fileID: 561630972}
   customerDialogue: {fileID: 1106151549}
+  customerVisuals: {fileID: 1193448769}
   bellAnimator: {fileID: 836723039}
   clientID: 8
   maxTime: 150
@@ -29659,6 +29663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ClientElevenScript
   bellScript: {fileID: 561630972}
   customerDialogue: {fileID: 991116673}
+  customerVisuals: {fileID: 2120637642}
   bellAnimator: {fileID: 836723039}
   clientID: 8
   maxTime: 150
@@ -30959,8 +30964,8 @@ Transform:
   m_GameObject: {fileID: 2052855880}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.78, y: 0.66, z: 0.24}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 9.12, y: 0.73402, z: -0.39742}
+  m_LocalScale: {x: 1.2298, y: 1.2298, z: 1.2298}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1316281586}
@@ -32623,6 +32628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ClientNineScript
   bellScript: {fileID: 561630972}
   customerDialogue: {fileID: 727927816}
+  customerVisuals: {fileID: 833306840}
   bellAnimator: {fileID: 836723039}
   clientID: 8
   maxTime: 150

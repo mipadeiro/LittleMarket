@@ -7,8 +7,9 @@ public class ClientThirteenScript : MonoBehaviour
 {
     public BellRinging3 bellScript;
     public GameObject customerDialogue;
+    public GameObject customerVisuals;
     public Animator bellAnimator;
-    public int clientID = 8;
+    public int clientID = 13;
     private bool hasEnded = false;
 
 
@@ -35,45 +36,11 @@ public class ClientThirteenScript : MonoBehaviour
                 Debug.Log("can't find bellscript");
             }
         }
-
-        StartTransaction();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(bellScript.clientNumber != clientID)
-        {
-            return;
-        }
-
-        if (bellScript == null)
-        {
-            return;
-        }
-
-        if(bellScript.clientNumber == clientID && !hasStarted)
-        {
-            currentTime = maxTime;
-            timerRunning = true;
-            hasStarted = true;
-            hasEnded = false;
-
-            Debug.Log("Timer started");
-
-        }
-
-        if (bellScript.clientNumber == 8 && bellScript.hasRung == true)
-        {
-            EndTransaction();
-
-            if(timerRunning)
-            {
-                timerRunning = false;
-                OnTimerFinished();
-            }
-        }
-
         if(!timerRunning)
         {
             return;
@@ -100,7 +67,13 @@ public class ClientThirteenScript : MonoBehaviour
 
     public void StartTransaction()
     {
+        currentTime = maxTime;
+        timerRunning = true;
+        hasStarted = true;
+        hasEnded = false;
         customerDialogue.SetActive(true);
+        customerVisuals.SetActive(true);
+        //activate customer visuals here then add start transaction and end transaction into bell script
     }
 
     public void EndTransaction()
@@ -110,9 +83,14 @@ public class ClientThirteenScript : MonoBehaviour
             return;
         }
         hasEnded = true;
+        if(timerRunning)
+        {
+            timerRunning = false;
+            OnTimerFinished();
+        }
 
         customerDialogue.SetActive(false);
-        bellScript.clientNumber = 9;
+        customerVisuals.SetActive(false);
         bellScript.hasRung = false;
         bellAnimator.SetBool("hasRung", false);
     }
