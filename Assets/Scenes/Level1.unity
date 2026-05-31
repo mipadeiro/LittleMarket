@@ -12575,6 +12575,7 @@ RectTransform:
   - {fileID: 901007840}
   - {fileID: 2144618001}
   - {fileID: 1958246284}
+  - {fileID: 1161707031}
   m_Father: {fileID: 1687859136}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -13338,7 +13339,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 634607959}
-  m_Father: {fileID: 1687859136}
+  m_Father: {fileID: 1084498202}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14278,6 +14279,14 @@ MonoBehaviour:
   level3ScoreFred: 0
   level4ScoreFred: 0
   activeCharacter: 
+  playerLinnea: {fileID: 0}
+  playerCreek: {fileID: 0}
+  playerFred: {fileID: 0}
+  playerPaula: {fileID: 0}
+  level1Completed: 0
+  level2Completed: 0
+  level3Completed: 0
+  level4Completed: 0
 --- !u!4 &1245525291
 Transform:
   m_ObjectHideFlags: 0
@@ -19396,7 +19405,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1084498202}
-  - {fileID: 1161707031}
   - {fileID: 1161097750}
   m_Father: {fileID: 959300131}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
