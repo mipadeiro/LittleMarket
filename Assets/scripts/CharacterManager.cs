@@ -54,7 +54,7 @@ public class CharacterManager : MonoBehaviour
             creekButton.SetActive(false);
         }
 
-        if(GameManager.Instance.level1Completed == true && creekUnlocked == false)
+        if(GameManager.Instance.level1Completed == true)
         {
             creekUnlocked = true;
             creekButton.SetActive(true);
@@ -65,7 +65,7 @@ public class CharacterManager : MonoBehaviour
             fredButton.SetActive(false);
         }
 
-        if(GameManager.Instance.level2Completed == true && fredUnlocked == false)
+        if(GameManager.Instance.level2Completed == true)
         {
             fredUnlocked = true;
             fredButton.SetActive(true);
@@ -76,7 +76,7 @@ public class CharacterManager : MonoBehaviour
             paulaButton.SetActive(false);
         }
 
-        if(GameManager.Instance.level3Completed == true && paulaUnlocked == false)
+        if(GameManager.Instance.level3Completed == true)
         {
             paulaUnlocked = true;
             paulaButton.SetActive(true);

@@ -630,25 +630,25 @@ public class Level4Points : MonoBehaviour
 
         if(GameManager.Instance.activeCharacter == "PlayerPaula")
         {
-            GameManager.Instance.level3ScorePaula = level4TotalScore;
+            GameManager.Instance.level4ScorePaula = level4TotalScore;
         }
 
         if(GameManager.Instance.activeCharacter == "PlayerLinnea")
         {
-            GameManager.Instance.level3ScoreLinnea = level4TotalScore;
+            GameManager.Instance.level4ScoreLinnea = level4TotalScore;
         }
 
         if(GameManager.Instance.activeCharacter == "PlayerCreek")
         {
-            GameManager.Instance.level3ScoreCreek = level4TotalScore;
+            GameManager.Instance.level4ScoreCreek = level4TotalScore;
         }
         
         if(GameManager.Instance.activeCharacter == "PlayerFred")
         {
-            GameManager.Instance.level3ScoreFred = level4TotalScore;
+            GameManager.Instance.level4ScoreFred = level4TotalScore;
         }
 
-        GameManager.Instance.level3Completed = true;
+        GameManager.Instance.level4Completed = true;
 
     }
 }
