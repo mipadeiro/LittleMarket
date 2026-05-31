@@ -5151,7 +5151,7 @@ GameObject:
   - component: {fileID: 266279896}
   - component: {fileID: 266279897}
   m_Layer: 0
-  m_Name: bearsprite
+  m_Name: vampirelord
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5166,8 +5166,8 @@ Transform:
   m_GameObject: {fileID: 266279895}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.9919395, y: -1.5017599, z: 4.648}
-  m_LocalScale: {x: 0.71761996, y: 0.71761996, z: 0.71761996}
+  m_LocalPosition: {x: 5.9919395, y: 0.52, z: 4.648}
+  m_LocalScale: {x: 0.7261844, y: 0.7261844, z: 0.7261844}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 878658384}
@@ -5219,7 +5219,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 607769b5fbdfb704e9200fce76087cb5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fbf1aa39e1fbfd248814cf6c7dc53694, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7551,7 +7551,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: What? Can't a girl change her mind? Damn.
+  m_text: Does my fur look dull to you? I might need to change my diet.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aeb15e3984c327348b0f96d5aa6f00f9, type: 2}
   m_sharedMaterial: {fileID: -94662177546065056, guid: aeb15e3984c327348b0f96d5aa6f00f9, type: 2}
@@ -8088,7 +8088,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Could you make this quick?
+  m_text: My coven and I are having a girl's night! Just need some supplies.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aeb15e3984c327348b0f96d5aa6f00f9, type: 2}
   m_sharedMaterial: {fileID: -94662177546065056, guid: aeb15e3984c327348b0f96d5aa6f00f9, type: 2}
@@ -9365,7 +9365,7 @@ GameObject:
   - component: {fileID: 567129852}
   - component: {fileID: 567129851}
   m_Layer: 0
-  m_Name: elf
+  m_Name: werewolfsprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9418,7 +9418,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9b519958ca897f14eb342555e3a0d39a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9ef58c786f0c25d4a98276758308cf7f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -9438,8 +9438,8 @@ Transform:
   m_GameObject: {fileID: 567129850}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.65, y: -1.51, z: 5.76}
-  m_LocalScale: {x: 0.7182356, y: 0.7182356, z: 0.7182356}
+  m_LocalPosition: {x: 9.65, y: 0.18, z: 5.76}
+  m_LocalScale: {x: 0.7261844, y: 0.7261844, z: 0.7261844}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2120637644}
@@ -11569,7 +11569,7 @@ GameObject:
   - component: {fileID: 747653668}
   - component: {fileID: 747653669}
   m_Layer: 0
-  m_Name: pegasussprite
+  m_Name: witchsprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11584,8 +11584,8 @@ Transform:
   m_GameObject: {fileID: 747653667}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.4719405, y: -1.09176, z: 5.1280003}
-  m_LocalScale: {x: 0.78281, y: 0.78281, z: 0.78281}
+  m_LocalPosition: {x: 6.4719405, y: 0.6, z: 5.1280003}
+  m_LocalScale: {x: 0.7261844, y: 0.7261844, z: 0.7261844}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1715615082}
@@ -11637,7 +11637,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1bb4f60e3a632c144a6317158a9cb73b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9ce1c02992ce7da4895392cc13d84bcf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -12223,7 +12223,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Could you make this quick?
+  m_text: What? Just because I transformed into a wolf, I can't crave gourmet cuisine?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aeb15e3984c327348b0f96d5aa6f00f9, type: 2}
   m_sharedMaterial: {fileID: -94662177546065056, guid: aeb15e3984c327348b0f96d5aa6f00f9, type: 2}
@@ -16869,7 +16869,7 @@ GameObject:
   - component: {fileID: 1050565547}
   - component: {fileID: 1050565548}
   m_Layer: 0
-  m_Name: pegasussprite
+  m_Name: vampirehunter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16884,8 +16884,8 @@ Transform:
   m_GameObject: {fileID: 1050565546}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.4719405, y: -1.09176, z: 5.1280003}
-  m_LocalScale: {x: 0.78281, y: 0.78281, z: 0.78281}
+  m_LocalPosition: {x: 6.4719405, y: -1.7, z: 5.1280003}
+  m_LocalScale: {x: 0.7261844, y: 0.7261844, z: 0.7261844}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 657827566}
@@ -16937,7 +16937,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1bb4f60e3a632c144a6317158a9cb73b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fbf1aa39e1fbfd248814cf6c7dc53694, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -23677,7 +23677,7 @@ GameObject:
   - component: {fileID: 1543244286}
   - component: {fileID: 1543244287}
   m_Layer: 0
-  m_Name: pegasussprite
+  m_Name: yetisprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23692,8 +23692,8 @@ Transform:
   m_GameObject: {fileID: 1543244285}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.220001, y: -1.6600001, z: 7.65}
-  m_LocalScale: {x: 0.78281, y: 0.78281, z: 0.78281}
+  m_LocalPosition: {x: 10.220001, y: -0.44, z: 7.65}
+  m_LocalScale: {x: 0.72618437, y: 0.72618437, z: 0.72618437}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 833306842}
@@ -23745,7 +23745,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1bb4f60e3a632c144a6317158a9cb73b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b70ebea370f63514cbf2abfcc9f3b90c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -24524,7 +24524,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Could you make this quick?
+  m_text: I think I'm being followed. Can't an evil overlord just grocery shop in
+    peace?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aeb15e3984c327348b0f96d5aa6f00f9, type: 2}
   m_sharedMaterial: {fileID: -94662177546065056, guid: aeb15e3984c327348b0f96d5aa6f00f9, type: 2}
@@ -25926,7 +25927,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Could you make this quick?
+  m_text: Shhh! Do you think he's onto me?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aeb15e3984c327348b0f96d5aa6f00f9, type: 2}
   m_sharedMaterial: {fileID: -94662177546065056, guid: aeb15e3984c327348b0f96d5aa6f00f9, type: 2}
@@ -27609,7 +27610,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: What? Got a staring problem?
+  m_text: This isn't for a potion, it's just my lunch.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aeb15e3984c327348b0f96d5aa6f00f9, type: 2}
   m_sharedMaterial: {fileID: -94662177546065056, guid: aeb15e3984c327348b0f96d5aa6f00f9, type: 2}
@@ -32089,7 +32090,7 @@ GameObject:
   - component: {fileID: 2096335410}
   - component: {fileID: 2096335411}
   m_Layer: 0
-  m_Name: bearsprite
+  m_Name: lichsprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32104,8 +32105,8 @@ Transform:
   m_GameObject: {fileID: 2096335409}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.869999, y: 0.1400001, z: 7.17}
-  m_LocalScale: {x: 0.7176163, y: 0.7176163, z: 0.7176163}
+  m_LocalPosition: {x: 9.869999, y: 2.41, z: 7.17}
+  m_LocalScale: {x: 0.7261844, y: 0.7261844, z: 0.7261844}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1193448770}
@@ -32157,7 +32158,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 607769b5fbdfb704e9200fce76087cb5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 153c694bef0704b4bb65acf18bc50b4f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
