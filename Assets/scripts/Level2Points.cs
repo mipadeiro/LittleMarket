@@ -743,5 +743,8 @@ public class Level2Points : MonoBehaviour
         {
             GameManager.Instance.level2ScoreFred = level2TotalScore;
         }
+
+        GameManager.Instance.level2Completed = true;
+
     }
 }

@@ -32,7 +32,7 @@ public class CharacterManager : MonoBehaviour
             creekButton.SetActive(false);
         }
 
-        /* if(GameManager.level1Completed == true)
+        if(GameManager.Instance.level1Completed == true)
         {
             creekUnlocked = true;
             creekButton.SetActive(false);
@@ -43,7 +43,7 @@ public class CharacterManager : MonoBehaviour
             fredButton.SetActive(false);
         }
 
-        if(GameManager.level2Completed == true)
+        if(GameManager.Instance.level2Completed == true)
         {
             fredUnlocked = true;
             fredButton.SetActive(false);
@@ -54,11 +54,11 @@ public class CharacterManager : MonoBehaviour
             paulaButton.SetActive(false);
         }
 
-        if(GameManager.level3Completed == true)
+        if(GameManager.Instance.level3Completed == true)
         {
             paulaUnlocked = true;
             paulaButton.SetActive(true);
-        } */
+        }
     }
 
     public void SetCharacterLinnea()

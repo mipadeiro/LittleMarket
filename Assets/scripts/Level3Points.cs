@@ -893,5 +893,8 @@ public class Level3Points : MonoBehaviour
         {
             GameManager.Instance.level3ScoreFred = level3TotalScore;
         }
+
+        GameManager.Instance.level3Completed = true;
+
     }
 }
