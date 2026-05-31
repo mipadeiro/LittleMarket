@@ -724,24 +724,24 @@ public class Level2Points : MonoBehaviour
 
         totalScore.text = level2TotalScore.ToString();
 
-        if(playerCharacter.name.Contains("PlayerPaula"))
+        if(GameManager.Instance.activeCharacter == "PlayerFred")
         {
-            GameManager.Instance.level1ScorePaula = level2TotalScore;
+            GameManager.Instance.level2ScorePaula = level2TotalScore;
         }
 
-        if(playerCharacter.name.Contains("PlayerLinnea"))
+        if(GameManager.Instance.activeCharacter == "PlayerFred")
         {
-            GameManager.Instance.level1ScoreLinnea = level2TotalScore;
+            GameManager.Instance.level2ScoreLinnea = level2TotalScore;
         }
 
-        if(playerCharacter.name.Contains("PlayerCreek"))
+        if(GameManager.Instance.activeCharacter == "PlayerFred")
         {
-            GameManager.Instance.level1ScoreCreek = level2TotalScore;
+            GameManager.Instance.level2ScoreCreek = level2TotalScore;
         }
         
-        if(playerCharacter.name.Contains("PlayerFred"))
+        if(GameManager.Instance.activeCharacter == "PlayerFred")
         {
-            GameManager.Instance.level1ScoreCreek = level2TotalScore;
+            GameManager.Instance.level2ScoreFred = level2TotalScore;
         }
     }
 }

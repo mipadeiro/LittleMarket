@@ -874,24 +874,24 @@ public class Level3Points : MonoBehaviour
 
         totalScore.text = level3TotalScore.ToString();
 
-        if(playerCharacter.name.Contains("PlayerPaula"))
+        if(GameManager.Instance.activeCharacter == "PlayerPaula")
         {
-            GameManager.Instance.level1ScorePaula = level3TotalScore;
+            GameManager.Instance.level3ScorePaula = level3TotalScore;
         }
 
-        if(playerCharacter.name.Contains("PlayerLinnea"))
+        if(GameManager.Instance.activeCharacter == "PlayerLinnea")
         {
-            GameManager.Instance.level1ScoreLinnea = level3TotalScore;
+            GameManager.Instance.level3ScoreLinnea = level3TotalScore;
         }
 
-        if(playerCharacter.name.Contains("PlayerCreek"))
+        if(GameManager.Instance.activeCharacter == "PlayerCreek")
         {
-            GameManager.Instance.level1ScoreCreek = level3TotalScore;
+            GameManager.Instance.level3ScoreCreek = level3TotalScore;
         }
         
-        if(playerCharacter.name.Contains("PlayerFred"))
+        if(GameManager.Instance.activeCharacter == "PlayerFred")
         {
-            GameManager.Instance.level1ScoreCreek = level3TotalScore;
+            GameManager.Instance.level3ScoreFred = level3TotalScore;
         }
     }
 }

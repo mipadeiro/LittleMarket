@@ -30,6 +30,16 @@ public class GameManager : MonoBehaviour
 
     //store characters
     public string activeCharacter;
+    public GameObject playerLinnea;
+    public GameObject playerCreek;
+    public GameObject playerFred;
+    public GameObject playerPaula;
+
+    //level completion
+    public bool level1Completed = false;
+    public bool level2Completed = false;
+    public bool level3Completed = false;
+    public bool level4Completed = false;
 
     private void Awake()
     {

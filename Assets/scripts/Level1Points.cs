@@ -401,24 +401,24 @@ public class Level1Points : MonoBehaviour
 
         totalScore.text = level1TotalScore.ToString();
 
-        if(playerCharacter.name.Contains("PlayerPaula"))
+        if(GameManager.Instance.activeCharacter == "PlayerPaula")
         {
             GameManager.Instance.level1ScorePaula = level1TotalScore;
         }
 
-        if(playerCharacter.name.Contains("PlayerLinnea"))
+        if(GameManager.Instance.activeCharacter == "PlayerLinnea")
         {
             GameManager.Instance.level1ScoreLinnea = level1TotalScore;
         }
 
-        if(playerCharacter.name.Contains("PlayerCreek"))
+        if(GameManager.Instance.activeCharacter == "PlayerCreek")
         {
             GameManager.Instance.level1ScoreCreek = level1TotalScore;
         }
         
-        if(playerCharacter.name.Contains("PlayerFred"))
+        if(GameManager.Instance.activeCharacter == "PlayerFred")
         {
-            GameManager.Instance.level1ScoreCreek = level1TotalScore;
+            GameManager.Instance.level1ScoreFred = level1TotalScore;
         }
     }
 }
