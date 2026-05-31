@@ -35,9 +35,9 @@ public class CharacterManager : MonoBehaviour
     void Start()
     {
         level1Button.SetActive(true);
-        level2Button.SetActive(false);
-        level3Button.SetActive(false);
-        level4Button.SetActive(false);
+        level2Button.SetActive(true);
+        level3Button.SetActive(true);
+        level4Button.SetActive(true);
 
     }
 
