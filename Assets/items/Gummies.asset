@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b2c01ca436aa2042b8543f2b9fd2e87, type: 3}
-  m_Name: BeanCan
+  m_Name: Gummies
   m_EditorClassIdentifier: Assembly-CSharp::Item
   itemID: 0
-  itemName: Frozen XXL Magic Bean
+  itemName: Gummy Eyes
   value: 0
   weight: 0
   prefab: {fileID: 0}
   tags:
   - Basic
-  - Cold
