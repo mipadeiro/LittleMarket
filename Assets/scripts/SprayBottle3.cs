@@ -7,6 +7,7 @@ public class SprayBottle3 : MonoBehaviour
     public GameObject player;
     public GameObject sprayEffect;
     public GameObject dirtPrefab;
+    public LevelManager levelManager;
     public BellRinging3 bellRinging3;
     public int dirtLevel = 10;
     public Vector3 spawnAreaMin = new Vector3(-11f, 0f, -1.6f);
@@ -19,9 +20,16 @@ public class SprayBottle3 : MonoBehaviour
     public int cleanedDirt = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-        
+        if(levelManager == null)
+        {
+            levelManager = FindFirstObjectByType<LevelManager>();
+        }
+        if (player == null)
+        {
+            player = levelManager.activeCharacter;
+        }
     }
 
     // Update is called once per frame

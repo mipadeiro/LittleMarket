@@ -359,20 +359,30 @@ public class Level1Points : MonoBehaviour
         if(level1TotalScore < 1500)
         {
             failBook.SetActive(true);
+            winBook.SetActive(false);
+            firstStar.SetActive(false);
+            secondStar.SetActive(false);
+            thirdStar.SetActive(false);
         }
         else if (level1TotalScore < 1950 && level1TotalScore > 1500)
         {
+            failBook.SetActive(false);
             winBook.SetActive(true);
             firstStar.SetActive(true);
+            secondStar.SetActive(false);
+            thirdStar.SetActive(false);
         }
         else if (level1TotalScore < 2400 && level1TotalScore > 1950)
         {
+            failBook.SetActive(false);
             winBook.SetActive(true);
             firstStar.SetActive(true);
             secondStar.SetActive(true);
+            thirdStar.SetActive(false);
         }
         else if (level1TotalScore > 2400)
         {
+            failBook.SetActive(false);
             winBook.SetActive(true);
             firstStar.SetActive(true);
             secondStar.SetActive(true);
@@ -422,5 +432,6 @@ public class Level1Points : MonoBehaviour
         }
 
         GameManager.Instance.level1Completed = true;
+        GameManager.Instance.firstPlay = false;
     }
 }

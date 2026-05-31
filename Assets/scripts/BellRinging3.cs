@@ -49,6 +49,14 @@ public class BellRinging3 : MonoBehaviour
                 Debug.Log("book menu not found for bellscript");
             }
         }
+        if(newPlayerController == null)
+        {
+            newPlayerController = FindAnyObjectByType<NewPlayerController3>();
+            if(newPlayerController == null)
+            {
+                Debug.Log("playercontroller not found");
+            }
+        }
     } 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

@@ -31,8 +31,16 @@ public class BellRinging2 : MonoBehaviour
     {
         if(bookScript == null)
         {
-            FindAnyObjectByType<BookMenu>();
+            bookScript = FindAnyObjectByType<BookMenu>();
             if (bookScript == null)
+            {
+                Debug.Log("book menu not found for bellscript");
+            }
+        }
+        if(newPlayerController == null)
+        {
+            newPlayerController = FindAnyObjectByType<NewPlayerController>();
+            if (newPlayerController == null)
             {
                 Debug.Log("book menu not found for bellscript");
             }

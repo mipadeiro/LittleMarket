@@ -32,7 +32,17 @@ public class CreditsSceneSwitcher : MonoBehaviour
         if (hasSwitched) return;
 
         hasSwitched = true;
-        SceneManager.LoadScene(nextSceneIndex);
+
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        if (!GameManager.Instance.firstPlay && currentScene == "Cutscene")
+        {
+            SceneManager.LoadScene("Hubs");
+        }
+        else
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+        }
     }
 
     public void BackToMenu()

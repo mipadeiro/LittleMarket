@@ -4,6 +4,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public bool firstPlay = true;
+
     //linnea
     public int level1ScoreLinnea;
     public int level2ScoreLinnea;
@@ -30,16 +32,29 @@ public class GameManager : MonoBehaviour
 
     //store characters
     public string activeCharacter;
-    public GameObject playerLinnea;
-    public GameObject playerCreek;
-    public GameObject playerFred;
-    public GameObject playerPaula;
 
     //level completion
     public bool level1Completed = false;
+    public bool linneaLevel1Completed = false;
+    public bool creekLevel1Completed = false;
+    public bool fredLevel1Completed = false;
+    public bool paulaLevel1Completed = false;
     public bool level2Completed = false;
+    public bool linneaLevel2Completed = false;
+    public bool creekLevel2Completed = false;
+    public bool fredLevel2Completed = false;
+    public bool paulaLevel2Completed = false;
     public bool level3Completed = false;
+    public bool linneaLevel3Completed = false;
+    public bool creekLevel3Completed = false;
+    public bool fredLevel3Completed = false;
+    public bool paulaLevel3Completed = false;
     public bool level4Completed = false;
+    public bool linneaLevel4Completed = false;
+    public bool creekLevel4Completed = false;
+    public bool fredLevel4Completed = false;
+    public bool paulaLevel4Completed = false;
+
 
     private void Awake()
     {
@@ -51,6 +66,11 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        if (string.IsNullOrEmpty(activeCharacter))
+        {
+            activeCharacter = "PlayerLinnea";
+        }
     }
 
     public int GetTotalScoreLinnea()
@@ -72,4 +92,5 @@ public class GameManager : MonoBehaviour
     {
         return level1ScoreFred + level2ScoreFred + level3ScoreFred + level4ScoreFred;
     }
+
 }

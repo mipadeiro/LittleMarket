@@ -40,6 +40,14 @@ public class BellRinging1 : MonoBehaviour
                 Debug.Log("Level1Points not found");
             }
         }
+        if(newPlayerController == null)
+        {
+            newPlayerController = FindAnyObjectByType<NewPlayerController1>();
+            if(newPlayerController == null)
+            {
+                Debug.Log("playercontroller not found");
+            }
+        }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

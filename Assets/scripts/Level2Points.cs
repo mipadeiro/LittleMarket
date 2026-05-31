@@ -71,6 +71,7 @@ public class Level2Points : MonoBehaviour
     public TextMeshProUGUI nofallplayer;
     public int noItemFall = 0;
     public TextMeshProUGUI nofallitem;
+    public LevelManager levelManager;
 
     public int level2TotalScore;
     public TextMeshProUGUI totalScore;
@@ -100,9 +101,17 @@ public class Level2Points : MonoBehaviour
         {
             clientEight = FindAnyObjectByType<ClientEightScript>();
         }
+        if(levelManager == null)
+        {
+            levelManager = FindAnyObjectByType<LevelManager>();
+        }
         if(playerScript == null)
         {
             playerScript = FindAnyObjectByType<NewPlayerController>();
+        }
+        if(playerCharacter == null)
+        {
+            playerCharacter = levelManager.activeCharacter;
         }
     }
     void Start()
@@ -682,20 +691,30 @@ public class Level2Points : MonoBehaviour
         if(level2TotalScore < 1800)
         {
             failBook.SetActive(true);
+            winBook.SetActive(false);
+            firstStar.SetActive(false);
+            secondStar.SetActive(false);
+            thirdStar.SetActive(false);
         }
         else if (level2TotalScore < 2400 && level2TotalScore > 1800)
         {
+            failBook.SetActive(false);
             winBook.SetActive(true);
             firstStar.SetActive(true);
+            secondStar.SetActive(false);
+            thirdStar.SetActive(false);
         }
         else if (level2TotalScore < 3500 && level2TotalScore > 2400)
         {
+            failBook.SetActive(false);
             winBook.SetActive(true);
             firstStar.SetActive(true);
             secondStar.SetActive(true);
+            thirdStar.SetActive(false);
         }
         else if (level2TotalScore > 3500)
         {
+            failBook.SetActive(false);
             winBook.SetActive(true);
             firstStar.SetActive(true);
             secondStar.SetActive(true);

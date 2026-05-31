@@ -691,6 +691,92 @@ VideoPlayer:
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
+--- !u!1 &1156169394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1156169396}
+  - component: {fileID: 1156169395}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1156169395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156169394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fef5df244efa9d429562bf9e9a6d877, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  firstPlay: 1
+  level1ScoreLinnea: 0
+  level2ScoreLinnea: 0
+  level3ScoreLinnea: 0
+  level4ScoreLinnea: 0
+  level1ScorePaula: 0
+  level2ScorePaula: 0
+  level3ScorePaula: 0
+  level4ScorePaula: 0
+  level1ScoreCreek: 0
+  level2ScoreCreek: 0
+  level3ScoreCreek: 0
+  level4ScoreCreek: 0
+  level1ScoreFred: 0
+  level2ScoreFred: 0
+  level3ScoreFred: 0
+  level4ScoreFred: 0
+  activeCharacter: 
+  playerLinnea: {fileID: 0}
+  playerCreek: {fileID: 0}
+  playerFred: {fileID: 0}
+  playerPaula: {fileID: 0}
+  level1Completed: 0
+  linneaLevel1Completed: 0
+  creekLevel1Completed: 0
+  fredLevel1Completed: 0
+  paulaLevel1Completed: 0
+  level2Completed: 0
+  linneaLevel2Completed: 0
+  creekLevel2Completed: 0
+  fredLevel2Completed: 0
+  paulaLevel2Completed: 0
+  level3Completed: 0
+  linneaLevel3Completed: 0
+  creekLevel3Completed: 0
+  fredLevel3Completed: 0
+  paulaLevel3Completed: 0
+  level4Completed: 0
+  linneaLevel4Completed: 0
+  creekLevel4Completed: 0
+  fredLevel4Completed: 0
+  paulaLevel4Completed: 0
+--- !u!4 &1156169396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156169394}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.18225, y: -0.03427, z: 0.73894}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1255902412
 GameObject:
   m_ObjectHideFlags: 0
@@ -1856,3 +1942,4 @@ SceneRoots:
   - {fileID: 1478523501}
   - {fileID: 478690766}
   - {fileID: 681485312}
+  - {fileID: 1156169396}

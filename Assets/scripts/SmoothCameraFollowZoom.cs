@@ -43,6 +43,11 @@ public class SmoothCameraFollowZoom : MonoBehaviour
     void Start()
     {
         Invoke(nameof(StartCam), timer);
+
+        if (target == null)
+        {
+            target = FindFirstObjectByType<LevelManager>().activeCharacter.transform;
+        }
     }
 
     void LateUpdate()

@@ -11,35 +11,32 @@ public class Level3Points : MonoBehaviour
     public GameObject failBook;
     
     //scripts
-    public ClientNineScript clientNine;
-    public ClientTenScript clientTen;
-    public ClientElevenScript clientEleven;
-    public ClientTwelveScript clientTwelve;
-    public ClientThirteenScript clientThirteen;
-    public ClientFourteenScript clientFourteen;
+    public ClientFifteenScript clientNine;
+    public ClientSixteenScript clientTen;
+    public ClientSeventeenScript clientEleven;
     public SprayBottle3 sprayScript;
     public NewPlayerController3 playerScript;
     public GameObject playerCharacter;
     public GameObject level3Controller;
 
     //items
-    public GameObject conditioner;
-    public GameObject flyingFish;
-    public GameObject chickenLeg;
-    public GameObject ice;
-    public GameObject runestick;
-    public GameObject bansheeBones;
-    public GameObject acorn;
-    public GameObject sasquatch;
-    public GameObject cilantro;
-    public GameObject fishFingers;
-    public GameObject steak;
-    public GameObject oliveOil;
-    public GameObject redWine;
-    public GameObject flyingSausage;
-    public GameObject blood;
-    public GameObject glowTomato;
-    public GameObject glowberrySqueeze;
+    public GameObject centaurMilk;
+    public GameObject goldEgg;
+    public GameObject beanCan;
+    public GameObject breadSticks;
+    public GameObject hairPotion;
+    public GameObject portobello;
+    public GameObject pomegranate;
+    public GameObject gummyEyes;
+    public GameObject ginger;
+    public GameObject rapunzel;
+    public GameObject frozenBread;
+    public GameObject whiteWine;
+    public GameObject krakenStick;
+    public GameObject smokedSausages;
+    public GameObject chilliPepper;
+    public GameObject phoenixAsh;
+    public GameObject flamingCroissant;
     public GameObject garlicPerfume;
     public GameObject deadlyAxe;
     public GameObject arrows;
